@@ -1,5 +1,3 @@
-/* app/globals.css */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,13 +42,30 @@ p strong {
 }
 
 p em {
-  font-style: normal; /* Rimuove il corsivo di default per l'emphasize */
-  color: var(--text-primary); /* Puoi cambiarlo se vuoi un colore diverso */
-  /* text-decoration: underline; */ /* Potresti volerlo sottolineato invece */
+  font-style: italic; /* Usa il corsivo di default per <em> */
+  color: var(--text-primary); /* Mantieni il colore del testo */
 }
 
 /* Stili per il pulsante del tema (se vuoi dargli uno sfondo/bordo) */
 .theme-switcher-button {
   background: transparent;
   border: none;
+}
+
+svg {
+  padding: 4px;
+}
+
+.flex.items-center.space-x-10 {
+    padding-right: 4px;
+}
+
+a.no-underline.hover\:text-link-hover.transition.px-2.py-1.mr-6.text-text-secondary {
+    padding: 15px;
+}
+
+a.no-underline.hover\:text-link-hover.transition.px-2.py-1.mr-6.text-text-primary {
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
