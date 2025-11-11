@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem={false}
         >
             <Header />
-            {children}
+            <div className="pb-28">{children}</div>
             <Footer />
         </ThemeProvider>
       </body>
