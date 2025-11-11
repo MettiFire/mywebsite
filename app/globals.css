@@ -1,26 +1,56 @@
-@import "tailwindcss";
+/* app/globals.css */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -- Colori di base per Light/Dark Mode -- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #EDECEB(100% 0.01 -0.01); /* Sfondo bianco per light mode */
+  --text-primary: #1a1a1a; /* Testo quasi nero */
+  --text-secondary: #5e5e5e; /* Testo grigio per link/descrizioni */
+  --link-hover: #000000; /* Link hover nero */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --background: #141414; /* Sfondo nero per dark mode */
+  --text-primary: #f0f0f0; /* Testo quasi bianco */
+  --text-secondary: #aaaaaa; /* Testo grigio chiaro per link/descrizioni */
+  --link-hover: #ffffff; /* Link hover bianco */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* -- Stili Globali del Body -- */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  /* Aggiustamenti per font e altezza linea per un look più pulito */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6; /* Spaziatura tra le righe */
+}
+
+/* -- Stili per i Link (Nessun underline di default) -- */
+a {
+  color: var(--text-primary); /* Colore link uguale al testo normale */
+  text-decoration: none; /* Rimuovi l'underline di default */
+}
+
+a:hover {
+  color: var(--link-hover); /* Cambia colore all'hover */
+}
+
+/* -- Stili specifici per grassetti/corsivi nei paragrafi -- */
+p strong {
+  color: var(--text-primary); /* Rende i grassetti più decisi */
+}
+
+p em {
+  font-style: normal; /* Rimuove il corsivo di default per l'emphasize */
+  color: var(--text-primary); /* Puoi cambiarlo se vuoi un colore diverso */
+  /* text-decoration: underline; */ /* Potresti volerlo sottolineato invece */
+}
+
+/* Stili per il pulsante del tema (se vuoi dargli uno sfondo/bordo) */
+.theme-switcher-button {
+  background: transparent;
+  border: none;
 }
