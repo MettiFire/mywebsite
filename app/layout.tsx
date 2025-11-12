@@ -2,7 +2,7 @@
 import './globals.css';
 import React from 'react';
 import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/ThemeProvider'; // Importa il provider
+import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
@@ -15,20 +15,19 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // 'suppressHydrationWarning' è necessario per next-themes
+// app/layout.tsx
     <html lang="it" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
-        {/* Avvolgiamo tutto nel provider del tema */}
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-        >
-            <Header />
-            <div className="pb-28">{children}</div>
-            <Footer />
+      <body className={`${inter.className} antialiased flex flex-col min-h-screen`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <Header />
+          {/* flex-1 permette al main di occupare lo spazio rimanente sopra il footer */}
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
+
   );
 }

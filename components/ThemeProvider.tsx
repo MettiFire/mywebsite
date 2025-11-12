@@ -3,8 +3,16 @@
 
 import * as React from 'react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import { type ThemeProviderProps } from 'next-themes/dist/types';
 
-export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+// Avoid importing internal type paths from next-themes which can break when
+// package layout changes. We'll declare a minimal local prop type instead.
+type LocalThemeProviderProps = {
+  children: React.ReactNode;
+  attribute?: 'class' | 'data-theme' | undefined;
+  defaultTheme?: string | undefined;
+  enableSystem?: boolean | undefined;
+};
+
+export function ThemeProvider({ children, ...props }: LocalThemeProviderProps) {
+  return <NextThemesProvider {...(props as any)}>{children}</NextThemesProvider>;
 }
