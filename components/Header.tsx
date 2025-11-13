@@ -1,45 +1,64 @@
 "use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 export function Header() {
   const pathname = usePathname();
 
   const links = [
-    { href: '/', label: 'home' },
-    { href: '/blog', label: 'blog' },
-    { href: '/projects', label: 'projects' },
-    { href: '/cv_en.pdf', label: 'cv', isExternal: true },
+    { href: "/", label: "home" },
+    { href: "/blog", label: "blog" },
+    { href: "/projects", label: "projects" },
+    { href: "/cv_en.pdf", label: "cv", isExternal: true },
   ];
 
   return (
-    <header className="mb-16">
-      <div className="max-w-[650px] mx-auto px-6 flex items-center justify-between">
-        {/* Keep nav spacing stable by using gap on the container and avoiding per-link margins
-            Use whitespace-nowrap so items never wrap to the next line and increase gap/padding
-            so labels stay visually separated and don't shift between pages. */}
-        <nav className="flex items-center gap-20 md:gap-28 text-sm whitespace-nowrap" aria-label="Main navigation">
+    <header className="mb-16 w-full">
+      <div className="w-full px-8 flex items-center justify-between">
+        {/* NAV a sinistra */}
+        <nav
+          className="flex items-center gap-10 md:gap-16 text-sm whitespace-nowrap"
+          aria-label="Main navigation"
+        >
           {links.map((link) => {
             const { href, label, isExternal } = link as any;
+            // consider a route active when pathname equals href, or when the pathname starts with
+            // the href for non-root routes (so /projects/123 still highlights /projects)
+            const isActive =
+              href === '/'
+                ? pathname === href
+                : pathname?.startsWith(href ?? '') ?? false;
+
             return (
               <Link
                 key={href}
                 href={href}
                 target={isExternal ? '_blank' : undefined}
                 rel={isExternal ? 'noopener noreferrer' : undefined}
-                className={`inline-block no-underline hover:text-link-hover transition px-3 py-1 ${
-                  pathname === href ? 'text-text-primary' : 'text-text-secondary'
+                aria-current={isActive ? 'page' : undefined}
+                className={`relative group flex items-center transition px-2 py-1 overflow-hidden ${
+                  isActive
+                    ? 'text-text-primary'
+                    : 'text-text-secondary hover:text-link-hover'
                 }`}
               >
-                {label}
+                <span className="relative z-10">{label}</span>
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] transition-all duration-300 ease-out 
+                    ${isActive
+                      ? 'w-full bg-text-primary opacity-100'
+                      : 'w-0 bg-link-hover opacity-0 group-hover:w-full group-hover:opacity-100'
+                    }`}
+                ></span>
               </Link>
             );
           })}
         </nav>
 
-        <div>
+        {/* THEME SWITCHER a destra con classe personalizzata */}
+        <div className="theme-switcher-container pr-4">
           <ThemeSwitcher />
         </div>
       </div>

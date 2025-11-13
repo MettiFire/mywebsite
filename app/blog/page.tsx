@@ -1,23 +1,40 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Blog - Anna Mettifogo',
-  description: 'Notes and essays by Anna Mettifogo',
+  title: "Anna's Notebook",
+  description: 'Personal notes and short essays',
 };
+
+const posts = [
+  { date: 'November 1, 2025', title: 'PROVA1234', href: '/blog/04-about-time' },
+  { date: 'October 21, 2025', title: 'GAY', href: '/blog/03-about-spending' },
+];
 
 export default function BlogPage() {
   return (
-    <div className="max-w-[650px] mx-auto px-6 py-20">
-      <h1 className="text-3xl font-bold mb-6">Blog</h1>
-      <p className="text-lg text-text-primary mb-6">This is a placeholder for the blog. You can add posts here later.</p>
-      <ul className="list-disc list-inside space-y-2 text-lg">
-        <li>Post 1 — coming soon</li>
-        <li>Post 2 — coming soon</li>
-      </ul>
+    <main className="max-w-[650px] mx-auto px-6 py-20 text-white min-h-screen"> 
+      <h1 className="text-4xl font-extrabold mb-12">Anna's Notebook</h1>
 
-      <div className="mt-8">
-        <Link href="/" className="text-text-secondary hover:text-link-hover">← Back home</Link>
+      {/* Lista post con date allineate */}
+      <div className="space-y-3">
+        {posts.map((p) => (
+          <Link
+            key={p.href}
+            href={p.href}
+            className="group flex items-baseline cursor-pointer hover:text-link-hover transition duration-200"
+          >
+            {/* Colonna sinistra: data */}
+            <span className="w-40 text-neutral-500 dark:text-neutral-400 italic shrink-0">
+              {p.date}
+            </span>
+
+            {/* Colonna destra: titolo */}
+            <span className="text-neutral-900 dark:text-neutral-100 group-hover:underline underline-offset-4">
+              {p.title}
+            </span>
+          </Link>
+        ))}
       </div>
-    </div>
+    </main>
   );
 }

@@ -56,16 +56,34 @@ svg {
   padding: 4px;
 }
 
-.flex.items-center.space-x-10 {
-    padding-right: 4px;
+a.relative.flex.items-center.transition.px-2.py-1.text-text-secondary.hover\:text-link-hover {
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
-a.no-underline.hover\:text-link-hover.transition.px-2.py-1.mr-6.text-text-secondary {
-    padding: 15px;
+a.relative.flex.items-center.transition.px-2.py-1.text-text-primary {
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
-a.no-underline.hover\:text-link-hover.transition.px-2.py-1.mr-6.text-text-primary {
-    padding-right: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+
+.theme-switcher-container.pr-4 {
+    padding-right: 8px;
+}
+
+
+
+
+
+
+.article-title-link {
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+
+
+.blog-list-date {
+  font-style: italic;
+  color: var(--text-secondary);
 }
