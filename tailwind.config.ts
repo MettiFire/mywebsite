@@ -6,9 +6,15 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'class', // <-- Questa è la riga chiave!
+  darkMode: 'class', 
   theme: {
     extend: {
+      colors: {
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'link-hover': 'var(--link-hover)',
+        'bg-primary': 'var(--background)',
+      },
       fontSize: {
         base: ['16px', '24px'],
         lg: ['18px', '28px'],

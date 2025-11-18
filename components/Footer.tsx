@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="w-full bg-bg-primary py-6 px-8">
       <div className="max-w-3xl mx-auto flex justify-between items-center text-text-secondary">
-        <div className="text-sm">© {new Date().getFullYear()} Anna Mettifogo</div>
+        <div className="text-sm">© 2025 Anna Mettifogo</div>
         <div className="flex items-center space-x-8 pr-4">
           <a href="https://www.linkedin.com/in/anna-mettifogo-a37751292/" target="_blank" rel="noopener noreferrer" className="hover:text-link-hover" aria-label="LinkedIn" title="LinkedIn">
             <FaLinkedin size={22} />

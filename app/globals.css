@@ -27,13 +27,16 @@ body {
 }
 
 /* -- Stili per i Link (Nessun underline di default) -- */
-a {
-  color: var(--text-primary); /* Colore link uguale al testo normale */
-  text-decoration: none; /* Rimuovi l'underline di default */
-}
+@layer base {
+  a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
 
-a:hover {
-  color: var(--link-hover); /* Cambia colore all'hover */
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 }
 
 /* -- Stili specifici per grassetti/corsivi nei paragrafi -- */
@@ -84,6 +87,27 @@ a.relative.flex.items-center.transition.px-2.py-1.text-text-primary {
 
 
 .blog-list-date {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+
+
+
+/* Forza il layout tipo “tabella elegante” per la lista blog */
+a.group.flex.items-baseline {
+  text-decoration: none !important;
+  border: none !important;
+}
+
+a.group.flex.items-baseline:hover span:last-child {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.blog-list-date {
+  width: 10rem;
+  text-align: right;
   font-style: italic;
   color: var(--text-secondary);
 }
