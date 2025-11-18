@@ -4,7 +4,7 @@ import { MdEmail } from 'react-icons/md';
 
 export function Footer() {
   return (
-    <footer className="w-full bg-bg-primary py-6 px-8">
+    <footer className="w-full bg-bg-primary dark:border-gray-800 py-16 px-12">
       <div className="max-w-3xl mx-auto flex justify-between items-center text-text-secondary">
         <div className="text-sm">© 2025 Anna Mettifogo</div>
         <div className="flex items-center space-x-8 pr-4">

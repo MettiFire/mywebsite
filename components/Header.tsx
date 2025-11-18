@@ -15,7 +15,7 @@ export function Header() {
   ];
 
   return (
-    <header className="mb-16 w-full">
+  <header className="fixed top-0 z-50 w-full bg-bg-primary/80 backdrop-blur-md mb-16">
       <div className="w-full px-8 flex items-center justify-between">
         {/* NAV a sinistra */}
         <nav

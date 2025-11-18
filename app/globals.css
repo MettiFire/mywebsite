@@ -4,11 +4,12 @@
 
 /* -- Colori di base per Light/Dark Mode -- */
 :root {
-  --background: #EDECEB(100% 0.01 -0.01); /* Sfondo bianco per light mode */
+  --background: hsl(30 20% 94%); /* Sfondo bianco per light mode */
   --text-primary: #1a1a1a; /* Testo quasi nero */
   --text-secondary: #5e5e5e; /* Testo grigio per link/descrizioni */
   --link-hover: #000000; /* Link hover nero */
 }
+
 
 .dark {
   --background: #141414; /* Sfondo nero per dark mode */
@@ -110,4 +111,45 @@ a.group.flex.items-baseline:hover span:last-child {
   text-align: right;
   font-style: italic;
   color: var(--text-secondary);
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  background-color: var(--background);
+  z-index: 50;
+  backdrop-filter: blur(0px);
+
+}
+
+/* padding footer */
+.max-w-3xl.mx-auto.flex.justify-between.items-center.text-text-secondary {
+  padding-left: 12px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+
+}
+
+
+header{
+  background-color: var(--background);
+  z-index: 50;
+  backdrop-filter: blur(0px);
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+/* padding header */
+.w-full.px-8.flex.items-center.justify-between {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+main{
+  padding-top: 20px;
 }

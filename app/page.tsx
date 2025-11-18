@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col pt-40">
       {/* header/footer are provided by the root layout */}
 
       <main className="flex-1">

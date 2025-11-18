@@ -14,7 +14,7 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <main className="max-w-[650px] mx-auto px-6 py-20 min-h-screen">
+    <main className="max-w-[650px] mx-auto px-6 py-20">
       
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter text-neutral-900 dark:text-neutral-100">
         Anna's Notebook
@@ -29,7 +29,7 @@ export default function BlogPage() {
           >
             {/* 2. La Data (con classi aggiornate) */}
             <p 
-              className="text-neutral-600 dark:text-neutral-400 w-full sm:w-[140px] sm:flex-shrink-0 tabular-nums"
+              className="flex text-neutral-600 dark:text-neutral-400 w-full sm:w-[140px] sm:flex-shrink-0 tabular-nums"
             >
               {post.date}
             </p>
@@ -37,7 +37,7 @@ export default function BlogPage() {
             {/* 3. Il Titolo (con classi aggiornate) */}
             <Link
               href={post.href}
-              className="text-neutral-900 dark:text-neutral-100 tracking-tight hover:underline underline-offset-4 w-full sm:flex-1 text-red-500"
+              className="flex text-neutral-900 dark:text-neutral-100 tracking-tight hover:underline underline-offset-4 w-full sm:flex-1 text-red-500"
             >
               {post.title}
             </Link>
