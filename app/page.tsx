@@ -1,4 +1,5 @@
 import React from 'react';
+import ViewCounter from "@/components/ViewCounter";
 
 export default function Home() {
   return (
@@ -26,6 +27,14 @@ export default function Home() {
 
           <p className="text-lg text-text-primary mt-4">
             I love sports of every kind — from <strong>running</strong> and swimming to <strong>mountain hiking</strong>. I’m currently training for a <em>half marathon</em>, aiming one day for a <em>full marathon</em> and an <a href="https://en.wikipedia.org/wiki/Ironman_Triathlon" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Ironman</a>.
+          </p>
+
+          <p className="text-lg text-text-primary mt-4">
+            This website is my personal space to share my thoughts, projects, and the books I read. Feel free to explore my <a href="/blog" className="underline underline-offset-4 hover:text-link-hover">blog</a> and <a href="/books" className="underline underline-offset-4 hover:text-link-hover">library</a>.
+          </p>
+
+          <p className="italic text-lg text-text-primary mt-4">
+            <ViewCounter slug="page.tsx" />
           </p>
         </div>
       </main>

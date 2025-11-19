@@ -35,8 +35,8 @@ export default function ViewCounter({ slug }) {
   }, [slug]);
 
   return (
-    <span className="text-neutral-500 dark:text-neutral-400 italic">
-      &nbsp;• {views === null ? "…" : `${views} views`}
+    <span className="text-neutral-600 dark:text-neutral-500 italic">
+      {views === null ? "…" : `${views} views`}
     </span>
   );
 }

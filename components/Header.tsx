@@ -46,7 +46,7 @@ export function Header() {
               >
                 <span className="relative z-10">{label}</span>
                 <span
-                  className={`absolute left-0 bottom-0 h-[2px] transition-all duration-300 ease-out 
+                  className={`absolute left-0 bottom-0 h-[3px] transition-all duration-300 ease-out 
                     ${isActive
                       ? 'w-full bg-text-primary opacity-100'
                       : 'w-0 bg-link-hover opacity-0 group-hover:w-full group-hover:opacity-100'
