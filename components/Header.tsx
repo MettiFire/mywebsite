@@ -11,6 +11,7 @@ export function Header() {
     { href: "/", label: "home" },
     { href: "/blog", label: "blog" },
     { href: "/books", label: "books" },
+    { href: "/music", label: "music" },
     { href: "/cv_en.pdf", label: "cv", isExternal: true },
   ];
 
