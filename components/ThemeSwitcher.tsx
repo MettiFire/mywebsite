@@ -24,12 +24,10 @@ export function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      // Cambiato text-gray-500 con text-text-secondary
-      // e hover:text-gray-900/100 con hover:text-text-primary
-      className="p-2 rounded-full text-text-secondary hover:text-text-primary"
+      className="text-text-secondary hover:text-text-primary transition-colors bg-transparent border-none cursor-pointer"
       aria-label="Toggle theme"
     >
-      {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
+      {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
     </button>
   );
 }

@@ -61,13 +61,11 @@ svg {
 }
 
 a.relative.flex.items-center.transition.px-2.py-1.text-text-secondary.hover\:text-link-hover {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-left: 40px;
 }
 
 a.relative.flex.items-center.transition.px-2.py-1.text-text-primary {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-left: 40px;
 }
 
 
@@ -181,3 +179,4 @@ main{
 .post-title:hover {
   text-decoration: underline;
 }
+

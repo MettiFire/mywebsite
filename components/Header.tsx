@@ -18,11 +18,17 @@ export function Header() {
   return (
   <header className="fixed top-0 z-50 w-full bg-bg-primary/80 backdrop-blur-md mb-16">
       <div className="w-full px-8 flex items-center justify-between">
-        {/* NAV a sinistra */}
-        <nav
-          className="flex items-center gap-10 md:gap-16 text-sm whitespace-nowrap"
-          aria-label="Main navigation"
-        >
+        {/* LOGO a sinistra */}
+        <Link href="/" className="flex-shrink-0 pl-2" aria-label="Home">
+          <img src="/logoss.png" alt="Logo" className="w-9 h-9" />
+        </Link>
+
+        {/* NAV allineata al contenuto */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 max-w-[650px] w-full">
+          <nav
+            className="flex items-center gap-10 md:gap-16 text-sm whitespace-nowrap"
+            aria-label="Main navigation"
+          >
           {links.map((link) => {
             const { href, label, isExternal } = link as any;
             // consider a route active when pathname equals href, or when the pathname starts with
@@ -39,7 +45,9 @@ export function Header() {
                 target={isExternal ? '_blank' : undefined}
                 rel={isExternal ? 'noopener noreferrer' : undefined}
                 aria-current={isActive ? 'page' : undefined}
-                className={`relative group flex items-center transition px-2 py-1 overflow-hidden ${
+                className={`relative group flex items-center transition py-1 overflow-hidden ${
+                  href === '/' ? '' : 'px-2'
+                } ${
                   isActive
                     ? 'text-text-primary'
                     : 'text-text-secondary hover:text-link-hover'
@@ -57,6 +65,7 @@ export function Header() {
             );
           })}
         </nav>
+        </div>
 
         {/* THEME SWITCHER a destra con classe personalizzata */}
         <div className="theme-switcher-container pr-4">
