@@ -154,3 +154,30 @@ main{
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+
+
+
+
+
+.post-row {
+  display: flex;
+  align-items: baseline; 
+  gap: 2rem; 
+  padding: 0.7rem 0;
+}
+
+.post-date {
+  width: 200px; 
+  color: var(--muted-text); /* usa il tuo tema */
+  flex-shrink: 0;
+}
+
+.post-title {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.post-title:hover {
+  text-decoration: underline;
+}

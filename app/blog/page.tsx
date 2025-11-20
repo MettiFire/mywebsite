@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export const metadata = {
   title: "Anna's Notebook",
@@ -6,9 +7,7 @@ export const metadata = {
 };
 
 const posts = [
-  { date: 'November 1, 2025', title: 'Sullo spendere tempo', href: '/blog/04-about-time' },
-  { date: 'October 21, 2025', title: 'Sullo spendere soldi', href: '/blog/03-about-spending' },
-  { date: 'October 8, 2025', title: 'Un mese a Zurigo: appunti di vita', href: '/blog/02-one-month-eth' },
+  { date: 'November 1, 2025', title: 'Sullo spendere tempo', href: '/blog/01-try' },
   { date: 'July 10, 2025', title: 'Pensavo fosse amore... invece era il Polimi', href: '/blog/01-try' },
 ];
 
@@ -19,31 +18,41 @@ export default function BlogPage() {
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter text-neutral-900 dark:text-neutral-100">
         Anna's Notebook
       </h1>
+    
 
-      <div>
-        {posts.map((post) => (
-          <div
-            key={post.href}
-            // Contenitore: colonna su mobile, riga su desktop
-            className="w-full flex flex-col sm:flex-row sm:space-x-2 mb-4"
-          >
-            {/* 2. La Data (con classi aggiornate) */}
-            <p 
-              className="flex text-neutral-600 dark:text-neutral-400 w-full sm:w-[140px] sm:flex-shrink-0 tabular-nums"
-            >
-              {post.date}
-            </p>
-            
-            {/* 3. Il Titolo (con classi aggiornate) */}
-            <Link
-              href={post.href}
-              className="flex text-neutral-900 dark:text-neutral-100 tracking-tight hover:underline underline-offset-4 w-full sm:flex-1 text-red-500"
-            >
-              {post.title}
-            </Link>
-          </div>
-        ))}
+      <p className="text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
+        All my notes and essays are originally written in Italian, since it's the language
+        in which I naturally think and express myself best.  
+        English versions are provided for accessibility and for anyone who prefers them.
+      </p>
+      
+
+      <div className="flex justify-end mb-6">
+        <LanguageSwitcher current="it" />
       </div>
+            
+      <table className="w-full border-separate" style={{ borderSpacing: '0 0.5rem' }}>
+        <tbody>
+          {posts.map((post) => (
+            <tr key={post.href}>
+              <td className="text-neutral-600 dark:text-neutral-400 italic tabular-nums pr-8 align-baseline whitespace-nowrap">
+                {post.date}
+              </td>
+              <td className="align-baseline">
+                <Link
+                  href={post.href}
+                  className="text-neutral-900 dark:text-neutral-100 hover:underline underline-offset-4"
+                >
+                  {post.title}
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+     
+      
       
     </main>
   );
