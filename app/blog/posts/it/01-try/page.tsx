@@ -1,13 +1,22 @@
 import ViewCounter from "@/components/ViewCounter";
+import Link from "next/link";
 
 export const metadata = {
-  title: "Sullo spendere tempo — Anna’s Notebook",
+  title: "Sullo spendere tempo — Anna's Notebook",
   description: "Un articolo personale sul tempo e su come lo viviamo.",
 };
 
 export default function ArticlePage() {
   return (
     <main className="max-w-[650px] mx-auto px-6 py-20 min-h-screen">
+
+      {/* Link back */}
+      <Link 
+        href="/blog" 
+        className="inline-block mb-6 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
+      >
+        ← back
+      </Link>
 
       {/* Titolo */}
       <h1 className="text-3xl font-semibold tracking-tight mb-4 text-neutral-900 dark:text-neutral-100">

@@ -8,7 +8,7 @@ export const metadata = {
 
 const posts = [
   { date: 'November 1, 2025', title: 'Sullo spendere tempo', href: '/blog/01-try' },
-  { date: 'July 10, 2025', title: 'Pensavo fosse amore... invece era il Polimi', href: '/blog/01-try' },
+  { date: 'July 10, 2025', title: 'Pensavo fosse amore... invece era il Polimi', href: '/blog/posts/it/01-try' },
 ];
 
 export default function BlogPage() {
