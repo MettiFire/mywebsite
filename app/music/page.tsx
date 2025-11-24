@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 const posts = [
-  { date: 'November 1, 2025', title: 'Sullo spendere tempo', href: '/blog/01-try' },
+  { date: 'November 1, 2025', title: 'Sullo spendere tempo', href: '/blog/posts/it/01-teatro' },
   { date: 'July 10, 2025', title: 'Pensavo fosse amore... invece era il Polimi', href: '/music/posts/it/01-try' },
 ];
 

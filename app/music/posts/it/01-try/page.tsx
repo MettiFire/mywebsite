@@ -1,5 +1,7 @@
 import YouTubePlayer from "@/components/YouTubePlayer";
 import TimestampLink from "@/components/TimestampLink";
+import ViewCounter from "@/components/ViewCounter";
+import Link from "next/link";
 
 export const metadata = {
   title: "I miei soli preferiti",
@@ -9,7 +11,24 @@ export const metadata = {
 export default function Post() {
   return (
     <main className="max-w-[650px] mx-auto px-6 py-20 min-h-screen">
-      <h1 className="text-3xl font-semibold tracking-tight mb-4 text-neutral-900 dark:text-neutral-100">I miei soli preferiti</h1>
+
+      {/* Link back */}
+      <Link 
+        href="/music" 
+        className="inline-block mb-4 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors opacity-70"
+      >
+        ← back
+      </Link>
+
+      {/* Titolo */}
+      <h1 className="text-3xl font-semibold tracking-tight my-0 mb-2 text-neutral-900 dark:text-neutral-100">
+        I miei soli preferiti
+      </h1>
+
+      {/* Data */}
+      <p className="text-neutral-600 dark:text-neutral-400 italic mb-10 opacity-70">
+        November 24, 2025 • <ViewCounter slug="01-try" />
+      </p>
 
       <article className="prose prose-neutral dark:prose-invert max-w-none">
         <p>

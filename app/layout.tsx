@@ -21,7 +21,7 @@ export const viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
 
         {/* 1) Il provider del tema */}
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>

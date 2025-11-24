@@ -13,20 +13,19 @@ export default function ArticlePage() {
       {/* Link back */}
       <Link 
         href="/blog" 
-        className="inline-block mb-6 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors opacity-70"
+        className="inline-block mb-4 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors opacity-70"
       >
         ← back
       </Link>
 
       {/* Titolo */}
-      <h1 className="text-3xl font-semibold tracking-tight mb-2 text-neutral-900 dark:text-neutral-100">
+      <h1 className="text-3xl font-semibold tracking-tight my-0 mb-2 text-neutral-900 dark:text-neutral-100">
         Merda merda merda!
       </h1>
 
       {/* Data */}
-      <p className="text-neutral-500 dark:text-neutral-400 italic mb-10 flex items-center gap-2 text-sm opacity-70 text-center">
-        November 24, 2025 •  
-        <ViewCounter slug="01-teatro" />
+      <p className="text-neutral-600 dark:text-neutral-400 italic mb-10 opacity-70">
+        November 24, 2025 • <ViewCounter slug="01-teatro" />
       </p>
 
       <article className="prose prose-neutral dark:prose-invert">

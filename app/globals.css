@@ -145,7 +145,7 @@ header{
 /* padding header */
 .w-full.px-8.flex.items-center.justify-between {
     padding-top: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 main{
@@ -186,4 +186,22 @@ main{
 
 img.w-6.h-6 {
   padding-left: 8px;
+}
+
+
+
+
+
+h1.text-3xl.font-semibold.tracking-tight.my-0.mb-2.text-neutral-900.dark\:text-neutral-100 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+p.text-neutral-600.dark\:text-neutral-400.italic.mb-10.opacity-70 {
+    margin-top: 8px;
+}
+
+a.inline-block.mb-4.text-sm.text-neutral-500.dark\:text-neutral-400.hover\:text-neutral-700.dark\:hover\:text-neutral-200.transition-colors.opacity-70 {
+    padding-top: 10px;
 }
