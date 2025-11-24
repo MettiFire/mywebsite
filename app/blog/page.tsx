@@ -1,16 +1,22 @@
-import Link from 'next/link';
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+"use client";
 
-export const metadata = {
-  title: "Anna's Notebook",
-  description: 'Personal notes and short essays',
+import Link from 'next/link';
+import { useState } from 'react';
+
+const postsData = {
+  it: [
+    { date: 'November 24, 2025', title: 'Merda merda merda!', href: '/blog/posts/it/01-teatro' },
+  ],
+  en: [
+    { date: 'November 24, 2025', title: 'Merda merda merda! / Break a Leg!', href: '/blog/posts/en/01-teatro' },
+  ]
 };
 
-const posts = [
-  { date: 'November 24, 2025', title: 'Merda merda merda!', href: '/blog/posts/it/01-teatro' },
-];
-
 export default function BlogPage() {
+  const [currentLang, setCurrentLang] = useState<'it' | 'en'>('it');
+
+  const posts = postsData[currentLang];
+
   return (
     <main className="max-w-[670px] mx-auto px-6 py-20">
       
@@ -20,14 +26,30 @@ export default function BlogPage() {
     
 
       <p className="text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
-        All my notes and essays are originally written in Italian, since it's the language
-        in which I naturally think and express myself best.  
-        English versions are provided for accessibility and for anyone who prefers them.
+        This is my space to put down thoughts, share an adventure or two, indulge in 'strange' reasonings, and express the sentimental side that occasionally overwhelms me. 
+        <br />
+        Here, you'll find everything that crosses my mind.
+        <br /><br />
+        All writing originates in Italian, my native language. English translations are always available for a more comfortable and accessible read.
       </p>
       
 
       <div className="flex justify-end mb-6">
-        <LanguageSwitcher current="it" />
+        <div className="text-[14px] opacity-70">
+          <button 
+            onClick={() => setCurrentLang('it')}
+            className={`bg-transparent border-none p-0 cursor-pointer ${currentLang === "it" ? "underline underline-offset-4" : "text-neutral-400 dark:text-neutral-500 hover:underline underline-offset-4"}`}
+          >
+            IT
+          </button>
+          <span className="text-neutral-400 dark:text-neutral-500"> / </span>
+          <button
+            onClick={() => setCurrentLang('en')}
+            className={`bg-transparent border-none p-0 cursor-pointer ${currentLang === "en" ? "underline underline-offset-4" : "text-neutral-400 dark:text-neutral-500 hover:underline underline-offset-4"}`}
+          >
+            EN
+          </button>
+        </div>
       </div>
             
       <table className="w-full border-separate table-fixed" style={{ borderSpacing: '0 0.5rem' }}>

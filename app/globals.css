@@ -205,3 +205,8 @@ p.text-neutral-600.dark\:text-neutral-400.italic.mb-10.opacity-70 {
 a.inline-block.mb-4.text-sm.text-neutral-500.dark\:text-neutral-400.hover\:text-neutral-700.dark\:hover\:text-neutral-200.transition-colors.opacity-70 {
     padding-top: 10px;
 }
+
+
+figcaption.text-\[14px\].opacity-80.pt-2 {
+    padding-top: 8px;
+}

@@ -2,8 +2,8 @@ import ViewCounter from "@/components/ViewCounter";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Sullo spendere tempo — Anna's Notebook",
-  description: "Un articolo personale sul tempo e su come lo viviamo.",
+  title: "Merda merda merda! — Anna's Notebook",
+  description: "Dietro le quinte: teatro, famiglia e l'impronta lasciata sulla mia vita da liceale.",
 };
 
 export default function ArticlePage() {
@@ -15,7 +15,7 @@ export default function ArticlePage() {
         href="/blog" 
         className="inline-block mb-4 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors opacity-70"
       >
-        ← back
+        ← Back
       </Link>
 
       {/* Titolo */}
@@ -24,7 +24,7 @@ export default function ArticlePage() {
       </h1>
 
       {/* Data */}
-      <p className="text-neutral-600 dark:text-neutral-400 italic mb-10 opacity-70">
+      <p className="text-[14px] text-neutral-600 dark:text-neutral-400 italic mb-10 opacity-70">
         November 24, 2025 • <ViewCounter slug="01-teatro" />
       </p>
 
@@ -56,20 +56,25 @@ export default function ArticlePage() {
         </p>
 
         <figure className="my-6"> 
-          <img src="/images/teatro/terzo.png" alt="foto dalla replica dello spettacolo" className="w-1/2 mx-auto block" /> 
-          <figcaption className="text-[14px] opacity-80 text-center"> L'unica foto che ho di quello spettacolo </figcaption> 
-          </figure>
+          <img src="/images/teatro/terzo.png" alt="foto dalla replica dello spettacolo" className="w-full mx-auto block pt-4 pb-2" /> 
+          <figcaption className="text-[14px] opacity-80 pt-2"> Down & Out - Foto ufficiali del gruppo durante e post spettacolo — Io spettinata, dopo le prove generali, che (chiaramente) mangio le gocciole</figcaption> 
+        </figure>
 
         <p>
           In quarta, con il COVID ancora in giro, il corso è stato attivato solo in primavera, facendo le prove quasi sempre all’aperto, meteo permettendo. Nonostante tutto, siamo riusciti a mettere insieme un mini-spettacolino.
         </p>
+
+        <figure className="my-6"> 
+          <img src="/images/teatro/quarto.png" alt="foto dello spettacolo del quarto" className="w-full mx-auto block pt-4 pb-2" /> 
+          <figcaption className="text-[14px] opacity-80 pt-2"> Prove generali - Foto di rito post spettacolo finale </figcaption> 
+        </figure>
 
         <p>
           E finalmente eccoci alla quinta. Dopo quattro anni di attesa, eravamo di nuovo in aula, anche se spesso ancora con le mascherine. Ed è stato al primo Martedì di teatro che mi sono resa conto che ero diventata una “dei grandi”, una dei “veterani” del gruppo. E non so come spiegarlo, ma entrando in palestra quel pomeriggio, rivedendo tutti — vecchi e nuovi — l’ho sentito: quell’anno sarebbe stato diverso.
         </p>
 
         <p>
-          Mi ero pure portata dietro Sophie, mia sorella più piccola, che aveva appena iniziato la prima. Era ancora timidissima, e forse proprio per questo ci tenevo così tanto a farle scoprire quel mondo che per me era casa. Non volevo che si lasciasse frenare dalle paranoie, dal “e se non conosco nessuno?”, dal “non fa per me”, dal “al massimo lo inizio l’anno prossimo” ancora prima di provare. Quindi sì, me l’ero praticamente trascinata dentro: «Io ti iscrivo, che tu lo voglia o no. Tu vieni con me.» le dissi a inizio anno. Ripensandoci oggi, è uno dei ricordi più belli che abbiamo insieme. E per me è stato un privilegio enorme poter condividere una passione così grande con una persona a cui tengo così tanto.
+          Mi ero pure portata dietro Sophie, mia sorella più piccola, che aveva appena iniziato la prima. Era ancora timidissima, e forse proprio per questo ci tenevo così tanto a farle scoprire quel mondo che per me era casa. Non volevo che si lasciasse frenare dalle paranoie, dal “e se non conosco nessuno?”, dal “non fa per me”, dal “al massimo lo inizio l’anno prossimo” ancora prima di provare. Quindi sì, me l’ero praticamente trascinata dietro: <em>«Io ti iscrivo, che tu lo voglia o no. Tu vieni con me.»</em> le dissi a inizio anno. Ripensandoci oggi, è uno dei ricordi più belli che abbiamo insieme. E per me è stato un privilegio enorme poter condividere una passione così grande con una persona a cui tengo così tanto.
         </p>
 
         <p>
@@ -77,33 +82,47 @@ export default function ArticlePage() {
         </p>
 
         <p>
+          <strong>E lo è stato.</strong>
+        </p>
+
+        <p>
+          Più di quanto mi aspettassi.
+        </p>
+
+        <p>
           Lo è stato così tanto che a maggio, quando mancavano pochi incontri e solo due spettacoli, sentivo il bisogno di raccontare questa esperienza. Sentivo il bisogno di far capire anche a chi era fuori cosa volesse dire davvero far parte del gruppo di teatro.
         </p>
+
+        <figure className="my-6"> 
+          <img src="/images/teatro/quinto.png" alt="foto dello spettacolo del quarto" className="w-full mx-auto block pt-4 pb-2" /> 
+          <figcaption className="text-[14px] opacity-80 pt-2"> Il Pranzo Francese: Camerino delle donzelle - L'ultimo abbraccio con Mattia - People from Berlevaag </figcaption> 
+        </figure>
 
         <p>
           Così, presa dal sentimentalismo (e probabilmente anche da un po’ di paura della fine), ho deciso di fare una sorpresa ai miei compagni. Per prima cosa ho scritto nel gruppo chiedendo a tutti di dirmi cosa significasse per loro il teatro. Dopo una valanga di messaggi, risate e gli occhi già lucidi all’idea che tutto stesse per finire… ho preso spunto dalle loro frasi e ho preparato un monologo da leggere appena prima della nostra ultima entrata in scena. Un po’ per chiudere in bellezza.
         </p>
 
         <p>
-          Ma non volevo che fosse “solo” un monologo: volevo anche pubblicarlo sull’ultimo giornalino del Calini di quell’anno… che, tra l’altro, era anche l’ultimo a cui avrei partecipato io. Insomma: ultimo spettacolo, ultimo giornalino, ultimo articolo. Tripla combo inserita. Attivo: Hat-trick della nostalgia!
+          Ma non volevo che fosse “solo” un monologo: volevo anche pubblicarlo sull’ultimo giornalino del Calini di quell’anno… che, tra l’altro, era anche l’ultimo a cui avrei partecipato io. Insomma: ultimo spettacolo, ultimo giornalino, ultimo articolo. <em>Tripla combo inserita. Attivo: Hat-trick della nostalgia!</em>
         </p>
 
         <p>
-          Sentimentalismi? Ancora? Esatto. (Ah, e sì: nel frattempo scrivevo pure per il giornalino. “Dove trovassi il tempo?”, me lo chiedono ancora oggi.)
+          <strong>Sentimentalismi? Ancora? Esatto.</strong>
         </p>
 
         <p>
           Per questo mi piace l’idea di riportarlo qui. E, anche se spero che in questi quattro anni la mia scrittura sia migliorata, non l’ho toccato: è esattamente com’era allora, perché riflette l’Anna di quel periodo, con tutti i suoi pregi e le sue imperfezioni.
         </p>
 
-        <p>
-          Tenete solo conto che, come dicevo, era nato per essere recitato più che letto… ma secondo me funziona comunque. (Ah, e siccome quando l’ho recitato c’era anche una parte musicale: se volete rivivere quell’atmosfera, questa è la canzone → [link].)
+        <p className="opacity-70 text-[14px]">
+          Tenete solo conto che, come dicevo, era nato per essere recitato più che letto… ma secondo me funziona comunque. (Se volete rivivere quell'atmosfera, questa era la canzone: <a href="https://www.youtube.com/watch?v=49FDEh1Zh5U" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline"> <em>To Build a Home - The Cinematic Orchestra</em></a>).
         </p>
 
+        <hr className="my-20 border-t border-neutral-300 dark:border-neutral-600 pt-4" />
         {/* Monologo in box evidenziato */}
-        <div className="my-6 p-4 border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900">
+        <div className="my-6 p-4 italic">
           <p>
-            Ciao, io sono Anna, e sono in 5E. Quest’anno, come potrete immaginare, è il mio ultimo anno al Calini e questo significa che tra qualche settimana finiranno tantissime cose per me… finirà il liceo, finiranno le interrogazioni, avrò fatto l’ultima verifica di latino di tutta la mia vita, e tra tutte queste cose, finirà anche un’altra cosa che per me è importantissima: il gruppo teatrale.
+            "Ciao, io sono Anna, e sono in 5E. Quest’anno, come potrete immaginare, è il mio ultimo anno al Calini e questo significa che tra qualche settimana finiranno tantissime cose per me… finirà il liceo, finiranno le interrogazioni, avrò fatto l’ultima verifica di latino di tutta la mia vita, e tra tutte queste cose, finirà anche un’altra cosa che per me è importantissima: il gruppo teatrale.
           </p>
 
           <p>
@@ -138,6 +157,11 @@ export default function ArticlePage() {
             Perché si, teatro vuol dire che quando ci si avvicina allo spettacolo si fanno gli intensivi, ci si trova la domenica a fare le prove dalla mattina alla sera. E intensivo vuol dire anche pranzo tutti insieme e ancora meglio: significa partitella a calcetto prima che ricomincino le prove. Vuol dire che quando la sera torni a casa non riesci più a togliersi dalla testa le musiche dello spettacolo. Fare teatro significa che salterai un giorno di scuola per fare un’esperienza bellissima: andare in scena a Lovere. 
           </p>
 
+          <figure className="my-6">
+            <video src="/images/teatro/video.mp4" controls className="w-full mx-auto block" />
+            <figcaption className="text-[14px] opacity-80 pt-2"> Estratto del monologo (aka io che piango) - Foto ufficiali (grazie Doscioli) - Pizzata conclusiva + partita a calcio </figcaption> 
+          </figure>
+
           <p>
             Per non parlare dei momenti più belli, ovvero delle ultime prove, quando si è tutti tesi, degli attimi prima di entrare in scena, prima di “mettere a morte lo spettacolo”. Perché fare teatro significa che prima di uno spettacolo mangerai sicuramente le gocciole, significa vincere la propria timidezza divertendosi, significa imparare a godersi il momento sul palco, per poi applicarlo nella vita reale. Fare teatro significa avere il terrore delle luci, significa non ricordarsi mai da che parte uscire per il cambio scena, avere paura di aver dimenticato parte del costume a casa, significa bandire il viola dal palco; ma significa anche rendere proprie le cose che vedi sul palco, significa imparare ad amare e apprezzare le piccole cose, significa trasformare ansia e paure in energia pura, significa interpretare qualcun altro rimanendo se stessi e significa sbagliare tutte le battute tanto chi se ne accorge.
           </p>
@@ -162,10 +186,13 @@ export default function ArticlePage() {
             Quindi non perdere tempo, il gruppo ti aspetta, e anche se io non ne farò più parte sono più che sicura che spaccheranno come sempre. E fidati quando ti dico che nel momento in cui entrerai a farne parte, ti pentirai di non aver iniziato prima.
           </p>
 
-          <p className="font-bold">Anna e il Gruppo Teatrale</p>
+          <p className="font-bold"><em>Anna e il Gruppo Teatrale</em></p>
         </div>
 
         {/* Conclusione personale */}
+
+        <hr className="my-12 border-t border-neutral-300 dark:border-neutral-600" />
+
         <p>
           Rileggerlo oggi mi fa un po’ sorridere e un po’ commuovere. Spero arrivi anche a voi almeno un pezzetto di ciò che per noi è stato.
         </p>
@@ -179,11 +206,15 @@ export default function ArticlePage() {
         </p>
 
         <p>
-          E già che ci sono, voglio riportare anche una promessa che le feci tempo fa: «Ti prometto che, quando finirai il teatro al Calini, troveremo un modo per continuare a farlo, di nuovo, noi due.»
+          E già che ci sono, voglio riportare anche una promessa che le feci tempo fa: <em>«Ti prometto che, quando finirai il teatro al Calini, troveremo un modo per continuare a farlo, di nuovo, noi due.».</em>
         </p>
 
       </article>
-
+      <br/>
+      <p className="opacity-70 text-[14px]">
+        Thank you for reading.<br />
+        If you'd like to share your thoughts or ask anything, I'm always open to a conversation. 
+      </p>
 
 
     </main>
