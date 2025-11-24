@@ -7,13 +7,12 @@ export const metadata = {
 };
 
 const posts = [
-  { date: 'November 1, 2025', title: 'Sullo spendere tempo', href: '/blog/posts/it/01-teatro' },
   { date: 'November 24, 2025', title: 'Merda merda merda!', href: '/blog/posts/it/01-teatro' },
 ];
 
 export default function BlogPage() {
   return (
-    <main className="max-w-[650px] mx-auto px-6 py-20">
+    <main className="max-w-[670px] mx-auto px-6 py-20">
       
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter text-neutral-900 dark:text-neutral-100">
         Anna's Notebook

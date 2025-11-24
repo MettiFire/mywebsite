@@ -162,7 +162,7 @@ export default function BooksPage() {
   });
 
   return (
-    <main className="w-[650px] mx-auto px-6 py-20">
+    <main className="max-w-[670px] mx-auto px-6 py-20">
       <h1 className="text-3xl font-bold mb-10">Anna's Library</h1>
       
       <p className="text-neutral-600 dark:text-neutral-400 mb-12">

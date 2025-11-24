@@ -42,7 +42,7 @@ export function Header() {
         </Link>
 
         {/* NAV allineata al contenuto */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 max-w-[650px] w-full">
+        <div className="absolute left-1/2 transform -translate-x-1/2 max-w-[670px] w-full">
           <nav
             className="flex items-center gap-10 md:gap-16 text-sm whitespace-nowrap"
             aria-label="Main navigation"

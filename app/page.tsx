@@ -7,7 +7,7 @@ export default function Home() {
       {/* header/footer are provided by the root layout */}
 
       <main className="flex-1">
-        <div className="max-w-[650px] mx-auto px-6 py-16">
+        <div className="max-w-[670px] mx-auto px-6 py-16">
           <h1 className="text-4xl font-bold text-text-primary mb-6">Hi, I’m Anna Mettifogo</h1>
           <p className="text-lg text-text-primary">
             Born and raised in <a href="https://en.wikipedia.org/wiki/Brescia" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Brescia</a>, I’ve always loved exploring how things work behind the scenes.

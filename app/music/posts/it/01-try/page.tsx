@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function Post() {
   return (
-    <main className="max-w-[650px] mx-auto px-6 py-20 min-h-screen">
+    <main className="max-w-[670px] mx-auto px-6 py-20 min-h-screen">
 
       {/* Link back */}
       <Link 
