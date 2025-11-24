@@ -144,8 +144,8 @@ header{
 
 /* padding header */
 .w-full.px-8.flex.items-center.justify-between {
-  padding-top: 5px;
-  padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 main{
@@ -180,3 +180,10 @@ main{
   text-decoration: underline;
 }
 
+
+
+
+
+img.w-6.h-6 {
+  padding-left: 8px;
+}

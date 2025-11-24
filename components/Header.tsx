@@ -3,9 +3,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export function Header() {
   const pathname = usePathname();
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const links = [
     { href: "/", label: "home" },
@@ -19,8 +27,18 @@ export function Header() {
   <header className="fixed top-0 z-50 w-full bg-bg-primary/80 backdrop-blur-md mb-16">
       <div className="w-full px-8 flex items-center justify-between">
         {/* LOGO a sinistra */}
-        <Link href="/" className="flex-shrink-0 pl-2" aria-label="Home">
-          <img src="/logoss.png" alt="Logo" className="w-9 h-9" />
+        <Link 
+          href="/" 
+          className="flex-shrink-0 pl-4 py-3"
+          aria-label="Home"
+        >
+          {mounted && (
+            <img 
+              src={theme === 'dark' ? '/logoss.png' : '/logoss_inv.png'} 
+              alt="Logo" 
+              className="w-6 h-6" 
+            />
+          )}
         </Link>
 
         {/* NAV allineata al contenuto */}

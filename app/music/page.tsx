@@ -31,11 +31,15 @@ export default function BlogPage() {
         <LanguageSwitcher current="it" />
       </div>
             
-      <table className="w-full border-separate" style={{ borderSpacing: '0 0.5rem' }}>
+      <table className="w-full border-separate table-fixed" style={{ borderSpacing: '0 0.5rem' }}>
+        <colgroup>
+          <col style={{ width: '201.57px' }} />
+          <col />
+        </colgroup>
         <tbody>
           {posts.map((post) => (
             <tr key={post.href}>
-              <td className="text-neutral-600 dark:text-neutral-400 italic tabular-nums pr-8 align-baseline whitespace-nowrap">
+              <td className="text-neutral-600 dark:text-neutral-400 italic tabular-nums pr-8 align-baseline whitespace-nowrap opacity-70 ">
                 {post.date}
               </td>
               <td className="align-baseline">
