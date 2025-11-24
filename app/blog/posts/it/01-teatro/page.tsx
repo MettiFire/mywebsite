@@ -203,50 +203,6 @@ export default function ArticlePage() {
         </p>
 
         <hr />
-
-        {/* CITAZIONI */}
-        <h2>Citazioni dal gruppo</h2>
-        <ul>
-          <li>🤝 fare teatro vuol dire fare sempre gli auguri ad Odra</li>
-          <li>🤝 avere paura che Silvia mi sgridi perché non ho fatto bene qualcosa</li>
-          <li>🤝 insultare Paride</li>
-          <li>🤝 rettitudine e felicità SI debbono baciarsSI</li>
-          <li>🤝 cantare “TI VOGLIO BENE ASSAI????”</li>
-          <li>🤝 TACI SILVIA / DILAZIONE 🤝🤝🤝</li>
-          <li>🤝 crush per Raffaella :)</li>
-          <li>🤝 urlare DIEU ONNIPOTONT o IIIIIIINFIMO BRIGANTE MANGIASASSI</li>
-          <li>🤝 essere perseguitati da Martina e Filippa</li>
-          <li>🤝 dibattito sul genere di una tartaruga marina di peluche</li>
-          <li>🤝 CORNICIE</li>
-          <li>🤝 Marion che ruba gli occhiali e li flexa</li>
-          <li>🤝 teatro è coop</li>
-          <li>🤝 sesso pazzo con Paride</li>
-          <li>🤝 arrivare in ritardo per preparare il caffè alla napoletana</li>
-          <li>🤝 TACI SILVIA</li>
-          <li>🤝 art-attack</li>
-          <li>🤝 discorsi su un certo Carmelo</li>
-          <li>🤝 accarezzare il cranio di Ladi</li>
-          <li>🤝 sopportare Giada</li>
-          <li>🤝 simpare per Luca Minelli e Mattia</li>
-          <li>🤝 bucare calzini ogni settimana</li>
-          <li>🤝 “pellicce nell'armadio”… ma è Lorenza</li>
-          <li>🤝 sperare in una parte dove limoni Paride</li>
-          <li>🤝 pregare Gesù Cristo nostro Signore</li>
-          <li>🤝 per me teatro significa “Morte”</li>
-          <li>🤝 aspettare con ansia il martedì</li>
-        </ul>
-
-        <h2>Altro</h2>
-        <ul>
-          <li>🫱🏻‍🫲🏻 fare gite che altrimenti non faresti</li>
-          <li>🤝 ballare le danze estive davanti al museo Tadini</li>
-          <li>🫱🏻‍🫲🏻 assistere alla nascita di meme leggendari</li>
-          <li>🤝 ascoltare la voce di Mattia ogni settimana</li>
-          <li>🤝 sentirsi una paesana perché tutti parlano in dizione tranne te</li>
-          <li>🤝 trovare Anna, Silvia e Sophie che recitano monologhi</li>
-          <li>🤝 teatro è comprensione (tranne verso Giada)</li>
-        </ul>
-
       </article>
 
 
