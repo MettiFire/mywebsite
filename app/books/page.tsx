@@ -96,7 +96,7 @@ function BookTable({ books, showDate = true }: { books: Book[], showDate?: boole
             className="border-b border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800"
           >
             {/* Date */}
-            {showDate && <td className="px-4 py-4 text-sm text-neutral-500 dark:text-neutral-400 whitespace-nowrap">{formatDate(book.date)}</td>}
+            {showDate && <td className="italic opacity-70 px-4 py-4 text-sm text-neutral-500 dark:text-neutral-400 whitespace-nowrap">{formatDate(book.date)}</td>}
             
             {/* Title (Link) */}
             <td className="px-4 py-4 text-sm text-neutral-900 dark:text-neutral-100 w-150">
@@ -106,10 +106,10 @@ function BookTable({ books, showDate = true }: { books: Book[], showDate?: boole
             </td>
             
             {/* Author */}
-            <td className="px-4 py-4 text-sm text-neutral-600 dark:text-neutral-400">{formatAuthor(book.author)}</td>
+            <td className="opacity-70 px-4 py-4 text-sm text-neutral-600 dark:text-neutral-400">{formatAuthor(book.author)}</td>
             
             {/* Genre */}
-            <td className="px-4 py-4 text-sm text-neutral-500 dark:text-neutral-400">{formatGenre(book.genre)}</td>
+            <td className="opacity-70 px-4 py-4 text-sm text-neutral-500 dark:text-neutral-400">{formatGenre(book.genre)}</td>
             
             {/* Notes (Link) - COMMENTED OUT, uncomment if needed
             <td className="px-2 py-1 text-sm text-neutral-600 dark:text-neutral-400">

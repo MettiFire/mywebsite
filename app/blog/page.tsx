@@ -26,7 +26,7 @@ export default function BlogPage() {
     
 
       <p className="text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
-        This is my space to put down thoughts, share an adventure or two, indulge in 'strange' reasonings, and express the sentimental side that occasionally overwhelms me. 
+        This is my space to put down thoughts, share an adventure or two, indulge in <em>strange</em> reasonings, and express the sentimental side that occasionally overwhelms me. 
         <br />
         Here, you'll find everything that crosses my mind.
         <br /><br />

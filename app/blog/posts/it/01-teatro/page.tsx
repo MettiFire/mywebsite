@@ -40,7 +40,7 @@ export default function ArticlePage() {
         </p>
         
         <p>
-          Poi è arrivato il liceo. Il primo anno ero ancora in fase di orientamento, ma in seconda ho preso coraggio e mi sono iscritta al corso della scuola, ne avevo sentito parlare molto bene: avevamo vinto le ultime edizioni di <em>Inventari Superiori</em>, la rassegna teatrale in cui si sfidavano tutte le scuole superiori di Brescia. 
+          Poi è arrivato il liceo. Il primo anno, ancora in modalità “chi sono, dove sono e perché?”, ho lasciato perdere; ma in seconda ho preso coraggio e mi sono iscritta al corso della scuola, ne avevo sentito parlare molto bene: avevamo vinto le ultime edizioni di <em>Inventari Superiori</em>, la rassegna teatrale in cui si sfidavano tutte le scuole superiori di Brescia. 
         </p>
 
         <p>
@@ -70,15 +70,15 @@ export default function ArticlePage() {
         </figure>
 
         <p>
-          E finalmente eccoci alla quinta. Dopo quattro anni di attesa, eravamo di nuovo in aula, anche se spesso ancora con le mascherine. Ed è stato al primo Martedì di teatro che mi sono resa conto che ero diventata una “dei grandi”, una dei “veterani” del gruppo. E non so come spiegarlo, ma entrando in palestra quel pomeriggio, rivedendo tutti — vecchi e nuovi — l’ho sentito: quell’anno sarebbe stato diverso.
+          E finalmente eccoci alla quinta. Dopo quattro anni di attesa, eravamo di nuovo in aula, anche se spesso ancora con le mascherine. Ed è stato al primo Martedì di teatro che mi sono resa conto che ero diventata una <em>“dei grandi”</em>, una dei <strong><em>“veterani”</em></strong> del gruppo. E non so come spiegarlo, ma entrando in palestra quel pomeriggio, rivedendo tutti — vecchi e nuovi — l’ho sentito: quell’anno sarebbe stato diverso.
         </p>
 
         <p>
-          Mi ero pure portata dietro Sophie, mia sorella più piccola, che aveva appena iniziato la prima. Era ancora timidissima, e forse proprio per questo ci tenevo così tanto a farle scoprire quel mondo che per me era casa. Non volevo che si lasciasse frenare dalle paranoie, dal “e se non conosco nessuno?”, dal “non fa per me”, dal “al massimo lo inizio l’anno prossimo” ancora prima di provare. Quindi sì, me l’ero praticamente trascinata dietro: <em>«Io ti iscrivo, che tu lo voglia o no. Tu vieni con me.»</em> le dissi a inizio anno. Ripensandoci oggi, è uno dei ricordi più belli che abbiamo insieme. E per me è stato un privilegio enorme poter condividere una passione così grande con una persona a cui tengo così tanto.
+          Mi ero pure portata dietro Sophie, mia sorella, che aveva appena iniziato la prima. Era ancora timidissima, e forse proprio per questo ci tenevo così tanto a farle scoprire quel mondo che per me era casa. Non volevo che si lasciasse frenare dalle paranoie, dal “e se non conosco nessuno?”, dal “non fa per me”, dal “al massimo lo inizio l’anno prossimo” ancora prima di provare. Quindi sì, me l’ero praticamente trascinata dietro: <em>«Io ti iscrivo, che tu lo voglia o no. Tu vieni con me.»</em> le dissi a inizio anno. Ripensandoci oggi, è uno dei ricordi più belli che abbiamo insieme. E per me è stato un privilegio enorme poter condividere una passione così grande con una persona a cui tengo così tanto.
         </p>
 
         <p>
-          Insomma, c’erano tutte le premesse per far diventare quell’anno teatrale il migliore di tutti. E lo è stato. Più di quanto mi aspettassi.
+          Insomma, c’erano tutte le premesse per far diventare quell’anno il migliore di tutti.
         </p>
 
         <p>
@@ -90,12 +90,12 @@ export default function ArticlePage() {
         </p>
 
         <p>
-          Lo è stato così tanto che a maggio, quando mancavano pochi incontri e solo due spettacoli, sentivo il bisogno di raccontare questa esperienza. Sentivo il bisogno di far capire anche a chi era fuori cosa volesse dire davvero far parte del gruppo di teatro.
+          Lo è stato così tanto che a maggio, quando mancavano pochi incontri e solo due spettacoli, sentivo il bisogno di raccontare questa esperienza. Sentivo il bisogno di far capire anche a chi era fuori cosa volesse dire <em>davvero</em> far parte del gruppo di teatro.
         </p>
 
         <figure className="my-6"> 
           <img src="/images/teatro/quinto.png" alt="foto dello spettacolo del quarto" className="w-full mx-auto block pt-4 pb-2" /> 
-          <figcaption className="text-[14px] opacity-80 pt-2"> Il Pranzo Francese: Camerino delle donzelle - L'ultimo abbraccio con Mattia - People from Berlevaag </figcaption> 
+          <figcaption className="text-[14px] opacity-80 pt-2"> Il Pranzo Francese: Camerino delle donzelle - L'ultimo abbraccio con Mattia (il regista) - People from Berlevaag </figcaption> 
         </figure>
 
         <p>
@@ -163,15 +163,15 @@ export default function ArticlePage() {
           </figure>
 
           <p>
-            Per non parlare dei momenti più belli, ovvero delle ultime prove, quando si è tutti tesi, degli attimi prima di entrare in scena, prima di “mettere a morte lo spettacolo”. Perché fare teatro significa che prima di uno spettacolo mangerai sicuramente le gocciole, significa vincere la propria timidezza divertendosi, significa imparare a godersi il momento sul palco, per poi applicarlo nella vita reale. Fare teatro significa avere il terrore delle luci, significa non ricordarsi mai da che parte uscire per il cambio scena, avere paura di aver dimenticato parte del costume a casa, significa bandire il viola dal palco; ma significa anche rendere proprie le cose che vedi sul palco, significa imparare ad amare e apprezzare le piccole cose, significa trasformare ansia e paure in energia pura, significa interpretare qualcun altro rimanendo se stessi e significa sbagliare tutte le battute tanto chi se ne accorge.
+            Per non parlare dei momenti più belli, ovvero delle ultime prove, quando si è tutti tesi, degli attimi prima di entrare in scena, prima di <em><strong>“mettere a morte lo spettacolo”</strong></em>. Perché fare teatro significa che prima di uno spettacolo mangerai sicuramente le gocciole, significa vincere la propria timidezza divertendosi, significa imparare a godersi il momento sul palco, per poi applicarlo nella vita reale. Fare teatro significa avere il terrore delle luci, significa non ricordarsi mai da che parte uscire per il cambio scena, avere paura di aver dimenticato parte del costume a casa, significa bandire il viola dal palco; ma significa anche rendere proprie le cose che vedi sul palco, significa imparare ad amare e apprezzare le piccole cose, significa trasformare ansia e paure in energia pura, significa interpretare qualcun altro rimanendo se stessi e significa sbagliare tutte le battute tanto chi se ne accorge.
           </p>
 
           <p>
-            Fare teatro significa che nelle quinte si balla, si canta, si recitano le battute che ormai si sanno a memoria e si piange insieme per le scene commoventi. Significa sentire per mesi alle prove il regista dire “buio” quando si finisce lo spettacolo e poi emozionarsi quando sul palco quel “buio” diventa realtà. Teatro significa rispettare alcune tradizioni, come quella di fare i cori più belli e ignoranti del mondo nei camerini alla fine dello spettacolo, quando tutto quello che ti rimane in corpo sono solo un po’ di lacrime e tantissima adrenalina.
+            Fare teatro significa che nelle quinte si balla, si canta, si recitano le battute che ormai si sanno a memoria e si piange insieme per le scene commoventi. Significa sentire per mesi alle prove il regista dire <em><strong>“buio”</strong></em> quando si finisce lo spettacolo e poi emozionarsi quando sul palco quel <em><strong>“buio”</strong></em> diventa realtà. Teatro significa rispettare alcune tradizioni, come quella di fare i cori più belli e ignoranti del mondo nei camerini alla fine dello spettacolo, quando tutto quello che ti rimane in corpo sono solo un po’ di lacrime e tantissima adrenalina.
           </p>
 
           <p>
-            E c’è un momento sacrosanto, appena prima di andare in scena. Perché prima di salire sul palco ci si riunisce nei camerini, tutti agitati, ma pronti, arriva la profe e arriva il regista, fanno un discorso, che può concludersi solo in una maniera, con un solo lungo grido che esce dal cuore di tutti noi: “MERDA MERDA MERDA”.
+            E c’è un momento sacrosanto, appena prima di andare in scena. Perché prima di salire sul palco ci si riunisce nei camerini, tutti agitati, ma pronti, arriva la profe e arriva il regista, fanno un discorso, che può concludersi solo in una maniera, <em>con un solo lungo grido che esce dal cuore di tutti noi</em>: <em><strong>“MERDA MERDA MERDA”</strong></em>.
           </p>
 
           <p>
@@ -179,14 +179,18 @@ export default function ArticlePage() {
           </p>
 
           <p>
-            E per ultimo, perché è il momento che chiude sempre tutto, teatro significa…3…2…1…GO.
+            E per ultimo, perché è il momento che chiude sempre tutto, teatro significa… 3… 2… 1… <em><strong>GO.</strong></em>
           </p>
 
           <p>
             Quindi non perdere tempo, il gruppo ti aspetta, e anche se io non ne farò più parte sono più che sicura che spaccheranno come sempre. E fidati quando ti dico che nel momento in cui entrerai a farne parte, ti pentirai di non aver iniziato prima.
           </p>
 
-          <p className="font-bold"><em>Anna e il Gruppo Teatrale</em></p>
+          <p>
+            <em><strong>Buio</strong></em>.
+          </p>
+
+          <p className="text-[14px] opacity-70"><em>Anna e il Gruppo Teatrale</em></p>
         </div>
 
         {/* Conclusione personale */}

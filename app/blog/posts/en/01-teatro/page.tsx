@@ -48,7 +48,7 @@ export default function ArticlePage() {
         </p>
 
         <p>
-            So you can imagine that, as soon as third year started, I couldn't wait to join the “real course, the one for the older students,” where you truly get to know each other and the group becomes like a second family.
+            So you can imagine that, as soon as third year started, I couldn't wait to join the <em>“real course, the one for the older students”</em>, where you truly get to know each other and the group becomes like a second family.
         </p>
 
         <p>
@@ -57,7 +57,7 @@ export default function ArticlePage() {
 
         <figure className="my-6"> 
             <img src="/images/teatro/terzo.png" alt="photo from the show rehearsal" className="w-full mx-auto block pt-4 pb-2" /> 
-            <figcaption className="text-[14px] opacity-80 pt-2">Down & Out – Official photos of the group during and after the show — Me, messy-haired after the final rehearsal, obviously eating Gocciole</figcaption> 
+            <figcaption className="text-[14px] opacity-80 pt-2">Down & Out – Official photos of the group during and after the repeat — Me, messy-haired after the final rehearsal, obviously eating Gocciole</figcaption> 
         </figure>
 
         <p>
@@ -70,7 +70,7 @@ export default function ArticlePage() {
         </figure>
 
         <p>
-            Finally, fifth year arrived. After four years of waiting, we were back in the classroom, often still wearing masks. It was during the first Tuesday theater session that I realized I had become one of the “older ones,” a “veteran” of the group. I can't really explain it, but entering the gym that afternoon, seeing everyone—old and new—I felt it: this year would be different.
+            Finally, fifth year arrived. After four years of waiting, we were back in the classroom, often still wearing masks. It was during the first Tuesday theater session that I realized I had become one of the <em>“older ones”</em>, a <strong><em>“veteran”</em></strong> of the group. I can't really explain it, but entering the gym that afternoon, seeing everyone—old and new—I felt it: this year would be different.
         </p>
 
         <p>
@@ -78,7 +78,7 @@ export default function ArticlePage() {
         </p>
 
         <p>
-            In short, everything was set for that theater year to become the best ever. And it was. More than I expected.
+            In short, everything was set for that theater year to become the best ever.
         </p>
 
         <p>
@@ -103,11 +103,11 @@ export default function ArticlePage() {
         </p>
 
         <p>
-            But I didn’t want it to be “just” a monologue: I also wanted to publish it in the final Calini newsletter of that year… which, by the way, was also my last participation. Last show, last newsletter, last article. <em>Triple combo activated: Hat-trick of nostalgia!</em>
+            But I didn’t want it to be “just” a monologue: I also wanted to publish it in the final Calini newspaper of that year… which, by the way, was also my last participation. Last show, last newspaper, last article. <em>Triple combo activated: Hat-trick of nostalgia!</em>
         </p>
 
         <p>
-            <strong>Sentimentality again? Exactly.</strong>
+            <strong>Sentimentality? Again? Exactly.</strong>
         </p>
 
         <p>
@@ -115,7 +115,7 @@ export default function ArticlePage() {
         </p>
 
         <p className="opacity-70 text-[14px]">
-            Keep in mind that it was meant to be in italian and, as I said, to be performed rather than read… but I think it still works. (If you want to relive that atmosphere, this was the song: <a href="https://www.youtube.com/watch?v=49FDEh1Zh5U" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline"> <em>To Build a Home – The Cinematic Orchestra</em></a>).
+            Keep in mind that it was meant to be in italian and, as I said, to be performed rather than read… but I think it still works. (If you want to relive that atmosphere, this was the background song: <a href="https://www.youtube.com/watch?v=49FDEh1Zh5U" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline"> <em>To Build a Home – The Cinematic Orchestra</em></a>).
         </p>
 
         <hr className="my-20 border-t border-neutral-300 dark:border-neutral-600 pt-4" />
@@ -146,7 +146,7 @@ export default function ArticlePage() {
         </p>
 
         <p>
-            Theater means that if someone says “COFFEE,” everyone replies “OLÉ.”
+            Theater means that if someone says “CAFFÈÈÈ,” everyone replies “OLÉ.”
         </p>
 
         <p>
@@ -159,15 +159,15 @@ export default function ArticlePage() {
         </figure>
 
         <p>
-            Not to mention the most beautiful moments: the final rehearsals, everyone tense, the moments before stepping on stage, before “killing the show.” Because theater means you’ll definitely eat cookies before a performance, it means overcoming shyness while having fun, it means learning to enjoy the moment on stage to apply it in real life. Theater means fearing the lights, never remembering which side to exit for a scene change, worrying you forgot part of your costume, banning purple from the stage; but it also means making what you see on stage your own, learning to love and appreciate the little things, turning anxiety and fear into pure energy, playing someone else while staying yourself, and messing up lines without anyone noticing.
+            Not to mention the most beautiful moments: the final rehearsals, everyone tense, the moments before stepping on stage, before <em><strong>“killing the show”</strong></em>. Because theater means you’ll definitely eat gocciole before a performance, it means overcoming shyness while having fun, it means learning to enjoy the moment on stage to apply it in real life. Theater means fearing the lights, never remembering which side to exit for a scene change, worrying you forgot part of your costume, banning purple from the stage; but it also means making what you see on stage your own, learning to love and appreciate the little things, turning anxiety and fear into pure energy, playing someone else while staying yourself, and messing up lines without anyone noticing.
         </p>
 
         <p>
-            Theater means dancing, singing, reciting lines backstage, and crying together during touching scenes. It means hearing the director say “lights out” during months of rehearsal and then feeling the emotion when that “lights out” happens on stage. Theater means respecting some traditions, like the silliest and best chants backstage at the end of the show, when all that remains in your body is a few tears and a huge rush of adrenaline.
+            Theater means dancing, singing, reciting lines backstage, and crying together during touching scenes. It means hearing the director say <strong><em>“blackout”</em></strong> during months of rehearsal and then feeling the emotion when that <strong><em>“blackout”</em></strong> happens on stage. Theater means respecting some traditions, like the silliest and best chants backstage at the end of the show, when all that remains in your body is a few tears and a huge rush of adrenaline.
         </p>
 
         <p>
-            And there’s a sacred moment just before going on stage. Before stepping on stage, we gather in the dressing rooms, all nervous but ready; the teacher and director give a speech, which can only end one way, with one long shout from all our hearts: “BREAK A LEG! BREAK A LEG! BREAK A LEG!”
+            And there’s a sacred moment just before going on stage. Before stepping on stage, we gather in the dressing rooms, all nervous but ready; the teacher and director give a speech, which can only end one way, <em>with one long shout from all our hearts</em>: <em><strong>“MERDA MERDA MERDA”</strong></em>.
         </p>
 
         <p>
@@ -175,14 +175,18 @@ export default function ArticlePage() {
         </p>
 
         <p>
-            And finally, because it’s the moment that always closes everything, theater means…3…2…1…GO.
+            And finally, because it’s the moment that always closes everything, theater means… 3… 2… 1… <em><strong>GO.</strong></em>
         </p>
 
         <p>
             So don’t waste time, the group is waiting for you, and even if I won’t be part of it anymore, I’m more than sure they’ll rock as always. And trust me, the moment you join, you’ll regret not starting sooner.
         </p>
 
-        <p className="font-bold"><em>Anna & the Theater Group</em></p>
+        <p>
+            <em><strong>Blackout</strong></em>.
+        </p>
+
+        <p className="text-[14px] opacity-70"><em>Anna & the Theater Group</em></p>
         </div>
 
         {/* Personal Conclusion */}
@@ -201,7 +205,12 @@ export default function ArticlePage() {
         </p>
 
         <p>
-            And while I’m at it, I want to share a promise I made to her some time ago: <em>“I promise you that when you finish theater at Calini, we’ll find a way to do it again, just the two of us.”</em>
+            And while I’m at it, I want to share a promise I made to her some time ago: <em>“I promise you that when you finish theater at Calini, we’ll find a way to do it, again, just the two of us.”</em>
+        </p>
+        <br/>
+
+        <p className="opacity-70 text-[14px]">
+            P.S. If you're wondering about the whole <em>“merda, merda, merda”</em> thing: in Italian theater it's a traditional good-luck ritual, the equivalent of saying “break a leg”. Actors shout it together right before going on stage — not because it's crude, but because it's a superstition meant to chase away bad luck and release tension. It’s one of those chaotic, heartfelt little rituals that make backstage moments unforgettable.
         </p>
 
         </article>
