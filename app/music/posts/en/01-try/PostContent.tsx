@@ -7,7 +7,11 @@ import Link from "next/link";
 
 export default function PostContent() {
   useEffect(() => {
-    fetch(`/api/views/01-try`, { method: "POST" });
+    const hasViewed = sessionStorage.getItem("viewed-01-try");
+    if (!hasViewed) {
+      fetch(`/api/views/01-try`, { method: "POST" });
+      sessionStorage.setItem("viewed-01-try", "true");
+    }
   }, []);
 
   return (

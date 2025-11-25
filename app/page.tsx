@@ -31,7 +31,7 @@ export default function Home() {
           </p>
 
           <p className="text-lg text-text-primary mt-4">
-            I’m obsessed with <strong>UI/UX design</strong>, <strong>graphics</strong>, and all the little visual choices that shape how we perceive the world. Lately, <strong>cybersecurity</strong> has snuck into my brain too, and I can’t wait to explore it more during my Master’s.
+            I’m passionate about <em>UI/UX design</em>, graphics, and all the tiny visual details that shape how we experience the world. Lately, <em>cybersecurity</em> has snuck into my brain too, and I can’t wait to explore it more during my Master’s.
           </p>
 
           <p className="text-lg text-text-primary mt-4">
