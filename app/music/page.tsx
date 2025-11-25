@@ -20,11 +20,17 @@ export default function BlogPage() {
     
 
       <p className="text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
-        My love for music comes entirely from my dad. Since I was little, he’s fed me song after song, quizzing me on singers, bands, guitarists. He’d burst into my room saying <strong><em>"Te l'ho insegnata questa?"</em></strong> (“Have I taught you this one?”), and at my “No…” he’d smile like he was about to open a secret door — and honestly, it always felt like that.
-        <br/><br/>
+        My love for music comes entirely from my dad. Since I was little, he’s fed me song after song, quizzing me on singers, bands, guitarists.
+        <br/>
+        He’d burst into my room saying <strong><em>"Te l'ho insegnata questa?"</em></strong> (<em>“Have I taught you this one?”</em>), and at my <em>“No…”</em> he’d smile like he was about to open a secret door — and honestly, it always felt like that.
+        <br/>
+      </p>
+      <p className="opacity-70 text-[14px]">
         The name of this section — <strong><em>Gioiellini</em></strong>, “little gems” — comes from him too, from one of his legendary playlists where he saves all the songs he considers treasures.
-        <br/><br/>
-        So here’s where I try to pass on those lucky teachings, in my own voice. As my friends know well, whenever one of “my” songs plays, I <em>cannot</em> resist explaining it — <em>“hear that sax coming in”</em>, <em>“here it picks up”</em>, <em>“wait for this rhythm change”</em> — all the tiny details that make it sparkle.
+        <br/>
+      </p>
+      <p>
+        So here’s where I try to pass on those lucky teachings, in my own voice. As my friends know well, whenever one of “my” songs plays, I <em>cannot</em> resist explaining it — <em>“hear that sax coming in”</em>, <em>“here it picks up”</em> — all the tiny details that make it sparkle.
       </p>
 
       

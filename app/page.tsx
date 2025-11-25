@@ -1,7 +1,19 @@
+"use client"
 import React from 'react';
 import ViewCounter from "@/components/ViewCounter";
+import { useEffect } from "react";
+
+
 
 export default function Home() {
+
+  useEffect(() => {
+    fetch(`/api/views/home`, {
+      method: "POST",
+    });
+  }, []);
+
+
   return (
     <div className="flex flex-col pt-40">
       {/* header/footer are provided by the root layout */}
@@ -39,8 +51,8 @@ export default function Home() {
           </p>
 
 
-          <p className="italic text-lg text-text-primary mt-4">
-            <ViewCounter slug="page.tsx" />
+          <p className="opacity-70 italic text-lg text-text-primary mt-4">
+            <ViewCounter slug="home" />
           </p>
         </div>
       </main>

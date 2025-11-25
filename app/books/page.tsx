@@ -63,30 +63,55 @@ function formatAuthor(author: string): string {
   return `${firstInitial}. ${lastName}`;
 }
 
-// Formatta il genere limitandolo a max 1-2 parole
+// Formatta il genere con abbreviazioni intelligenti
 function formatGenre(genre: string): string {
   if (!genre) return "";
+  
+  // Mappa di abbreviazioni per generi comuni
+  const abbreviations: {[key: string]: string} = {
+    "Romance": "Rom.",
+    "Biography": "Bio.",
+    "Philosophy": "Phil.",
+    "Self-Help": "Self-H.",
+    "Literary Collections": "Lit. Col.",
+    "Fairy Tales": "Fairy T.",
+    "Science Fiction": "Sci-Fi",
+    "Historical Fiction": "Hist. Fic.",
+    "Juvenile Fiction": "Juv. Fic.",
+    "Juvenile Nonfiction": "Juv. Non-Fic.",
+    "Young Adult Fiction": "YA Fic.",
+    "Foreign Language Study": "Lang. Study",
+    "Mystery": "Myst.",
+    "Thriller": "Thrill.",
+    "Non-Fiction": "Non-Fic.",
+    "Nonfiction": "Non-Fic.",
+    "Autobiography": "Auto.",
+    "Psychology": "Psych.",
+    "Business": "Bus.",
+    "Economics": "Econ.",
+    "Technology": "Tech.",
+    "Politics": "Pol."
+  };
   
   // Separa per virgola o slash e prendi solo la prima parte
   const parts = genre.split(/[,\/]/);
   const firstGenre = parts[0].trim();
   
-  // Se la prima parte ha più di 2 parole, prendi solo le prime 2
-  const words = firstGenre.split(" ");
-  return words.slice(0, 2).join(" ");
+  // Ritorna l'abbreviazione se esiste, altrimenti il genere originale
+  return abbreviations[firstGenre] || firstGenre;
 }
 
 // --- Componente Tabella ---
 
 function BookTable({ books, showDate = true }: { books: Book[], showDate?: boolean }) {
   return (
-    <table className="w-full table-auto border-collapse">
+    <table className="w-full table-auto border-collapse" style={{ borderSpacing: '0' }}>
       <thead>
         <tr className="border-b border-neutral-300 dark:border-neutral-600">
-          {showDate && <th className="text-left px-4 py-6 text-sm text-neutral-500 dark:text-neutral-400 w-52">Date</th>}
-          <th className="text-left px-4 py-6 text-sm text-neutral-500 dark:text-neutral-400">Title</th>
-          <th className="text-left px-4 py-6 text-sm text-neutral-500 dark:text-neutral-400 w-32">Author</th>
-          <th className="text-left px-4 py-6 text-sm text-neutral-500 dark:text-neutral-400 w-20">Genre</th>
+          {showDate && <th className="text-left pr-12 pl-2 py-6 text-sm text-neutral-500 dark:text-neutral-400 w-40">Date</th>}
+          <th className="text-left px-8 py-6 text-sm text-neutral-500 dark:text-neutral-400">Title</th>
+          <th className="text-left px-8 py-6 text-sm text-neutral-500 dark:text-neutral-400 w-40">Author</th>
+          <th className="text-left px-8 py-6 text-sm text-neutral-500 dark:text-neutral-400 w-28">Genre</th>
         </tr>
       </thead>
       <tbody>
@@ -96,20 +121,20 @@ function BookTable({ books, showDate = true }: { books: Book[], showDate?: boole
             className="border-b border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800"
           >
             {/* Date */}
-            {showDate && <td className="italic opacity-70 px-4 py-4 text-sm text-neutral-500 dark:text-neutral-400 whitespace-nowrap">{formatDate(book.date)}</td>}
+            {showDate && <td className="italic opacity-70 pr-12 pl-2 py-4 text-sm text-neutral-500 dark:text-neutral-400 whitespace-nowrap align-top ">{formatDate(book.date)}</td>}
             
             {/* Title (Link) */}
-            <td className="px-4 py-4 text-sm text-neutral-900 dark:text-neutral-100 w-150">
+            <td className="px-8 py-4 text-sm text-neutral-900 dark:text-neutral-100 align-top max-w-[240px]">
               <a href={book.buy} target="_blank" rel="noopener noreferrer" className="hover:underline">
                 {book.title}
               </a>
             </td>
             
             {/* Author */}
-            <td className="opacity-70 px-4 py-4 text-sm text-neutral-600 dark:text-neutral-400">{formatAuthor(book.author)}</td>
+            <td className="opacity-70 px-8 py-4 text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap align-top">{formatAuthor(book.author)}</td>
             
             {/* Genre */}
-            <td className="opacity-70 px-4 py-4 text-sm text-neutral-500 dark:text-neutral-400">{formatGenre(book.genre)}</td>
+            <td className="opacity-70 px-8 py-4 text-sm text-neutral-500 dark:text-neutral-400 whitespace-nowrap align-top">{formatGenre(book.genre)}</td>
             
             {/* Notes (Link) - COMMENTED OUT, uncomment if needed
             <td className="px-2 py-1 text-sm text-neutral-600 dark:text-neutral-400">
