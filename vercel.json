@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.annamettifogo.com"
+        }
+      ],
+      "destination": "https://annamettifogo.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "annamettifogo.vercel.app"
+        }
+      ],
+      "destination": "https://annamettifogo.com/:path*",
+      "permanent": true
+    }
+  ]
+}
