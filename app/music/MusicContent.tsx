@@ -5,10 +5,12 @@ import { useState } from 'react';
 
 const postsData = {
   it: [
-    { date: 'November 24, 2025', title: 'I miei soli preferiti', href: '/music/posts/it/01-try' },
+    //{ date: 'November 24, 2025', title: 'I miei soli preferiti', href: '/music/posts/it/01-try' },
+    { date: 'TBD', title: 'Work in Progress', href: '/work-in-progress' },
   ],
   en: [
-    { date: 'November 24, 2025', title: 'My favorite solos', href: '/music/posts/en/01-try' },
+    //{ date: 'November 24, 2025', title: 'My favorite solos', href: '/music/posts/en/01-try' },
+    { date: 'TBD', title: 'Work in Progress', href: '/work-in-progress' },
   ]
 };
 

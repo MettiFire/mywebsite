@@ -30,8 +30,12 @@ export default function BlogContent() {
         This is my space to put down thoughts, share an adventure or two, indulge in <em>strange</em> reasonings, and express the sentimental side that occasionally overwhelms me. 
         <br />
         Here, you'll find everything that crosses my mind.
-        <br /><br />
+        <br />
+      </p>
+
+      <p className="opacity-70">
         All writing originates in Italian, my native language. English translations are always available for a more comfortable and accessible read.
+
       </p>
       
 
