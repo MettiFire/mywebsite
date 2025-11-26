@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import NowPlaying from '@/components/NowPlaying';
 
 const postsData = {
   it: [
@@ -36,12 +37,17 @@ export default function MusicContent() {
       <p className="opacity-70 text-[14px]">
         The name of this section — <strong><em>Gioiellini</em></strong>, "little gems" — comes from him too, from one of his legendary playlists where he saves all the songs he considers treasures.
         <br/>
-      </p>
       <p>
         So here's where I try to pass on those lucky teachings, in my own voice. As my friends know well, whenever one of "my" songs plays, I <em>cannot</em> resist explaining it — <em>"hear that sax coming in"</em>, <em>"here it picks up"</em> — all the tiny details that make it sparkle.
       </p>
 
-      
+      {/* Now Playing Widget */}
+      <div className="my-10">
+        <h3 className="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-3">
+          🎧 Currently listening to:
+        </h3>
+        <NowPlaying />
+      </div>
 
       <div className="flex justify-end mb-6">
         <div className="text-[14px] opacity-70">
