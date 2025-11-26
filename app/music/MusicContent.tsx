@@ -37,7 +37,8 @@ export default function MusicContent() {
       <p className="opacity-70 text-[14px]">
         The name of this section — <strong><em>Gioiellini</em></strong>, "little gems" — comes from him too, from one of his legendary playlists where he saves all the songs he considers treasures.
         <br/>
-      <p>
+      </p>
+      <p className="text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
         So here's where I try to pass on those lucky teachings, in my own voice. As my friends know well, whenever one of "my" songs plays, I <em>cannot</em> resist explaining it — <em>"hear that sax coming in"</em>, <em>"here it picks up"</em> — all the tiny details that make it sparkle.
       </p>
 
