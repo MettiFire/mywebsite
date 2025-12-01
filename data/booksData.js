@@ -6,7 +6,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=King+of+Envy",
+  buy: "https://www.amazon.it/King-Envy-English-Ana-Huang-ebook/dp/B0CZV38Z7J/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=380PD5BB05Y2T&dib=eyJ2IjoiMSJ9.JlZfOuMAp8OC7J3KaNnKtrilpX-QY_u9QwTpChz1Rlw_fa8jAv3Q3MweTfuyZ6qkG63kdbTNN-EGZmVpZVQsA-tqtahwCaRR9RLnt62FRtIH53JykhL3hO8XW9GD0RVTShFX4OAcM44C2FbO1QbP3E3AhD7os4uRQZhDnhUfML8pSIGSv1xCRNALnH2-B69JqeMNoptSRs3WC9cGXjzPyw.-YWtzUEMPcHsc7lt17o9OsQbDYNRNeN6Q5f2J7yzrEA&dib_tag=se&keywords=king+of+envy&qid=1764197777&sprefix=king+of+envy%2Caps%2C381&sr=8-1",
   notesHref: null
 },
 {
@@ -15,7 +15,7 @@ const booksRead =
   author: "Phil Knight",
   genre: "Biography",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=L'arte+della+vittoria.+Autobiografia+del+fondatore+della+Nike",
+  buy: "https://www.amazon.it/Larte-della-vittoria-Autobiografia-fondatore/dp/8804707534/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2C7N44HUPEUUL&dib=eyJ2IjoiMSJ9.WYR8NR7DQSH6Fk0lWLcECA.-O_8MpcRfMutuD2Timho3lRtDa-skSNVCxPedPI_Veg&dib_tag=se&keywords=L%27arte+della+vittoria.+Autobiografia+del+fondatore+della+Nike&qid=1764197834&sprefix=l%27arte+della+vittoria.+autobiografia+del+fondatore+della+nike%2Caps%2C70&sr=8-1",
   notesHref: "/books/kTXBwQEACAAJ/notes"
 },
 {
@@ -24,7 +24,7 @@ const booksRead =
   author: "J.R.R. Tolkien",
   genre: "Fantasy",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=Il+ritorno+del+re",
+  buy: "https://amzn.eu/d/fVDpa1E",
   notesHref: "/books/6yTsDwAAQBAJ/notes"
 },
 {
@@ -33,7 +33,7 @@ const booksRead =
   author: "Lauren Asher",
   genre: "Romance",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Terms+and+Conditions",
+  buy: "https://amzn.eu/d/ghwmcoP",
   notesHref: "/books/SkpZEAAAQBAJ/notes"
 },
 {
@@ -42,7 +42,7 @@ const booksRead =
   author: "Alì Ehsani",
   genre: "General",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=Stanotte+guardiamo+le+stelle",
+  buy: "https://amzn.eu/d/0tZBJSS",
   notesHref: "/books/GJ5xnQAACAAJ/notes"
 },
 {
@@ -51,7 +51,7 @@ const booksRead =
   author: "Italo Calvino",
   genre: "General",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Il+cavaliere+inesistente",
+  buy: "https://amzn.eu/d/axTBLh8",
   notesHref: null
 },
 {
@@ -60,7 +60,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Castelli+di+rabbia",
+  buy: "https://amzn.eu/d/irlsJv0",
   notesHref: "/books/mviMSgAACAAJ/notes"
 },
 {
@@ -69,7 +69,7 @@ const booksRead =
   author: "Ali Hazelwood",
   genre: "Romance",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Love+on+the+Brain",
+  buy: "https://amzn.eu/d/4y06rju",
   notesHref: "/books/yDxJEAAAQBAJ/notes"
 },
 {
@@ -78,7 +78,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=The+Defender",
+  buy: "https://amzn.eu/d/eeSvjGG",
   notesHref: "/books/WlcoEQAAQBAJ/notes"
 },
 {
@@ -87,7 +87,7 @@ const booksRead =
   author: "John Ronald Reuel Tolkien",
   genre: "Fantasy",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Lo+Hobbit",
+  buy: "https://amzn.eu/d/9mW2tJg",
   notesHref: "/books/Plr-ZwEACAAJ/notes"
 },
 {
@@ -96,7 +96,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Twisted+Love",
+  buy: "https://amzn.eu/d/4wtQEfN",
   notesHref: "/books/iLf2zgEACAAJ/notes"
 },
 {
@@ -105,7 +105,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Twisted+Lies",
+  buy: "https://amzn.eu/d/azxWxrW",
   notesHref: "/books/JbJiEAAAQBAJ/notes"
 },
 {
@@ -114,7 +114,7 @@ const booksRead =
   author: "Byung-Chul Han",
   genre: "Philosophy",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Le+non+cose",
+  buy: "https://amzn.eu/d/6jgTnJY",
   notesHref: null
 },
 {
@@ -123,7 +123,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=King+of+Greed",
+  buy: "https://amzn.eu/d/ha9o3xZ",
   notesHref: null
 },
 {
@@ -132,7 +132,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=King+of+Sloth",
+  buy: "https://amzn.eu/d/fR1JRdb",
   notesHref: null
 },
 {
@@ -141,17 +141,8 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Oceano+mare",
+  buy: "https://amzn.eu/d/8c3wJwH",
   notesHref: "/books/fyddAAAAMAAJ/notes"
-},
-{
-  date: "28 mag 2023",
-  title: "First Semester",
-  author: "Q. B. Tyler",
-  genre: "",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=First+Semester",
-  notesHref: null
 },
 {
   date: "28 feb 2024",
@@ -159,7 +150,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "Literary Collections",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=The+game+unplugged",
+  buy: "https://amzn.eu/d/iT8jhb4",
   notesHref: "/books/xRkHxgEACAAJ/notes"
 },
 {
@@ -168,7 +159,7 @@ const booksRead =
   author: "Camilla Läckberg",
   genre: "Crime",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Il+gioco+della+notte",
+  buy: "https://amzn.eu/d/iosN7ON",
   notesHref: "/books/W4YmEAAAQBAJ/notes"
 },
 {
@@ -177,7 +168,7 @@ const booksRead =
   author: "Elena Armas",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=The+American+Roommate+Experiment",
+  buy: "https://amzn.eu/d/41wcCs2",
   notesHref: "/books/ldNYEAAAQBAJ/notes"
 },
 {
@@ -186,7 +177,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Fiction",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Maybe+Now",
+  buy: "https://amzn.eu/d/dyhUiCu",
   notesHref: "/books/04WEEAAAQBAJ/notes"
 },
 {
@@ -195,7 +186,7 @@ const booksRead =
   author: "Jerome David Salinger",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Franny+e+Zooey",
+  buy: "https://amzn.eu/d/7VhxSZb",
   notesHref: "/books/asjpAAAAMAAJ/notes"
 },
 {
@@ -204,16 +195,16 @@ const booksRead =
   author: "Italo Calvino",
   genre: "General",
   rating: "★☆☆☆☆",
-  buy: "https://www.amazon.it/s?k=Il+castello+dei+destini+incrociati",
+  buy: "https://amzn.eu/d/bSV18Qq",
   notesHref: "/books/0MW4DAEACAAJ/notes"
 },
 {
   date: "25 ott 2024",
   title: "Gennaio di Sangue",
   author: "Alan Parks",
-  genre: "",
+  genre: "Mistery",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Gennaio+di+Sangue",
+  buy: "https://amzn.eu/d/6Q5Y53F",
   notesHref: null
 },
 {
@@ -222,7 +213,7 @@ const booksRead =
   author: "John Niven",
   genre: "General",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=A+volte+ritorno",
+  buy: "https://amzn.eu/d/0gwLEcE",
   notesHref: "/books/DTsorgEACAAJ/notes"
 },
 {
@@ -231,7 +222,7 @@ const booksRead =
   author: "Jerome David Salinger",
   genre: "General",
   rating: "★★☆☆☆",
-  buy: "https://www.amazon.it/s?k=Alzate+l'architrave,+carpentieri,+e+Seymour.+Introduzione",
+  buy: "https://amzn.eu/d/eUGTrsb",
   notesHref: "/books/B8rpAAAAMAAJ/notes"
 },
 {
@@ -240,7 +231,7 @@ const booksRead =
   author: "Hannah Grace",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Icebreaker",
+  buy: "https://amzn.eu/d/dNc4u1w",
   notesHref: null
 },
 {
@@ -258,7 +249,7 @@ const booksRead =
   author: "David Goggins",
   genre: "Biography",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Can't+Hurt+Me",
+  buy: "https://amzn.eu/d/5AezWD5",
   notesHref: null
 },
 {
@@ -267,7 +258,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Romance",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=It+Starts+with+Us",
+  buy: "https://amzn.eu/d/dmrFcnI",
   notesHref: "/books/_srvzgEACAAJ/notes"
 },
 {
@@ -276,7 +267,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=King+of+Pride",
+  buy: "https://amzn.eu/d/3XKzMag",
   notesHref: null
 },
 {
@@ -285,7 +276,7 @@ const booksRead =
   author: "Madeline Miller",
   genre: "Fairy Tales",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=La+canzone+di+Achille",
+  buy: "https://amzn.eu/d/ea90SyL",
   notesHref: "/books/h0PjwAEACAAJ/notes"
 },
 {
@@ -294,7 +285,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "Literary Collections",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Una+certa+idea+di+mondo",
+  buy: "https://amzn.eu/d/3d871jC",
   notesHref: "/books/atxemQEACAAJ/notes"
 },
 {
@@ -303,7 +294,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "Literary Collections",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=The+Game",
+  buy: "https://amzn.eu/d/cmSF0ti",
   notesHref: "/books/o_67vAEACAAJ/notes"
 },
 {
@@ -312,7 +303,7 @@ const booksRead =
   author: "Leo Ortolani",
   genre: "Humor",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Eredità.+Star+Rats",
+  buy: "https://amzn.eu/d/hjP9NJy",
   notesHref: "/books/w9K8zgEACAAJ/notes"
 },
 {
@@ -321,7 +312,7 @@ const booksRead =
   author: "John Ronald Reuel Tolkien",
   genre: "Fantasy",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Roverandom.+Le+avventure+di+un+cane+alato",
+  buy: "https://amzn.eu/d/a6tnxjB",
   notesHref: "/books/oC5-mwEACAAJ/notes"
 },
 {
@@ -330,7 +321,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Barnum",
+  buy: "https://amzn.eu/d/0EJffeL",
   notesHref: "/books/5nV0BAAAQBAJ/notes"
 },
 {
@@ -339,7 +330,7 @@ const booksRead =
   author: "Paolo Cognetti",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Le+otto+montagne",
+  buy: "https://amzn.eu/d/0Zyw5BJ",
   notesHref: "/books/cbZ0DQAAQBAJ/notes"
 },
 {
@@ -348,7 +339,7 @@ const booksRead =
   author: "Elle Kennedy",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Score",
+  buy: "https://amzn.eu/d/eK3flKd",
   notesHref: null
 },
 {
@@ -357,7 +348,7 @@ const booksRead =
   author: "Elle Kennedy",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Play",
+  buy: "https://amzn.eu/d/f7ZckDs",
   notesHref: null
 },
 {
@@ -366,7 +357,7 @@ const booksRead =
   author: "Jan-Philipp Sendker",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=L'arte+di+ascoltare+i+battiti+del+cuore",
+  buy: "https://amzn.eu/d/dAWpux8",
   notesHref: "/books/ctJeewAACAAJ/notes"
 },
 {
@@ -375,7 +366,7 @@ const booksRead =
   author: "Elle Kennedy",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Legacy",
+  buy: "https://amzn.eu/d/b1Hv3hm",
   notesHref: null
 },
 {
@@ -384,7 +375,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Reminders+of+Him",
+  buy: "https://amzn.eu/d/b7lkbst",
   notesHref: "/books/7Ip_zgEACAAJ/notes"
 },
 {
@@ -393,7 +384,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Fiction",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=It+Ends+with+Us",
+  buy: "https://amzn.eu/d/bCQXstZ",
   notesHref: "/books/Eka9DAAAQBAJ/notes"
 },
 {
@@ -402,7 +393,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Twisted+Hate",
+  buy: "https://amzn.eu/d/63T5o5H",
   notesHref: "/books/kOdjEAAAQBAJ/notes"
 },
 {
@@ -411,7 +402,7 @@ const booksRead =
   author: "Taylor Jenkins Reid",
   genre: "Women",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=The+Seven+Husbands+of+Evelyn+Hugo",
+  buy: "https://amzn.eu/d/81dIH7a",
   notesHref: "/books/s8X3yQEACAAJ/notes"
 },
 {
@@ -420,7 +411,7 @@ const booksRead =
   author: "Haruki Murakami",
   genre: "Biography",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=L'arte+di+correre",
+  buy: "https://amzn.eu/d/bgQaXam",
   notesHref: "/books/qHAvmgEACAAJ/notes"
 },
 {
@@ -429,7 +420,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Seta",
+  buy: "https://amzn.eu/d/51YLMY6",
   notesHref: "/books/RPVFAh2-XcgC/notes"
 },
 {
@@ -438,7 +429,7 @@ const booksRead =
   author: "Dolly Alderton",
   genre: "Biography",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Tutto+quello+che+so+sull'amore",
+  buy: "https://amzn.eu/d/dhsD5JF",
   notesHref: null
 },
 {
@@ -447,7 +438,7 @@ const booksRead =
   author: "Fëdor Mihajlovič Dostoevskij",
   genre: "Classics",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Il+sogno+di+un+uomo+ridicolo+e+altri+racconti+dal+«Diario+di+uno+scrittore»",
+  buy: "https://amzn.eu/d/hDKg7on",
   notesHref: null
 },
 {
@@ -456,7 +447,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Fiction",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Maybe+Not",
+  buy: "https://amzn.eu/d/hqStdaD",
   notesHref: "/books/DYc0CwAAQBAJ/notes"
 },
 {
@@ -465,7 +456,7 @@ const booksRead =
   author: "André Aciman",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Chiamami+col+tuo+nome",
+  buy: "https://amzn.eu/d/2oy8LMF",
   notesHref: "/books/5RcaxQEACAAJ/notes"
 },
 {
@@ -474,7 +465,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Maybe+Someday",
+  buy: "https://amzn.eu/d/eMJOfwz",
   notesHref: "/books/thm3BgAAQBAJ/notes"
 },
 {
@@ -483,7 +474,7 @@ const booksRead =
   author: "John R. R. Tolkien",
   genre: "Fantasy",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=Le+due+torri.+Il+Signore+degli+anelli",
+  buy: "https://amzn.eu/d/cIEdhrS",
   notesHref: "/books/3miczgEACAAJ/notes"
 },
 {
@@ -492,16 +483,16 @@ const booksRead =
   author: "Ali Hazelwood",
   genre: "Romance",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=The+Love+Hypothesis",
+  buy: "https://amzn.eu/d/j0u9ZpS",
   notesHref: "/books/zs1xEAAAQBAJ/notes"
 },
 {
   date: "14 feb 2024",
-  title: "Il contratto. The Deal",
+  title: "The Deal",
   author: "Elle Kennedy",
   genre: "Romance",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Il+contratto.+The+Deal",
+  buy: "https://amzn.eu/d/9cNPhXe",
   notesHref: "/books/xIeeDAAAQBAJ/notes"
 },
 {
@@ -510,7 +501,7 @@ const booksRead =
   author: "Musashi Miyamoto",
   genre: "Sports",
   rating: "★★☆☆☆",
-  buy: "https://www.amazon.it/s?k=Il+libro+dei+cinque+anelli.+Gorin+no+sho",
+  buy: "https://amzn.eu/d/brKmym9",
   notesHref: "/books/JW3xzQEACAAJ/notes"
 },
 {
@@ -519,7 +510,7 @@ const booksRead =
   author: "Paulo Coelho",
   genre: "General",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=L'alchimista",
+  buy: "https://amzn.eu/d/8sKGDBg",
   notesHref: "/books/UjG6swEACAAJ/notes"
 },
 {
@@ -528,25 +519,16 @@ const booksRead =
   author: "John R. R. Tolkien",
   genre: "Fantasy",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=La+compagnia+dell'anello.+Il+Signore+degli+anelli",
+  buy: "https://amzn.eu/d/6pqSJoF",
   notesHref: "/books/EEmczgEACAAJ/notes"
 },
 {
-  date: "12 giu 2023",
-  title: "Spring Semester",
-  author: "Q B Tyler",
-  genre: "",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Spring+Semester",
-  notesHref: null
-},
-{
   date: "12 ago 2024",
-  title: "Lo sbaglio. The Mistake",
+  title: "The Mistake",
   author: "Elle Kennedy",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Lo+sbaglio.+The+Mistake",
+  buy: "https://amzn.eu/d/beldqgB",
   notesHref: null
 },
 {
@@ -555,7 +537,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Striker",
+  buy: "https://amzn.eu/d/2saB1Iz",
   notesHref: null
 },
 {
@@ -564,7 +546,7 @@ const booksRead =
   author: "Plato",
   genre: "Philosophy",
   rating: "★★☆☆☆",
-  buy: "https://www.amazon.it/s?k=Apologia+di+Socrate",
+  buy: "https://amzn.eu/d/2aNUQvU",
   notesHref: "/books/GxnlAAAAMAAJ/notes"
 },
 {
@@ -573,7 +555,7 @@ const booksRead =
   author: "Jerome David Salinger",
   genre: "General",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=Il+giovane+Holden",
+  buy: "https://amzn.eu/d/bNQw0zU",
   notesHref: "/books/BT18ngEACAAJ/notes"
 },
 {
@@ -582,7 +564,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "Drama",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=Novecento",
+  buy: "https://amzn.eu/d/bAZwYLP",
   notesHref: "/books/bVx9NAEACAAJ/notes"
 },
 {
@@ -591,7 +573,7 @@ const booksRead =
   author: "Mia Sheridan",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Archer's+Voice",
+  buy: "https://amzn.eu/d/13lvX3j",
   notesHref: "/books/QJXQswEACAAJ/notes"
 },
 {
@@ -600,17 +582,8 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Twisted+Games",
+  buy: "https://amzn.eu/d/dJmao4j",
   notesHref: "/books/a-djEAAAQBAJ/notes"
-},
-{
-  date: "1 giu 2023",
-  title: "Second Semester",
-  author: "Q B Tyler",
-  genre: "",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Second+Semester",
-  notesHref: null
 },
 {
   date: "1 feb 2023",
@@ -618,7 +591,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=King+of+Wrath",
+  buy: "https://amzn.eu/d/4UtiCWF",
   notesHref: null
 },
 {
@@ -627,286 +600,106 @@ const booksRead =
   author: "Elena Armas",
   genre: "Romance",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=The+Spanish+Love+Deception",
+  buy: "https://amzn.eu/d/1FZ5ndn",
   notesHref: "/books/2K-izgEACAAJ/notes"
 },
 {
-  date: "",
-  title: "Il libro di Julian. A Wonder story",
-  author: "R. J. Palacio",
-  genre: "Juvenile Nonfiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Il+libro+di+Julian.+A+Wonder+story",
-  notesHref: null
-},
-{
-  date: "",
+  date: "2021",
   title: "Le notti bianche",
   author: "Fëdor Dostoevskij",
   genre: "Classics",
   rating: "★★☆☆☆",
-  buy: "https://www.amazon.it/s?k=Le+notti+bianche",
+  buy: "https://amzn.eu/d/ckpjQup",
   notesHref: "/books/0JgfMQAACAAJ/notes"
 },
 {
-  date: "",
-  title: "Harry Potter e il Principe Mezzosangue",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Harry+Potter+e+il+Principe+Mezzosangue",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Harry Potter e la pietra filosofale",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Harry+Potter+e+la+pietra+filosofale",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Harry Potter e il calice di fuoco",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Harry+Potter+e+il+calice+di+fuoco",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Frankenstein (B2.2)",
-  author: "Mary Shelley",
-  genre: "Foreign Language Study",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Frankenstein+(B2.2)",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Le fiabe di Beda il Bardo",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Le+fiabe+di+Beda+il+Bardo",
-  notesHref: null
-},
-{
-  date: "",
-  title: "The Strange Case of Dr Jekyll and Mr Hyde (B1.2)",
-  author: "Robert Louis Stevenson",
-  genre: "Foreign Language Study",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=The+Strange+Case+of+Dr+Jekyll+and+Mr+Hyde+(B1.2)",
-  notesHref: null
-},
-{
-  date: "",
-  title: "La locandiera",
-  author: "Carlo Goldoni",
-  genre: "Drama",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=La+locandiera",
-  notesHref: null
-},
-{
-  date: "",
+  date: "2022",
   title: "Volontario ad Auschwitz",
   author: "Jack Fairweather",
   genre: "Historical",
   rating: "★★★★☆",
-  buy: "https://www.amazon.it/s?k=Volontario+ad+Auschwitz",
+  buy: "https://amzn.eu/d/eW1BRIp",
   notesHref: "/books/MuTSzQEACAAJ/notes"
 },
 {
-  date: "",
+  date: "2021",
   title: "I sommersi e i salvati",
   author: "Primo Levi",
   genre: "History",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=I+sommersi+e+i+salvati",
+  buy: "https://amzn.eu/d/fNIAeLm",
   notesHref: "/books/kI6sQgAACAAJ/notes"
 },
 {
-  date: "",
-  title: "Wonder",
-  author: "R. J. Palacio",
-  genre: "Juvenile Nonfiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Wonder",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Millenovecentottantaquattro",
+  date: "2021",
+  title: "1984",
   author: "George Orwell",
   genre: "Classics",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/s?k=Millenovecentottantaquattro",
+  buy: "https://amzn.eu/d/b2fCw8E",
   notesHref: "/books/-BXrDAEACAAJ/notes"
 },
 {
-  date: "",
-  title: "Harry Potter e la camera dei segreti",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Harry+Potter+e+la+camera+dei+segreti",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Gli animali fantastici: dove trovarli. Newt Scamander",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Gli+animali+fantastici:+dove+trovarli.+Newt+Scamander",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Harry Potter e i doni della morte",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Harry+Potter+e+i+doni+della+morte",
-  notesHref: null
-},
-{
-  date: "",
+  date: "2017",
   title: "Se questo è un uomo",
   author: "Primo Levi",
   genre: "Biography",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=Se+questo+è+un+uomo",
+  buy: "https://amzn.eu/d/eMras05",
   notesHref: "/books/AmibCgAAQBAJ/notes"
 },
 {
-  date: "",
+  date: "2021",
   title: "La fattoria degli animali",
   author: "George Orwell",
   genre: "Classics",
   rating: null,
-  buy: "https://www.amazon.it/s?k=La+fattoria+degli+animali",
+  buy: "https://amzn.eu/d/4WLBE6r",
   notesHref: null
 },
 {
-  date: "",
-  title: "Harry Potter e l'Ordine della Fenice",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Harry+Potter+e+l'Ordine+della+Fenice",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Il libro di Charlotte. A Wonder story",
-  author: "R. J. Palacio",
-  genre: "Juvenile Nonfiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Il+libro+di+Charlotte.+A+Wonder+story",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Harry Potter e il prigioniero di Azkaban",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Harry+Potter+e+il+prigioniero+di+Azkaban",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Harry Potter e la maledizione dell'erede. Parte uno e due. Scriptbook. Ediz. speciale",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Harry+Potter+e+la+maledizione+dell'erede.+Parte+uno+e+due.+Scriptbook.+Ediz.+speciale",
-  notesHref: null
-},
-{
-  date: "",
+  date: "2019",
   title: "La tregua",
   author: "Primo Levi",
   genre: "Biography",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=La+tregua",
+  buy: "https://amzn.eu/d/92lS9Bb",
   notesHref: "/books/d3TKQgAACAAJ/notes"
 },
 {
-  date: "",
+  date: "2018",
   title: "La storia infinita",
   author: "Michael Ende",
   genre: "",
   rating: null,
-  buy: "https://www.amazon.it/s?k=La+storia+infinita",
+  buy: "https://amzn.eu/d/57wbZWP",
   notesHref: null
 },
 {
-  date: "",
-  title: "Amleto. Testo inglese a fronte",
-  author: "William Shakespeare",
-  genre: "Drama",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Amleto.+Testo+inglese+a+fronte",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Il quidditch attraverso i secoli. Kennilworthy Whisp",
-  author: "J. K. Rowling",
-  genre: "Juvenile Fiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Il+quidditch+attraverso+i+secoli.+Kennilworthy+Whisp",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Il libro di Christopher. A Wonder story",
-  author: "R. J. Palacio",
-  genre: "Juvenile Nonfiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=Il+libro+di+Christopher.+A+Wonder+story",
-  notesHref: null
-},
-{
-  date: "",
+  date: "2018",
   title: "Pride and Prejudice",
   author: "Collective",
-  genre: "Foreign Language Study",
+  genre: "Foreign Litt.",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Pride+and+Prejudice",
+  buy: "https://amzn.eu/d/5yWigFB",
   notesHref: null
 },
 {
-  date: "",
+  date: "2018",
   title: "Non ho mai avuto la mia età",
   author: "Antonio Dikele Distefano",
   genre: "General",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Non+ho+mai+avuto+la+mia+età",
+  buy: "https://amzn.eu/d/3gPi0aK",
   notesHref: null
 },
 {
-  date: "",
-  title: "The Canterbury Tales. Con CD Audio. Ediz. Ridotta",
-  author: "Geoffrey Chaucer",
-  genre: "Juvenile Nonfiction",
-  rating: null,
-  buy: "https://www.amazon.it/s?k=The+Canterbury+Tales.+Con+CD+Audio.+Ediz.+Ridotta",
-  notesHref: null
-},
-{
-  date: "",
-  title: "Macbeth. Testo inglese a fronte",
+  date: "2019",
+  title: "Macbeth",
   author: "William Shakespeare",
   genre: "Drama",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Macbeth.+Testo+inglese+a+fronte",
+  buy: "https://amzn.eu/d/6sw0m0t",
   notesHref: null
 }
 ]
@@ -944,6 +737,42 @@ const booksReading =
 
 const booksToRead = 
 [
+{
+  date: "",
+  title: "Norwegian Wood",
+  author: "Haruki Murakami",
+  genre: "General",
+  rating: null,
+  buy: "https://amzn.eu/d/de65vk2",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Abel",
+  author: "Alessandro Baricco",
+  genre: "General",
+  rating: null,
+  buy: "https://amzn.eu/d/27yeGCo",
+  notesHref: null
+},
+{
+  date: "",
+  title: "I vagabondi del Dharma",
+  author: "Jack Kerouac",
+  genre: "General",
+  rating: null,
+  buy: "https://amzn.eu/d/g1nuBsv",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Sulla strada",
+  author: "Jack Kerouac",
+  genre: "General",
+  rating: null,
+  buy: "https://amzn.eu/d/ehocPl7",
+  notesHref: null
+},
 {
   date: "",
   title: "Omero, Iliade",
@@ -1079,7 +908,6 @@ const booksToRead =
   buy: "https://www.amazon.it/s?k=Dune.+Il+ciclo+di+Dune",
   notesHref: null
 },
-
 {
   date: "",
   title: "I barbari",
@@ -1100,38 +928,282 @@ const booksToRead =
 },
 {
   date: "",
-  title: "The Inheritance Games",
-  author: "Jennifer Lynn Barnes",
-  genre: "Juvenile Fiction",
+  title: "Barnum 2: Cronache dal Grande Show",
+  author: "Alessandro Baricco",
+  genre: "General",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Inheritance+Games",
+  buy: "https://amzn.eu/d/6mgU856",
   notesHref: null
 },
 {
   date: "",
-  title: "The Hawthorne Legacy",
-  author: "Jennifer Lynn Barnes",
-  genre: "Juvenile Fiction",
+  title: "Il castello errante di Howl - La Trilogia",
+  author: "Diana Wynne Jones",
+  genre: "Fantasy",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Hawthorne+Legacy",
+  buy: "https://amzn.eu/d/6Fug8EZ",
+  notesHref: null
+},
+
+{
+  date: "",
+  title: "Momo, ovvero l'arcana storia dei ladri di tempo e della bambina che restituì agli uomini il tempo trafugato",
+  author: "Michael Ende",
+  genre: "Fantasy",
+  rating: null,
+  buy: "https://amzn.eu/d/gIF2Qfz",
   notesHref: null
 },
 {
   date: "",
-  title: "The Final Gambit",
-  author: "Jennifer Lynn Barnes",
-  genre: "Juvenile Fiction",
+  title: "Coraline",
+  author: "Neil Gaiman",
+  genre: "Fantasy",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Final+Gambit",
+  buy: "https://amzn.eu/d/3EpNUhT",
   notesHref: null
 },
 {
   date: "",
-  title: "The Grandest Game",
-  author: "Jennifer Lynn Barnes",
-  genre: "Young Adult Fiction",
+  title: "City",
+  author: "Alessandro Baricco",
+  genre: "General",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Grandest+Game",
+  buy: "https://amzn.eu/d/hIa17QL",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Il nuovo Barnum",
+  author: "Alessandro Baricco",
+  genre: "General",
+  rating: null,
+  buy: "https://amzn.eu/d/5uZKgNN",
+  notesHref: null
+},
+{
+  date: "",
+  title: "It",
+  author: "Stephen King",
+  genre: "Horror",
+  rating: null,
+  buy: "https://amzn.eu/d/6pNdhpw",
+  notesHref: null
+},
+{
+  date: "",
+  title: "La sfolgorante luce di due stelle rosse",
+  author: "Rupi Kaur",
+  genre: "Poetry",
+  rating: null,
+  buy: "https://amzn.eu/d/6JUy3cf",
+  notesHref: null
+},
+{
+  date: "",
+  title: "La fisica dei supereroi",
+  author: "James Kakalios",
+  genre: "Science",
+  rating: null,
+  buy: "https://amzn.eu/d/ePUXsDQ",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Manituana",
+  author: "Wu Ming",
+  genre: "Historical Fiction",
+  rating: null,
+  buy: "https://amzn.eu/d/5OaCd7F",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Tolkien. Mito e modernità: In difesa della Terra di Mezzo",
+  author: "Wu Ming 4",
+  genre: "Literary Criticism",
+  rating: null,
+  buy: "https://amzn.eu/d/8T9wHEH",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Mr Gwyn",
+  author: "Alessandro Baricco",
+  genre: "General",
+  rating: null,
+  buy: "https://amzn.eu/d/42WibTi",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Il libro dei racconti perduti - prima parte",
+  author: "J.R.R. Tolkien",
+  genre: "Fantasy",
+  rating: null,
+  buy: "https://amzn.eu/d/h9vDW1E",
+  notesHref: null
+},
+{
+  date: "",
+  title: "1Q84 - Libro 1 e 2",
+  author: "Haruki Murakami",
+  genre: "Fiction",
+  rating: null,
+  buy: "https://amzn.eu/d/74QjsmV",
+  notesHref: null
+},
+{
+  date: "",
+  title: "1Q84 - Libro 3",
+  author: "Haruki Murakami",
+  genre: "Fiction",
+  rating: null,
+  buy: "https://amzn.eu/d/3TlBhqS",
+  notesHref: null
+},
+{
+  date: "",
+  title: "I Lai del Beleriand",
+  author: "J.R.R. Tolkien",
+  genre: "Fantasy",
+  rating: null,
+  buy: "https://amzn.eu/d/2bHVh18",
+  notesHref: null
+},
+{
+  date: "",
+  title: "101 Essays That Will Change The Way You Think",
+  author: "Brianna Wiest",
+  genre: "Self-Help",
+  rating: null,
+  buy: "https://amzn.eu/d/5lWgVvl",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Checklist: Come fare andare meglio le cose",
+  author: "Atul Gawande",
+  genre: "Non Fiction",
+  rating: null,
+  buy: "https://amzn.eu/d/0xpFF1G",
+  notesHref: null
+},
+{
+  date: "",
+  title: "I miei giorni alla libreria Morisaki",
+  author: "Satoshi Yagisawa",
+  genre: "Fiction",
+  rating: null,
+  buy: "https://amzn.eu/d/6zI9Gc9",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Non per un dio ma nemmeno per gioco",
+  author: "Chiara Valerio",
+  genre: "General",
+  rating: null,
+  buy: "https://amzn.eu/d/gj8Fwox",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Saggio erotico sulla fine del mondo",
+  author: "Raul Montanari",
+  genre: "Fiction",
+  rating: null,
+  buy: "https://amzn.eu/d/2jtxmoj",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Miti del Nord",
+  author: "Neil Gaiman",
+  genre: "Mythology",
+  rating: null,
+  buy: "https://amzn.eu/d/0HmqcTb",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Questa è l'America - Storie per capire il presente degli Stati Uniti e il nostro futuro",
+  author: "Francesco Costa",
+  genre: "Non Fiction",
+  rating: null,
+  buy: "https://amzn.eu/d/bB2KVGl",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Il cucchiaino scomparso e altre storie della tavola periodica",
+  author: "Sam Kean",
+  genre: "Science",
+  rating: null,
+  buy: "https://amzn.eu/d/etmM7yO",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Normal People",
+  author: "Sally Rooney",
+  genre: "Fiction",
+  rating: null,
+  buy: "https://amzn.eu/d/85CntDL",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Le avventure di Tom Bombadil",
+  author: "J.R.R. Tolkien",
+  genre: "Fantasy",
+  rating: null,
+  buy: "https://amzn.eu/d/hANdpgc",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Strade blu",
+  author: "Valerio Varesi",
+  genre: "Crime",
+  rating: null,
+  buy: "https://amzn.eu/d/5xVlIPy",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Sono tornato per te",
+  author: "Colleen Hoover",
+  genre: "Romance",
+  rating: null,
+  buy: "https://amzn.eu/d/0dSQofq",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Sapiens: Da animali a dèi. Breve storia dell'umanità",
+  author: "Yuval Noah Harari",
+  genre: "History",
+  rating: null,
+  buy: "https://amzn.eu/d/3Wihzts",
+  notesHref: null
+},
+{
+  date: "",
+  title: "La trilogia di K",
+  author: "Roberto Calasso",
+  genre: "General",
+  rating: null,
+  buy: "https://amzn.eu/d/d2FawRq",
+  notesHref: null
+},
+{
+  date: "",
+  title: "Se i gatti scomparissero dal mondo",
+  author: "Genki Kawamura",
+  genre: "Fiction",
+  rating: null,
+  buy: "https://amzn.eu/d/hnS1aiT",
   notesHref: null
 }
 ]
