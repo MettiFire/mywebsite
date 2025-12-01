@@ -19,8 +19,8 @@ const booksRead =
   notesHref: "/books/kTXBwQEACAAJ/notes"
 },
 {
-  date: "8 gen 2018",
-  title: "Il ritorno del re",
+  date: "8 gen 2019",
+  title: "Il Signore degli Anelli - Il ritorno del re",
   author: "J.R.R. Tolkien",
   genre: "Fantasy",
   rating: "★★★★★",
@@ -470,7 +470,7 @@ const booksRead =
 },
 {
   date: "15 ago 2018",
-  title: "Le due torri. Il Signore degli anelli",
+  title: "Il Signore degli Anelli - Le Due Torri",
   author: "John R. R. Tolkien",
   genre: "Fantasy",
   rating: "★★★★★",
@@ -515,7 +515,7 @@ const booksRead =
 },
 {
   date: "13 giu 2018",
-  title: "La compagnia dell'anello. Il Signore degli anelli",
+  title: "Il Signore degli anelli - La compagnia dell'anello",
   author: "John R. R. Tolkien",
   genre: "Fantasy",
   rating: "★★★★★",
