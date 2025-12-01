@@ -69,7 +69,6 @@ function formatGenre(genre: string): string {
   
   // Mappa di abbreviazioni per generi comuni
   const abbreviations: {[key: string]: string} = {
-    "Biography": "Bio.",
     "Philosophy": "Phil.",
     "Self-Help": "Self-H.",
     "Literary Collections": "Lit. Col.",
