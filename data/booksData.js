@@ -6,7 +6,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/King-Envy-English-Ana-Huang-ebook/dp/B0CZV38Z7J/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=380PD5BB05Y2T&dib=eyJ2IjoiMSJ9.JlZfOuMAp8OC7J3KaNnKtrilpX-QY_u9QwTpChz1Rlw_fa8jAv3Q3MweTfuyZ6qkG63kdbTNN-EGZmVpZVQsA-tqtahwCaRR9RLnt62FRtIH53JykhL3hO8XW9GD0RVTShFX4OAcM44C2FbO1QbP3E3AhD7os4uRQZhDnhUfML8pSIGSv1xCRNALnH2-B69JqeMNoptSRs3WC9cGXjzPyw.-YWtzUEMPcHsc7lt17o9OsQbDYNRNeN6Q5f2J7yzrEA&dib_tag=se&keywords=king+of+envy&qid=1764197777&sprefix=king+of+envy%2Caps%2C381&sr=8-1",
+  buy: "https://www.amazon.it/King-Envy-English-Ana-Huang-ebook/dp/B0CZV38Z7J/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=380PD5BB05Y2T&dib=eyJ2IjoiMSJ9.JlZfOuMAp8OC7J3KaNnKtrilpX-QY_u9QwTpChz1Rlw_fa8jAv3Q3MweTfuyZ6qkG63kdbTNN-EGZmVpZVQsA-tqtahwCaRR9RLnt62FRtIH53JykhL3hO8XW9GD0RVTShFX4OAcM44C2FbO1QbP3E3AhD7os4uRQZhDnhUfML8pSIGSv1xCRNALnH2-B69JqeMNoptSRs3WC9cGXjzPyw.-YWtzUEMPcHsc7lt17o9OsQbDYNRNeN6Q5f2J7yzrEA&dib_tag=se&keywords=king+of+envy&qid=1764197777&sprefix=king+of+envy%2Caps%2C381&sr=8-1&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -15,7 +15,7 @@ const booksRead =
   author: "Phil Knight",
   genre: "Biography",
   rating: "★★★☆☆",
-  buy: "https://www.amazon.it/Larte-della-vittoria-Autobiografia-fondatore/dp/8804707534/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2C7N44HUPEUUL&dib=eyJ2IjoiMSJ9.WYR8NR7DQSH6Fk0lWLcECA.-O_8MpcRfMutuD2Timho3lRtDa-skSNVCxPedPI_Veg&dib_tag=se&keywords=L%27arte+della+vittoria.+Autobiografia+del+fondatore+della+Nike&qid=1764197834&sprefix=l%27arte+della+vittoria.+autobiografia+del+fondatore+della+nike%2Caps%2C70&sr=8-1",
+  buy: "https://www.amazon.it/Larte-della-vittoria-Autobiografia-fondatore/dp/8804707534/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2C7N44HUPEUUL&dib=eyJ2IjoiMSJ9.WYR8NR7DQSH6Fk0lWLcECA.-O_8MpcRfMutuD2Timho3lRtDa-skSNVCxPedPI_Veg&dib_tag=se&keywords=L%27arte+della+vittoria.+Autobiografia+del+fondatore+della+Nike&qid=1764197834&sprefix=l%27arte+della+vittoria.+autobiografia+del+fondatore+della+nike%2Caps%2C70&sr=8-1&tag=mywebsitemett-21",
   notesHref: "/books/kTXBwQEACAAJ/notes"
 },
 {
@@ -24,7 +24,7 @@ const booksRead =
   author: "J.R.R. Tolkien",
   genre: "Fantasy",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/fVDpa1E",
+  buy: "https://amzn.eu/d/fVDpa1E?tag=mywebsitemett-21",
   notesHref: "/books/6yTsDwAAQBAJ/notes"
 },
 {
@@ -33,7 +33,7 @@ const booksRead =
   author: "Lauren Asher",
   genre: "Romance",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/ghwmcoP",
+  buy: "https://amzn.eu/d/ghwmcoP?tag=mywebsitemett-21",
   notesHref: "/books/SkpZEAAAQBAJ/notes"
 },
 {
@@ -42,7 +42,7 @@ const booksRead =
   author: "Alì Ehsani",
   genre: "General",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/0tZBJSS",
+  buy: "https://amzn.eu/d/0tZBJSS?tag=mywebsitemett-21",
   notesHref: "/books/GJ5xnQAACAAJ/notes"
 },
 {
@@ -51,7 +51,7 @@ const booksRead =
   author: "Italo Calvino",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/axTBLh8",
+  buy: "https://amzn.eu/d/axTBLh8?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -60,7 +60,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/irlsJv0",
+  buy: "https://amzn.eu/d/irlsJv0?tag=mywebsitemett-21",
   notesHref: "/books/mviMSgAACAAJ/notes"
 },
 {
@@ -69,7 +69,7 @@ const booksRead =
   author: "Ali Hazelwood",
   genre: "Romance",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/4y06rju",
+  buy: "https://amzn.eu/d/4y06rju?tag=mywebsitemett-21",
   notesHref: "/books/yDxJEAAAQBAJ/notes"
 },
 {
@@ -78,7 +78,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/eeSvjGG",
+  buy: "https://amzn.eu/d/eeSvjGG?tag=mywebsitemett-21",
   notesHref: "/books/WlcoEQAAQBAJ/notes"
 },
 {
@@ -87,7 +87,7 @@ const booksRead =
   author: "John Ronald Reuel Tolkien",
   genre: "Fantasy",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/9mW2tJg",
+  buy: "https://amzn.eu/d/9mW2tJg?tag=mywebsitemett-21",
   notesHref: "/books/Plr-ZwEACAAJ/notes"
 },
 {
@@ -96,7 +96,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/4wtQEfN",
+  buy: "https://amzn.eu/d/4wtQEfN?tag=mywebsitemett-21",
   notesHref: "/books/iLf2zgEACAAJ/notes"
 },
 {
@@ -105,7 +105,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/azxWxrW",
+  buy: "https://amzn.eu/d/azxWxrW?tag=mywebsitemett-21",
   notesHref: "/books/JbJiEAAAQBAJ/notes"
 },
 {
@@ -114,7 +114,7 @@ const booksRead =
   author: "Byung-Chul Han",
   genre: "Philosophy",
   rating: null,
-  buy: "https://amzn.eu/d/6jgTnJY",
+  buy: "https://amzn.eu/d/6jgTnJY?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -123,7 +123,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/ha9o3xZ",
+  buy: "https://amzn.eu/d/ha9o3xZ?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -132,7 +132,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/fR1JRdb",
+  buy: "https://amzn.eu/d/fR1JRdb?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -141,7 +141,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/8c3wJwH",
+  buy: "https://amzn.eu/d/8c3wJwH?tag=mywebsitemett-21",
   notesHref: "/books/fyddAAAAMAAJ/notes"
 },
 {
@@ -150,7 +150,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "Literary Collections",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/iT8jhb4",
+  buy: "https://amzn.eu/d/iT8jhb4?tag=mywebsitemett-21",
   notesHref: "/books/xRkHxgEACAAJ/notes"
 },
 {
@@ -159,7 +159,7 @@ const booksRead =
   author: "Camilla Läckberg",
   genre: "Crime",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/iosN7ON",
+  buy: "https://amzn.eu/d/iosN7ON?tag=mywebsitemett-21",
   notesHref: "/books/W4YmEAAAQBAJ/notes"
 },
 {
@@ -168,7 +168,7 @@ const booksRead =
   author: "Elena Armas",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/41wcCs2",
+  buy: "https://amzn.eu/d/41wcCs2?tag=mywebsitemett-21",
   notesHref: "/books/ldNYEAAAQBAJ/notes"
 },
 {
@@ -177,7 +177,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Fiction",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/dyhUiCu",
+  buy: "https://amzn.eu/d/dyhUiCu?tag=mywebsitemett-21",
   notesHref: "/books/04WEEAAAQBAJ/notes"
 },
 {
@@ -186,7 +186,7 @@ const booksRead =
   author: "Jerome David Salinger",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/7VhxSZb",
+  buy: "https://amzn.eu/d/7VhxSZb?tag=mywebsitemett-21",
   notesHref: "/books/asjpAAAAMAAJ/notes"
 },
 {
@@ -195,7 +195,7 @@ const booksRead =
   author: "Italo Calvino",
   genre: "General",
   rating: "★☆☆☆☆",
-  buy: "https://amzn.eu/d/bSV18Qq",
+  buy: "https://amzn.eu/d/bSV18Qq?tag=mywebsitemett-21",
   notesHref: "/books/0MW4DAEACAAJ/notes"
 },
 {
@@ -204,7 +204,7 @@ const booksRead =
   author: "Alan Parks",
   genre: "Mistery",
   rating: null,
-  buy: "https://amzn.eu/d/6Q5Y53F",
+  buy: "https://amzn.eu/d/6Q5Y53F?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -213,7 +213,7 @@ const booksRead =
   author: "John Niven",
   genre: "General",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/0gwLEcE",
+  buy: "https://amzn.eu/d/0gwLEcE?tag=mywebsitemett-21",
   notesHref: "/books/DTsorgEACAAJ/notes"
 },
 {
@@ -222,7 +222,7 @@ const booksRead =
   author: "Jerome David Salinger",
   genre: "General",
   rating: "★★☆☆☆",
-  buy: "https://amzn.eu/d/eUGTrsb",
+  buy: "https://amzn.eu/d/eUGTrsb?tag=mywebsitemett-21",
   notesHref: "/books/B8rpAAAAMAAJ/notes"
 },
 {
@@ -231,7 +231,7 @@ const booksRead =
   author: "Hannah Grace",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/dNc4u1w",
+  buy: "https://amzn.eu/d/dNc4u1w?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -240,7 +240,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Romance",
   rating: "★★★★★",
-  buy: "https://www.amazon.it/s?k=Ugly+Love",
+  buy: "https://www.amazon.it/s?k=Ugly+Love&tag=mywebsitemett-21",
   notesHref: "/books/V7yEAwAAQBAJ/notes"
 },
 {
@@ -249,7 +249,7 @@ const booksRead =
   author: "David Goggins",
   genre: "Biography",
   rating: null,
-  buy: "https://amzn.eu/d/5AezWD5",
+  buy: "https://amzn.eu/d/5AezWD5?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -258,7 +258,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Romance",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/dmrFcnI",
+  buy: "https://amzn.eu/d/dmrFcnI?tag=mywebsitemett-21",
   notesHref: "/books/_srvzgEACAAJ/notes"
 },
 {
@@ -267,7 +267,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/3XKzMag",
+  buy: "https://amzn.eu/d/3XKzMag?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -276,7 +276,7 @@ const booksRead =
   author: "Madeline Miller",
   genre: "Fairy Tales",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/ea90SyL",
+  buy: "https://amzn.eu/d/ea90SyL?tag=mywebsitemett-21",
   notesHref: "/books/h0PjwAEACAAJ/notes"
 },
 {
@@ -285,7 +285,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "Literary Collections",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/3d871jC",
+  buy: "https://amzn.eu/d/3d871jC?tag=mywebsitemett-21",
   notesHref: "/books/atxemQEACAAJ/notes"
 },
 {
@@ -294,7 +294,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "Literary Collections",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/cmSF0ti",
+  buy: "https://amzn.eu/d/cmSF0ti?tag=mywebsitemett-21",
   notesHref: "/books/o_67vAEACAAJ/notes"
 },
 {
@@ -303,7 +303,7 @@ const booksRead =
   author: "Leo Ortolani",
   genre: "Humor",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/hjP9NJy",
+  buy: "https://amzn.eu/d/hjP9NJy?tag=mywebsitemett-21",
   notesHref: "/books/w9K8zgEACAAJ/notes"
 },
 {
@@ -312,7 +312,7 @@ const booksRead =
   author: "John Ronald Reuel Tolkien",
   genre: "Fantasy",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/a6tnxjB",
+  buy: "https://amzn.eu/d/a6tnxjB?tag=mywebsitemett-21",
   notesHref: "/books/oC5-mwEACAAJ/notes"
 },
 {
@@ -321,7 +321,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/0EJffeL",
+  buy: "https://amzn.eu/d/0EJffeL?tag=mywebsitemett-21",
   notesHref: "/books/5nV0BAAAQBAJ/notes"
 },
 {
@@ -330,7 +330,7 @@ const booksRead =
   author: "Paolo Cognetti",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/0Zyw5BJ",
+  buy: "https://amzn.eu/d/0Zyw5BJ?tag=mywebsitemett-21",
   notesHref: "/books/cbZ0DQAAQBAJ/notes"
 },
 {
@@ -339,7 +339,7 @@ const booksRead =
   author: "Elle Kennedy",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/eK3flKd",
+  buy: "https://amzn.eu/d/eK3flKd?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -348,7 +348,7 @@ const booksRead =
   author: "Elle Kennedy",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/f7ZckDs",
+  buy: "https://amzn.eu/d/f7ZckDs?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -357,7 +357,7 @@ const booksRead =
   author: "Jan-Philipp Sendker",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/dAWpux8",
+  buy: "https://amzn.eu/d/dAWpux8?tag=mywebsitemett-21",
   notesHref: "/books/ctJeewAACAAJ/notes"
 },
 {
@@ -366,7 +366,7 @@ const booksRead =
   author: "Elle Kennedy",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/b1Hv3hm",
+  buy: "https://amzn.eu/d/b1Hv3hm?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -375,7 +375,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/b7lkbst",
+  buy: "https://amzn.eu/d/b7lkbst?tag=mywebsitemett-21",
   notesHref: "/books/7Ip_zgEACAAJ/notes"
 },
 {
@@ -384,7 +384,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Fiction",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/bCQXstZ",
+  buy: "https://amzn.eu/d/bCQXstZ?tag=mywebsitemett-21",
   notesHref: "/books/Eka9DAAAQBAJ/notes"
 },
 {
@@ -393,7 +393,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/63T5o5H",
+  buy: "https://amzn.eu/d/63T5o5H?tag=mywebsitemett-21",
   notesHref: "/books/kOdjEAAAQBAJ/notes"
 },
 {
@@ -402,7 +402,7 @@ const booksRead =
   author: "Taylor Jenkins Reid",
   genre: "Women",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/81dIH7a",
+  buy: "https://amzn.eu/d/81dIH7a?tag=mywebsitemett-21",
   notesHref: "/books/s8X3yQEACAAJ/notes"
 },
 {
@@ -411,7 +411,7 @@ const booksRead =
   author: "Haruki Murakami",
   genre: "Biography",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/bgQaXam",
+  buy: "https://amzn.eu/d/bgQaXam?tag=mywebsitemett-21",
   notesHref: "/books/qHAvmgEACAAJ/notes"
 },
 {
@@ -420,7 +420,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/51YLMY6",
+  buy: "https://amzn.eu/d/51YLMY6?tag=mywebsitemett-21",
   notesHref: "/books/RPVFAh2-XcgC/notes"
 },
 {
@@ -429,7 +429,7 @@ const booksRead =
   author: "Dolly Alderton",
   genre: "Biography",
   rating: null,
-  buy: "https://amzn.eu/d/dhsD5JF",
+  buy: "https://amzn.eu/d/dhsD5JF?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -438,7 +438,7 @@ const booksRead =
   author: "Fëdor Mihajlovič Dostoevskij",
   genre: "Classics",
   rating: null,
-  buy: "https://amzn.eu/d/hDKg7on",
+  buy: "https://amzn.eu/d/hDKg7on?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -447,7 +447,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Fiction",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/hqStdaD",
+  buy: "https://amzn.eu/d/hqStdaD?tag=mywebsitemett-21",
   notesHref: "/books/DYc0CwAAQBAJ/notes"
 },
 {
@@ -456,7 +456,7 @@ const booksRead =
   author: "André Aciman",
   genre: "General",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/2oy8LMF",
+  buy: "https://amzn.eu/d/2oy8LMF?tag=mywebsitemett-21",
   notesHref: "/books/5RcaxQEACAAJ/notes"
 },
 {
@@ -465,7 +465,7 @@ const booksRead =
   author: "Colleen Hoover",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/eMJOfwz",
+  buy: "https://amzn.eu/d/eMJOfwz?tag=mywebsitemett-21",
   notesHref: "/books/thm3BgAAQBAJ/notes"
 },
 {
@@ -474,7 +474,7 @@ const booksRead =
   author: "John R. R. Tolkien",
   genre: "Fantasy",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/cIEdhrS",
+  buy: "https://amzn.eu/d/cIEdhrS?tag=mywebsitemett-21",
   notesHref: "/books/3miczgEACAAJ/notes"
 },
 {
@@ -483,7 +483,7 @@ const booksRead =
   author: "Ali Hazelwood",
   genre: "Romance",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/j0u9ZpS",
+  buy: "https://amzn.eu/d/j0u9ZpS?tag=mywebsitemett-21",
   notesHref: "/books/zs1xEAAAQBAJ/notes"
 },
 {
@@ -492,7 +492,7 @@ const booksRead =
   author: "Elle Kennedy",
   genre: "Romance",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/9cNPhXe",
+  buy: "https://amzn.eu/d/9cNPhXe?tag=mywebsitemett-21",
   notesHref: "/books/xIeeDAAAQBAJ/notes"
 },
 {
@@ -501,7 +501,7 @@ const booksRead =
   author: "Musashi Miyamoto",
   genre: "Sports",
   rating: "★★☆☆☆",
-  buy: "https://amzn.eu/d/brKmym9",
+  buy: "https://amzn.eu/d/brKmym9?tag=mywebsitemett-21",
   notesHref: "/books/JW3xzQEACAAJ/notes"
 },
 {
@@ -510,7 +510,7 @@ const booksRead =
   author: "Paulo Coelho",
   genre: "General",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/8sKGDBg",
+  buy: "https://amzn.eu/d/8sKGDBg?tag=mywebsitemett-21",
   notesHref: "/books/UjG6swEACAAJ/notes"
 },
 {
@@ -519,7 +519,7 @@ const booksRead =
   author: "John R. R. Tolkien",
   genre: "Fantasy",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/6pqSJoF",
+  buy: "https://amzn.eu/d/6pqSJoF?tag=mywebsitemett-21",
   notesHref: "/books/EEmczgEACAAJ/notes"
 },
 {
@@ -528,7 +528,7 @@ const booksRead =
   author: "Elle Kennedy",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/beldqgB",
+  buy: "https://amzn.eu/d/beldqgB?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -537,7 +537,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/2saB1Iz",
+  buy: "https://amzn.eu/d/2saB1Iz?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -546,7 +546,7 @@ const booksRead =
   author: "Plato",
   genre: "Philosophy",
   rating: "★★☆☆☆",
-  buy: "https://amzn.eu/d/2aNUQvU",
+  buy: "https://amzn.eu/d/2aNUQvU?tag=mywebsitemett-21",
   notesHref: "/books/GxnlAAAAMAAJ/notes"
 },
 {
@@ -555,7 +555,7 @@ const booksRead =
   author: "Jerome David Salinger",
   genre: "General",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/bNQw0zU",
+  buy: "https://amzn.eu/d/bNQw0zU?tag=mywebsitemett-21",
   notesHref: "/books/BT18ngEACAAJ/notes"
 },
 {
@@ -564,7 +564,7 @@ const booksRead =
   author: "Alessandro Baricco",
   genre: "Drama",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/bAZwYLP",
+  buy: "https://amzn.eu/d/bAZwYLP?tag=mywebsitemett-21",
   notesHref: "/books/bVx9NAEACAAJ/notes"
 },
 {
@@ -573,7 +573,7 @@ const booksRead =
   author: "Mia Sheridan",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/13lvX3j",
+  buy: "https://amzn.eu/d/13lvX3j?tag=mywebsitemett-21",
   notesHref: "/books/QJXQswEACAAJ/notes"
 },
 {
@@ -582,7 +582,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/dJmao4j",
+  buy: "https://amzn.eu/d/dJmao4j?tag=mywebsitemett-21",
   notesHref: "/books/a-djEAAAQBAJ/notes"
 },
 {
@@ -591,7 +591,7 @@ const booksRead =
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/4UtiCWF",
+  buy: "https://amzn.eu/d/4UtiCWF?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -600,7 +600,7 @@ const booksRead =
   author: "Elena Armas",
   genre: "Romance",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/1FZ5ndn",
+  buy: "https://amzn.eu/d/1FZ5ndn?tag=mywebsitemett-21",
   notesHref: "/books/2K-izgEACAAJ/notes"
 },
 {
@@ -609,7 +609,7 @@ const booksRead =
   author: "Fëdor Dostoevskij",
   genre: "Classics",
   rating: "★★☆☆☆",
-  buy: "https://amzn.eu/d/ckpjQup",
+  buy: "https://amzn.eu/d/ckpjQup?tag=mywebsitemett-21",
   notesHref: "/books/0JgfMQAACAAJ/notes"
 },
 {
@@ -618,7 +618,7 @@ const booksRead =
   author: "Jack Fairweather",
   genre: "Historical",
   rating: "★★★★☆",
-  buy: "https://amzn.eu/d/eW1BRIp",
+  buy: "https://amzn.eu/d/eW1BRIp?tag=mywebsitemett-21",
   notesHref: "/books/MuTSzQEACAAJ/notes"
 },
 {
@@ -627,7 +627,7 @@ const booksRead =
   author: "Primo Levi",
   genre: "History",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/fNIAeLm",
+  buy: "https://amzn.eu/d/fNIAeLm?tag=mywebsitemett-21",
   notesHref: "/books/kI6sQgAACAAJ/notes"
 },
 {
@@ -636,7 +636,7 @@ const booksRead =
   author: "George Orwell",
   genre: "Classics",
   rating: "★★★☆☆",
-  buy: "https://amzn.eu/d/b2fCw8E",
+  buy: "https://amzn.eu/d/b2fCw8E?tag=mywebsitemett-21",
   notesHref: "/books/-BXrDAEACAAJ/notes"
 },
 {
@@ -645,7 +645,7 @@ const booksRead =
   author: "Primo Levi",
   genre: "Biography",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/eMras05",
+  buy: "https://amzn.eu/d/eMras05?tag=mywebsitemett-21",
   notesHref: "/books/AmibCgAAQBAJ/notes"
 },
 {
@@ -654,7 +654,7 @@ const booksRead =
   author: "George Orwell",
   genre: "Classics",
   rating: null,
-  buy: "https://amzn.eu/d/4WLBE6r",
+  buy: "https://amzn.eu/d/4WLBE6r?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -663,7 +663,7 @@ const booksRead =
   author: "Primo Levi",
   genre: "Biography",
   rating: "★★★★★",
-  buy: "https://amzn.eu/d/92lS9Bb",
+  buy: "https://amzn.eu/d/92lS9Bb?tag=mywebsitemett-21",
   notesHref: "/books/d3TKQgAACAAJ/notes"
 },
 {
@@ -672,7 +672,7 @@ const booksRead =
   author: "Michael Ende",
   genre: "",
   rating: null,
-  buy: "https://amzn.eu/d/57wbZWP",
+  buy: "https://amzn.eu/d/57wbZWP?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -681,7 +681,7 @@ const booksRead =
   author: "Collective",
   genre: "Foreign Litt.",
   rating: null,
-  buy: "https://amzn.eu/d/5yWigFB",
+  buy: "https://amzn.eu/d/5yWigFB?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -690,7 +690,7 @@ const booksRead =
   author: "Antonio Dikele Distefano",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/3gPi0aK",
+  buy: "https://amzn.eu/d/3gPi0aK?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -699,7 +699,7 @@ const booksRead =
   author: "William Shakespeare",
   genre: "Drama",
   rating: null,
-  buy: "https://amzn.eu/d/6sw0m0t",
+  buy: "https://amzn.eu/d/6sw0m0t?tag=mywebsitemett-21",
   notesHref: null
 }
 ]
@@ -712,7 +712,7 @@ const booksReading =
   author: "Mark Manson",
   genre: "Self-Help",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Subtle+Art+of+Not+Giving+a+F*ck",
+  buy: "https://www.amazon.it/s?k=The+Subtle+Art+of+Not+Giving+a+F*ck&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -721,7 +721,7 @@ const booksReading =
   author: "James Clear",
   genre: "Self-Help",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Atomic+Habits",
+  buy: "https://www.amazon.it/s?k=Atomic+Habits&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -730,7 +730,7 @@ const booksReading =
   author: "Alberto Angela",
   genre: "History",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Una+giornata+nell'antica+Roma.+Vita+quotidiana,+segreti+e+curiosità",
+  buy: "https://www.amazon.it/s?k=Una+giornata+nell'antica+Roma.+Vita+quotidiana,+segreti+e+curiosità&tag=mywebsitemett-21",
   notesHref: null
 }
 ]
@@ -743,7 +743,7 @@ const booksToRead =
   author: "Haruki Murakami",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/de65vk2",
+  buy: "https://amzn.eu/d/de65vk2?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -752,7 +752,7 @@ const booksToRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/27yeGCo",
+  buy: "https://amzn.eu/d/27yeGCo?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -761,7 +761,7 @@ const booksToRead =
   author: "Jack Kerouac",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/g1nuBsv",
+  buy: "https://amzn.eu/d/g1nuBsv?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -770,7 +770,7 @@ const booksToRead =
   author: "Jack Kerouac",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/ehocPl7",
+  buy: "https://amzn.eu/d/ehocPl7?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -779,7 +779,7 @@ const booksToRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Omero,+Iliade",
+  buy: "https://www.amazon.it/s?k=Omero,+Iliade&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -788,7 +788,7 @@ const booksToRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Questa+storia",
+  buy: "https://www.amazon.it/s?k=Questa+storia&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -797,7 +797,7 @@ const booksToRead =
   author: "Benjamin Stevenson",
   genre: "Mistery",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Tutti+nella+mia+famiglia+hanno+ucciso+qualcuno",
+  buy: "https://www.amazon.it/s?k=Tutti+nella+mia+famiglia+hanno+ucciso+qualcuno&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -806,7 +806,7 @@ const booksToRead =
   author: "Jerome David Salinger",
   genre: "General",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Nove+racconti",
+  buy: "https://www.amazon.it/s?k=Nove+racconti&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -815,7 +815,7 @@ const booksToRead =
   author: "Jerome David Salinger",
   genre: "",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Hapworth+16,+1924",
+  buy: "https://www.amazon.it/s?k=Hapworth+16,+1924&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -824,7 +824,7 @@ const booksToRead =
   author: "Mervyn Peake",
   genre: "Fantasy",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Gormenghast",
+  buy: "https://www.amazon.it/s?k=Gormenghast&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -833,7 +833,7 @@ const booksToRead =
   author: "J. J. Abrams",
   genre: "Fantasy",
   rating: null,
-  buy: "https://www.amazon.it/s?k=S.+La+nave+di+Teseo+di+V.+M.+Straka",
+  buy: "https://www.amazon.it/s?k=S.+La+nave+di+Teseo+di+V.+M.+Straka&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -842,7 +842,7 @@ const booksToRead =
   author: "Marcus Du Sautoy",
   genre: "Business",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Thinking+Better",
+  buy: "https://www.amazon.it/s?k=Thinking+Better&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -851,7 +851,7 @@ const booksToRead =
   author: "Tessa Bailey",
   genre: "Romance",
   rating: null,
-  buy: "https://www.amazon.it/s?k=It+Happened+One+Summer",
+  buy: "https://www.amazon.it/s?k=It+Happened+One+Summer&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -860,7 +860,7 @@ const booksToRead =
   author: "J.R.R. Tolkien",
   genre: "Fantasy",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Il+libro+dei+racconti+perduti+-+seconda+parte",
+  buy: "https://www.amazon.it/s?k=Il+libro+dei+racconti+perduti+-+seconda+parte&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -869,7 +869,7 @@ const booksToRead =
   author: "Michele Filgate",
   genre: "General",
   rating: null,
-  buy: "https://www.amazon.it/s?k=What+My+Mother+and+I+Don't+Talk+About",
+  buy: "https://www.amazon.it/s?k=What+My+Mother+and+I+Don't+Talk+About&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -878,7 +878,7 @@ const booksToRead =
   author: "Matthew McConaughey",
   genre: "General",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Greenlights",
+  buy: "https://www.amazon.it/s?k=Greenlights&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -887,7 +887,7 @@ const booksToRead =
   author: "Jordan Belfort",
   genre: "Biography",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Il+lupo+di+Wall+Street",
+  buy: "https://www.amazon.it/s?k=Il+lupo+di+Wall+Street&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -896,7 +896,7 @@ const booksToRead =
   author: "Freida McFadden",
   genre: "Thriller",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Housemaid",
+  buy: "https://www.amazon.it/s?k=The+Housemaid&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -905,7 +905,7 @@ const booksToRead =
   author: "Frank Herbert",
   genre: "Science Fiction",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Dune.+Il+ciclo+di+Dune",
+  buy: "https://www.amazon.it/s?k=Dune.+Il+ciclo+di+Dune&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -914,7 +914,7 @@ const booksToRead =
   author: "Alessandro Baricco",
   genre: "Non Fiction",
   rating: null,
-  buy: "https://www.amazon.it/s?k=I+barbari",
+  buy: "https://www.amazon.it/s?k=I+barbari&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -923,7 +923,7 @@ const booksToRead =
   author: "J.R.R. Tolkien",
   genre: "Fantasy",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Il+Silmarillion",
+  buy: "https://www.amazon.it/s?k=Il+Silmarillion&tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -932,7 +932,7 @@ const booksToRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/6mgU856",
+  buy: "https://amzn.eu/d/6mgU856?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -941,7 +941,7 @@ const booksToRead =
   author: "Diana Wynne Jones",
   genre: "Fantasy",
   rating: null,
-  buy: "https://amzn.eu/d/6Fug8EZ",
+  buy: "https://amzn.eu/d/6Fug8EZ?tag=mywebsitemett-21",
   notesHref: null
 },
 
@@ -951,7 +951,7 @@ const booksToRead =
   author: "Michael Ende",
   genre: "Fantasy",
   rating: null,
-  buy: "https://amzn.eu/d/gIF2Qfz",
+  buy: "https://amzn.eu/d/gIF2Qfz?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -960,7 +960,7 @@ const booksToRead =
   author: "Neil Gaiman",
   genre: "Fantasy",
   rating: null,
-  buy: "https://amzn.eu/d/3EpNUhT",
+  buy: "https://amzn.eu/d/3EpNUhT?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -969,7 +969,7 @@ const booksToRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/hIa17QL",
+  buy: "https://amzn.eu/d/hIa17QL?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -978,7 +978,7 @@ const booksToRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/5uZKgNN",
+  buy: "https://amzn.eu/d/5uZKgNN?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -987,7 +987,7 @@ const booksToRead =
   author: "Stephen King",
   genre: "Horror",
   rating: null,
-  buy: "https://amzn.eu/d/6pNdhpw",
+  buy: "https://amzn.eu/d/6pNdhpw?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -996,7 +996,7 @@ const booksToRead =
   author: "Rupi Kaur",
   genre: "Poetry",
   rating: null,
-  buy: "https://amzn.eu/d/6JUy3cf",
+  buy: "https://amzn.eu/d/6JUy3cf?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1005,7 +1005,7 @@ const booksToRead =
   author: "James Kakalios",
   genre: "Science",
   rating: null,
-  buy: "https://amzn.eu/d/ePUXsDQ",
+  buy: "https://amzn.eu/d/ePUXsDQ?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1014,7 +1014,7 @@ const booksToRead =
   author: "Wu Ming",
   genre: "Historical Fiction",
   rating: null,
-  buy: "https://amzn.eu/d/5OaCd7F",
+  buy: "https://amzn.eu/d/5OaCd7F?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1023,7 +1023,7 @@ const booksToRead =
   author: "Wu Ming 4",
   genre: "Literary Criticism",
   rating: null,
-  buy: "https://amzn.eu/d/8T9wHEH",
+  buy: "https://amzn.eu/d/8T9wHEH?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1032,7 +1032,7 @@ const booksToRead =
   author: "Alessandro Baricco",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/42WibTi",
+  buy: "https://amzn.eu/d/42WibTi?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1041,7 +1041,7 @@ const booksToRead =
   author: "J.R.R. Tolkien",
   genre: "Fantasy",
   rating: null,
-  buy: "https://amzn.eu/d/h9vDW1E",
+  buy: "https://amzn.eu/d/h9vDW1E?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1050,7 +1050,7 @@ const booksToRead =
   author: "Haruki Murakami",
   genre: "Fiction",
   rating: null,
-  buy: "https://amzn.eu/d/74QjsmV",
+  buy: "https://amzn.eu/d/74QjsmV?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1059,7 +1059,7 @@ const booksToRead =
   author: "Haruki Murakami",
   genre: "Fiction",
   rating: null,
-  buy: "https://amzn.eu/d/3TlBhqS",
+  buy: "https://amzn.eu/d/3TlBhqS?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1068,7 +1068,7 @@ const booksToRead =
   author: "J.R.R. Tolkien",
   genre: "Fantasy",
   rating: null,
-  buy: "https://amzn.eu/d/2bHVh18",
+  buy: "https://amzn.eu/d/2bHVh18?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1077,7 +1077,7 @@ const booksToRead =
   author: "Brianna Wiest",
   genre: "Self-Help",
   rating: null,
-  buy: "https://amzn.eu/d/5lWgVvl",
+  buy: "https://amzn.eu/d/5lWgVvl?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1086,7 +1086,7 @@ const booksToRead =
   author: "Atul Gawande",
   genre: "Non Fiction",
   rating: null,
-  buy: "https://amzn.eu/d/0xpFF1G",
+  buy: "https://amzn.eu/d/0xpFF1G?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1095,7 +1095,7 @@ const booksToRead =
   author: "Satoshi Yagisawa",
   genre: "Fiction",
   rating: null,
-  buy: "https://amzn.eu/d/6zI9Gc9",
+  buy: "https://amzn.eu/d/6zI9Gc9?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1104,7 +1104,7 @@ const booksToRead =
   author: "Chiara Valerio",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/gj8Fwox",
+  buy: "https://amzn.eu/d/gj8Fwox?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1113,7 +1113,7 @@ const booksToRead =
   author: "Raul Montanari",
   genre: "Fiction",
   rating: null,
-  buy: "https://amzn.eu/d/2jtxmoj",
+  buy: "https://amzn.eu/d/2jtxmoj?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1122,7 +1122,7 @@ const booksToRead =
   author: "Neil Gaiman",
   genre: "Mythology",
   rating: null,
-  buy: "https://amzn.eu/d/0HmqcTb",
+  buy: "https://amzn.eu/d/0HmqcTb?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1131,7 +1131,7 @@ const booksToRead =
   author: "Francesco Costa",
   genre: "Non Fiction",
   rating: null,
-  buy: "https://amzn.eu/d/bB2KVGl",
+  buy: "https://amzn.eu/d/bB2KVGl?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1140,7 +1140,7 @@ const booksToRead =
   author: "Sam Kean",
   genre: "Science",
   rating: null,
-  buy: "https://amzn.eu/d/etmM7yO",
+  buy: "https://amzn.eu/d/etmM7yO?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1149,7 +1149,7 @@ const booksToRead =
   author: "Sally Rooney",
   genre: "Fiction",
   rating: null,
-  buy: "https://amzn.eu/d/85CntDL",
+  buy: "https://amzn.eu/d/85CntDL?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1158,7 +1158,7 @@ const booksToRead =
   author: "J.R.R. Tolkien",
   genre: "Fantasy",
   rating: null,
-  buy: "https://amzn.eu/d/hANdpgc",
+  buy: "https://amzn.eu/d/hANdpgc?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1167,7 +1167,7 @@ const booksToRead =
   author: "Valerio Varesi",
   genre: "Crime",
   rating: null,
-  buy: "https://amzn.eu/d/5xVlIPy",
+  buy: "https://amzn.eu/d/5xVlIPy?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1176,7 +1176,7 @@ const booksToRead =
   author: "Colleen Hoover",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/0dSQofq",
+  buy: "https://amzn.eu/d/0dSQofq?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1185,7 +1185,7 @@ const booksToRead =
   author: "Yuval Noah Harari",
   genre: "History",
   rating: null,
-  buy: "https://amzn.eu/d/3Wihzts",
+  buy: "https://amzn.eu/d/3Wihzts?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1194,7 +1194,7 @@ const booksToRead =
   author: "Roberto Calasso",
   genre: "General",
   rating: null,
-  buy: "https://amzn.eu/d/d2FawRq",
+  buy: "https://amzn.eu/d/d2FawRq?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -1203,7 +1203,7 @@ const booksToRead =
   author: "Genki Kawamura",
   genre: "Fiction",
   rating: null,
-  buy: "https://amzn.eu/d/hnS1aiT",
+  buy: "https://amzn.eu/d/hnS1aiT?tag=mywebsitemett-21",
   notesHref: null
 }
 ]
