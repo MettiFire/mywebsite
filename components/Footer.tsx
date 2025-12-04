@@ -8,7 +8,8 @@ export function Footer() {
       <div className="max-w-3xl mx-auto flex justify-between items-center text-text-secondary">
         <div className="text-sm">© 2025{" "} 
           <a 
-            href="*/privacy" 
+            href="/privacy"
+            className="hover:text-link-hover"
           >
             Anna Mettifogo
           </a>
