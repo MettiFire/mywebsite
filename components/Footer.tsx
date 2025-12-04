@@ -9,7 +9,6 @@ export function Footer() {
         <div className="text-sm">© 2025{" "} 
           <a 
             href="/privacy"
-            className="hover:text-link-hover"
           >
             Anna Mettifogo
           </a>
