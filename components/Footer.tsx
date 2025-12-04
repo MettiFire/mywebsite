@@ -6,7 +6,14 @@ export function Footer() {
   return (
     <footer className="w-full bg-bg-primary dark:border-gray-800 py-16 px-12">
       <div className="max-w-3xl mx-auto flex justify-between items-center text-text-secondary">
-        <div className="text-sm">© 2025 Anna Mettifogo</div>
+        <div className="text-sm">© 2025{" "} 
+          <a 
+            href="*/privacy" 
+            className="underline opacity-80 hover:opacity-100 transition"
+          >
+            Anna Mettifogo
+          </a>
+        </div>
         <div className="flex items-center space-x-8 pr-4">
           <a href="https://www.linkedin.com/in/anna-mettifogo-a37751292/" target="_blank" rel="noopener noreferrer" className="hover:text-link-hover" aria-label="LinkedIn" title="LinkedIn">
             <FaLinkedin size={22} />
