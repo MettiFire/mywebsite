@@ -723,7 +723,7 @@ const booksReading =
   rating: null,
   buy: "https://amzn.eu/d/4anCXCo?tag=mywebsitemett-21",
   notesHref: null
-},
+}, 
 {
   date: "14 mar 2024",
   title: "Una giornata nell'antica Roma. Vita quotidiana, segreti e curiosità",
