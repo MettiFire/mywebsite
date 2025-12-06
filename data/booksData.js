@@ -712,7 +712,7 @@ const booksReading =
   author: "Mark Manson",
   genre: "Self-Help",
   rating: null,
-  buy: "https://www.amazon.it/s?k=The+Subtle+Art+of+Not+Giving+a+F*ck&tag=mywebsitemett-21",
+  buy: "https://amzn.eu/d/6604hes?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -721,7 +721,7 @@ const booksReading =
   author: "James Clear",
   genre: "Self-Help",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Atomic+Habits&tag=mywebsitemett-21",
+  buy: "https://amzn.eu/d/4anCXCo?tag=mywebsitemett-21",
   notesHref: null
 },
 {
@@ -730,7 +730,7 @@ const booksReading =
   author: "Alberto Angela",
   genre: "History",
   rating: null,
-  buy: "https://www.amazon.it/s?k=Una+giornata+nell'antica+Roma.+Vita+quotidiana,+segreti+e+curiosità&tag=mywebsitemett-21",
+  buy: "https://amzn.eu/d/7QoLrnN?tag=mywebsitemett-21",
   notesHref: null
 }
 ]
