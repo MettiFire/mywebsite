@@ -1,6 +1,15 @@
 const booksRead = 
 [
 {
+  date: "11 dec 2025",
+  title: "If We Ever Meet Again",
+  author: "Ana Huang",
+  genre: "Romance",
+  rating: "★★★☆☆",
+  buy: "https://amzn.eu/d/9am8apq?tag=mywebsitemett-21",
+  notesHref: null
+},
+{
   date: "9 mag 2025",
   title: "King of Envy",
   author: "Ana Huang",
@@ -706,8 +715,18 @@ const booksRead =
 
 const booksReading = 
 [
+  
 {
-  date: "8 dic 2024",
+  date: "11 dic 2025",
+  title: "If The Sun Never Sets",
+  author: "Ana Huang",
+  genre: "Romance",
+  rating: null,
+  buy: "https://amzn.eu/d/dxGfZot?tag=mywebsitemett-21",
+  notesHref: null
+},
+{
+  date: "8 dic 2024", 
   title: "The Subtle Art of Not Giving a F*ck",
   author: "Mark Manson",
   genre: "Self-Help",
