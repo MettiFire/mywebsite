@@ -1,6 +1,15 @@
 const booksRead = 
 [
 {
+  date: "27 dec 2025",
+  title: "If The Sun Never Sets",
+  author: "Ana Huang",
+  genre: "Romance",
+  rating: "★★★☆☆",
+  buy: "https://amzn.eu/d/dxGfZot?tag=mywebsitemett-21",
+  notesHref: null
+},
+{
   date: "11 dec 2025",
   title: "If We Ever Meet Again",
   author: "Ana Huang",
@@ -718,11 +727,11 @@ const booksReading =
   
 {
   date: "11 dic 2025",
-  title: "If The Sun Never Sets",
+  title: "If Love Had a Price",
   author: "Ana Huang",
   genre: "Romance",
   rating: null,
-  buy: "https://amzn.eu/d/dxGfZot?tag=mywebsitemett-21",
+  buy: "https://amzn.eu/d/73DAhy0?tag=mywebsitemett-21",
   notesHref: null
 },
 {
