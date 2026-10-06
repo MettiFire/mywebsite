@@ -79,7 +79,7 @@
       right: 10%;
       width: 420px;
       height: 420px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(147, 51, 234, 0.08) 55%, transparent 70%);
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(34, 197, 94, 0.12) 42%, rgba(147, 51, 234, 0.08) 65%, transparent 70%);
       filter: blur(90px);
       z-index: 0;
       pointer-events: none;
@@ -92,7 +92,7 @@
       left: -150px;
       width: 350px;
       height: 350px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(34, 197, 94, 0.12) 42%, transparent 65%);
       filter: blur(75px);
       z-index: 0;
       pointer-events: none;
@@ -120,7 +120,7 @@
 
     /* Frosted Glass Cards */
     .glass-card {
-      background: linear-gradient(135deg, rgba(25, 30, 58, 0.6) 0%, rgba(13, 16, 35, 0.75) 100%);
+      background: linear-gradient(135deg, rgba(25, 30, 58, 0.6) 0%, rgba(20, 55, 52, 0.28) 48%, rgba(13, 16, 35, 0.75) 100%);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -145,7 +145,7 @@
     /* Interactive Link Button with Edge-Glow & Shine */
     .link-action-card {
       position: relative;
-      background: linear-gradient(135deg, rgba(23, 28, 56, 0.7) 0%, rgba(14, 18, 40, 0.85) 100%);
+      background: linear-gradient(135deg, rgba(23, 28, 56, 0.7) 0%, rgba(20, 55, 52, 0.2) 48%, rgba(14, 18, 40, 0.85) 100%);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.09);
@@ -251,11 +251,19 @@
         Software Dev Engineer @ Sensia 
       </div>
 
-      <!-- Bio / Description -->
-      <p class="text-slate-300 text-sm sm:text-[14.5px] leading-relaxed max-w-sm px-2 text-balance font-normal">
-        Completing my M.Sc. in Computer Science & Engineering @PoliMi while engineering solutions as a Software Dev Engineer at <span class="text-white font-medium underline underline-offset-2 decoration-violet-400/50">Sensia</span>. 
-        Outside the terminal, I&apos;m a black belt karateka and endurance sports enthusiast.
-      </p>
+      <!-- About Me -->
+      <section class="w-full glass-card rounded-2xl p-4 sm:p-5 mt-1 text-left">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2 font-display mb-2">
+          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9 9 0 1118.879 17.8M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          About Me
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-[14.5px] leading-relaxed font-normal">
+          M.Sc. in Computer Science & Engineering @PoliMi while engineering solutions as a Software Dev Engineer at <span class="text-white font-medium underline underline-offset-2 decoration-emerald-400/50">Sensia</span>.
+          Outside the terminal, I&apos;m a black belt karateka and endurance sports enthusiast.
+        </p>
+      </section>
     </header>
 
     <!-- "Let's Talk About" Section -->
@@ -346,9 +354,9 @@
         <div class="flex items-center space-x-3.5 min-w-0">
           <!-- Icon Container -->
           <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-violet-600/20 to-fuchsia-600/30 border border-violet-400/20 flex items-center justify-center text-violet-400 group-hover:text-white group-hover:from-violet-600 group-hover:to-fuchsia-600 transition-all duration-300 shadow-inner">
-            <!-- Sensia / Sparkles / Innovation SVG Icon -->
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <!-- Sensia logo -->
+            <svg class="w-6 h-6" viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="currentColor" d="M24.2 6.5H13.5c-4.1 0-7.2 2.6-7.2 6.1 0 3.2 2.3 5.2 5.9 5.8l3.5.6c1.2.2 1.9.8 1.9 1.7 0 1.1-1 1.8-2.5 1.8H7.7L5.8 26.5h10.8c4.1 0 7.2-2.6 7.2-6.1 0-3.2-2.3-5.2-5.9-5.8l-3.5-.6c-1.2-.2-1.9-.8-1.9-1.7 0-1.1 1-1.8 2.5-1.8h7.3l1.9-4Z" />
             </svg>
           </div>
 
@@ -357,9 +365,6 @@
             <div class="flex items-center gap-1.5">
               <span class="text-sm sm:text-base font-semibold text-white tracking-tight group-hover:text-violet-200 transition-colors">
                 Sensia
-              </span>
-              <span class="text-[10px] px-2 py-0.5 rounded-full font-medium bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
-                Project
               </span>
             </div>
             <span class="text-xs text-slate-400 font-normal truncate">
