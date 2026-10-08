@@ -545,6 +545,18 @@
       </button>
     </div>
 
+    <!-- Save Contact -->
+    <button
+      id="saveContactBtn"
+      type="button"
+      class="inline-flex items-center gap-2.5 rounded-xl border border-emerald-400/20 bg-emerald-500/10 px-5 py-3 text-sm font-semibold text-emerald-300 transition-colors hover:bg-emerald-500/20 hover:text-white"
+    >
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14M5 4h10l4 4v12H5V4zm10 0v4h4" />
+      </svg>
+      Save Contact
+    </button>
+
     <!-- Notification Toast Popup (replaces default alerts) -->
     <div id="toastNotification" class="fixed bottom-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none px-4 py-2.5 rounded-full bg-violet-600 text-white text-xs font-medium shadow-lg shadow-violet-500/30 flex items-center gap-2">
       <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -634,6 +646,37 @@
         document.body.removeChild(tempInput);
         showToast('Card link copied to clipboard!');
       }
+    });
+
+    // Download a pre-filled vCard that can be opened in the phone contacts app
+    const saveContactBtn = document.getElementById('saveContactBtn');
+    saveContactBtn.addEventListener('click', () => {
+      const vCard = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'FN:Anna Mettifogo',
+        'N:Mettifogo;Anna;;;',
+        'ORG:Sensia',
+        'TITLE:Software Dev Engineer',
+        'EMAIL;TYPE=INTERNET:anna.mettifogo@gmail.com',
+        'URL:https://github.com/MettiFire',
+        'URL:https://www.linkedin.com/in/anna-mettifogo-a37751292',
+        'URL:https://sensia.bio',
+        'URL:https://tomodachitv.lovable.app',
+        'NOTE:M.Sc. in Computer Science & Engineering @ PoliMi',
+        'END:VCARD',
+      ].join('\r\n');
+
+      const contactBlob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
+      const contactUrl = URL.createObjectURL(contactBlob);
+      const downloadLink = document.createElement('a');
+      downloadLink.href = contactUrl;
+      downloadLink.download = 'anna-mettifogo.vcf';
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
+      URL.revokeObjectURL(contactUrl);
+      showToast('Contact card ready to save');
     });
 
     
