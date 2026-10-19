@@ -131,7 +131,6 @@ export default function TasksApp() {
     const from = fmt(addDays(week, -7));
     const to = fmt(addDays(week, 20));
     const res = await fetch(`/api/tasks?from=${from}&to=${to}`);
-    if (res.status === 401) { window.location.href = "/tasks/login"; return; }
     const j = await res.json().catch(() => ({ error: `errore ${res.status}` }));
     if (j.error) { notify(j.error); return; }
     if (j.lists?.length) setLists(j.lists);
@@ -154,7 +153,6 @@ export default function TasksApp() {
     try {
       const q = mode === "force" ? "?force=1" : mode === "full" ? "?full=1" : "";
       const res = await fetch(`/api/tasks/sync${q}`, { method: "POST" });
-      if (res.status === 401) { window.location.href = "/tasks/login"; return; }
       const j = await res.json().catch(() => ({ error: `errore ${res.status}` }));
       if (j.error) { setSyncErr(j.error); if (mode !== "auto") notify(`Sync non riuscito: ${j.error}`); }
       else { setSyncErr(""); if (!j.skipped) setLastSync(new Date()); }
@@ -190,7 +188,6 @@ export default function TasksApp() {
 
   async function call(path: string, init: RequestInit) {
     const res = await fetch(path, { ...init, headers: { "Content-Type": "application/json" } });
-    if (res.status === 401) { window.location.href = "/tasks/login"; return null; }
     const j = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(j.error ?? `errore ${res.status}`);
     return j;
@@ -401,14 +398,6 @@ export default function TasksApp() {
               <button onClick={() => { setWeek(mondayOf(new Date())); setMenu(false); }}>Vai a oggi</button>
               <button onClick={() => { setHistory(true); setMenu(false); }}>Storico</button>
               <button onClick={() => { sync("full"); setMenu(false); }}>Risincronizza tutto</button>
-              <button
-                onClick={async () => {
-                  await fetch("/api/tasks/auth", { method: "DELETE" });
-                  window.location.href = "/tasks/login";
-                }}
-              >
-                Esci
-              </button>
               <div className="meta">
                 {syncErr
                   ? `Errore sync: ${syncErr}`
