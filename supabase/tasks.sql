@@ -47,3 +47,21 @@ create table if not exists public.tw_sync_state (
 alter table public.tw_tasks enable row level security;
 alter table public.tw_task_events enable row level security;
 alter table public.tw_sync_state enable row level security;
+
+-- Ricorrenze gestite da noi (Tweek free non le permette via API):
+-- ogni serie genera task normali in Tweek, collegati con tw_tasks.local->>'series_id'.
+create table if not exists public.tw_series (
+  id uuid primary key default gen_random_uuid(),
+  calendar_id text not null,
+  text text not null,
+  note text,
+  color text,
+  freq text not null check (freq in ('daily', 'weekdays', 'weekly', 'biweekly', 'monthly', 'yearly')),
+  dt_start date not null,
+  last_generated date,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  deleted_at timestamptz
+);
+create index if not exists tw_tasks_series_idx on public.tw_tasks ((local->>'series_id')) where deleted_at is null;
+alter table public.tw_series enable row level security;

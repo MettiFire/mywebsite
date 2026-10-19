@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { admin } from "@/lib/supabase-admin";
 import { guard } from "@/lib/tasks-auth";
 import { createLocalAndRemote } from "@/lib/tasks-store";
-import { defaultTarget } from "@/lib/sync";
+import { defaultTarget, getState } from "@/lib/sync";
+import { activeSeries } from "@/lib/series";
+import { toView } from "@/lib/tasks-view";
 
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -17,14 +19,23 @@ export async function GET(req: NextRequest) {
   }
 
   const db = admin();
-  const [dated, someday, target] = await Promise.all([
+  const [dated, someday, target, series, palette, tweekColors] = await Promise.all([
     db.from("tw_tasks").select("*").is("deleted_at", null).gte("date", from).lte("date", to).order("created_at"),
     db.from("tw_tasks").select("*").is("deleted_at", null).is("date", null).order("created_at"),
     defaultTarget().catch(() => null),
+    activeSeries(),
+    getState<string[]>("palette"),
+    getState<unknown[]>("tweek_colors"),
   ]);
   const err = dated.error ?? someday.error;
   if (err) return NextResponse.json({ error: err.message }, { status: 500 });
-  return NextResponse.json({ tasks: dated.data, someday: someday.data, lists: target?.lists ?? [] });
+  return NextResponse.json({
+    tasks: (dated.data ?? []).map((r) => toView(r, series)),
+    someday: (someday.data ?? []).map((r) => toView(r, series)),
+    lists: target?.lists ?? [],
+    palette: palette ?? [],
+    tweekColors: tweekColors ?? [],
+  });
 }
 
 export async function POST(req: NextRequest) {
@@ -41,7 +52,7 @@ export async function POST(req: NextRequest) {
       text, date: b.date ?? null, someday: !!b.someday, listId: typeof b.listId === "string" ? b.listId : null,
       note: b.note ?? null, color: b.color ?? null,
     });
-    return NextResponse.json({ task }, { status: 201 });
+    return NextResponse.json({ task: toView(task, await activeSeries()) }, { status: 201 });
   } catch (e) {
     return NextResponse.json({ error: (e as Error).message }, { status: 502 });
   }

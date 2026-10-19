@@ -57,6 +57,12 @@ export const getCalendars = async () => {
   return Array.isArray(r) ? r : r.data;
 };
 
+export type TweekColor = { id: string; color: string; backgroundColor: string };
+export const getCustomColors = async () => {
+  const r = await call<TweekColor[] | { data: TweekColor[] }>("/custom-colors");
+  return Array.isArray(r) ? r : r.data;
+};
+
 export const listTasks = (p: Record<string, string | undefined>) =>
   call<{ data: TweekTask[]; nextDocId: string | null }>("/tasks" + qs(p));
 

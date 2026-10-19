@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { COLORS, colorOf } from "./colors";
 import { longLabel, parse } from "./dates";
 import { Calendar, Check, CheckFilled, Close, Palette, Repeat, Subtasks, Trash } from "./icons";
-import type { List, Patch, Sub, Task } from "./types";
+import { REPEATS, repeatLabel, type List, type Patch, type Sub, type Task } from "./types";
 
 function autosize(el: HTMLTextAreaElement | null) {
   if (!el) return;
@@ -17,10 +17,13 @@ const subKey = (l: Sub[] | null) => JSON.stringify((l ?? []).map((s) => [s.text,
 const sameSubs = (a: Sub[] | null, b: Sub[] | null) => subKey(a) === subKey(b);
 
 export default function TaskModal({
-  task, lists, onPatch, onDelete, onClose,
+  task, lists, palette, onPatch, onDelete, onClose, onAddColor, onRemoveColor,
 }: {
   task: Task;
   lists: List[];
+  palette: string[];
+  onAddColor: (hex: string) => void;
+  onRemoveColor: (hex: string) => void;
   onPatch: (p: Patch) => void;
   onDelete: () => void;
   onClose: () => void;
@@ -28,7 +31,8 @@ export default function TaskModal({
   const [text, setText] = useState(task.text);
   const [note, setNote] = useState(task.note ?? "");
   const [subs, setSubs] = useState<Sub[]>(task.checklist ?? []);
-  const [pop, setPop] = useState<null | "color" | "date">(null);
+  const [pop, setPop] = useState<null | "color" | "date" | "repeat">(null);
+  const pickerRef = useRef<HTMLInputElement>(null);
   const titleRef = useRef<HTMLTextAreaElement>(null);
   const noteRef = useRef<HTMLTextAreaElement>(null);
   const subRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -62,6 +66,16 @@ export default function TaskModal({
     return () => window.removeEventListener("keydown", onKey);
   }); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // L'input colore nativo emette "input" a ogni movimento: salvo solo al "change" finale.
+  useEffect(() => {
+    const el = pickerRef.current;
+    if (!el) return;
+    const onChange = () => { onAddColor(el.value); onPatch({ color: el.value }); setPop(null); };
+    el.addEventListener("change", onChange);
+    return () => el.removeEventListener("change", onChange);
+  }, [pop]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const repeating = repeatLabel(task.repeat);
   const where = task.date
     ? longLabel(parse(task.date))
     : `Someday · ${lists.find((l) => l.id === task.list_id)?.name || "list"}`;
@@ -86,7 +100,9 @@ export default function TaskModal({
           <button className="tk-chip" onClick={() => setPop(pop === "date" ? null : "date")}>
             <Calendar /> {where}
           </button>
-          {task.freq ? <span title="Recurring task" style={{ color: "var(--tk-muted)", display: "grid" }}><Repeat width={18} height={18} /></span> : null}
+          {repeating || task.freq ? (
+            <span className="tk-repeat-tag" title="Recurring task"><Repeat width={16} height={16} />{repeating}</span>
+          ) : null}
           <button className="tk-btn close" aria-label="Close" onClick={close}><Close width={18} height={18} /></button>
 
           {pop === "date" && (
@@ -174,6 +190,15 @@ export default function TaskModal({
             <Subtasks />
           </button>
           <button
+            className={`tk-tool ${pop === "repeat" ? "on" : ""} ${task.repeat ? "set" : ""}`}
+            aria-label="Repeat"
+            title={task.date ? "Repeat" : "Only tasks with a date can repeat"}
+            disabled={!task.date}
+            onClick={() => setPop(pop === "repeat" ? null : "repeat")}
+          >
+            <Repeat />
+          </button>
+          <button
             className={`tk-tool ${pop === "color" ? "on" : ""}`}
             aria-label="Color"
             title="Color"
@@ -189,6 +214,21 @@ export default function TaskModal({
           >
             <Trash />
           </button>
+
+          {pop === "repeat" && (
+            <div className="tk-pop list">
+              {[{ id: null, label: "Does not repeat" }, ...REPEATS].map((r) => (
+                <button
+                  key={r.id ?? "none"}
+                  className={(task.repeat ?? null) === r.id ? "sel" : ""}
+                  onClick={() => { if ((task.repeat ?? null) !== r.id) onPatch({ repeat: r.id }); setPop(null); }}
+                >
+                  {r.label}
+                </button>
+              ))}
+              {task.repeat && <p>Edits to the title, notes or color apply to the next occurrences too.</p>}
+            </div>
+          )}
 
           {pop === "color" && (
             <div className="tk-pop">
@@ -207,6 +247,30 @@ export default function TaskModal({
                   onClick={() => { onPatch({ color: c.id }); setPop(null); }}
                 />
               ))}
+              <span className="tk-pop-break" />
+              {palette.map((hex) => (
+                <button
+                  key={hex}
+                  className={`tk-swatch ${task.color === hex ? "sel" : ""}`}
+                  style={{ background: hex }}
+                  aria-label={hex}
+                  title={`${hex} · right-click to remove`}
+                  onClick={() => { onPatch({ color: hex }); setPop(null); }}
+                  onContextMenu={(e) => {
+                    e.preventDefault();
+                    if (window.confirm(`Remove ${hex} from your colors?`)) onRemoveColor(hex);
+                  }}
+                />
+              ))}
+              <label className="tk-swatch add" title="Pick a custom color">
+                +
+                <input
+                  ref={pickerRef}
+                  type="color"
+                  aria-label="Pick a custom color"
+                  defaultValue={task.color?.startsWith("#") ? task.color : "#5167f4"}
+                />
+              </label>
             </div>
           )}
         </div>

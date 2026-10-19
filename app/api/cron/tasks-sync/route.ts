@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { runSync } from "@/lib/sync";
+import { extendSeries } from "@/lib/series";
 import { safeEqual } from "@/lib/tasks-session";
 
 export const maxDuration = 60;
@@ -12,7 +13,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
   try {
-    return NextResponse.json(await runSync({ force: true }));
+    const res = await runSync({ force: true });
+    return NextResponse.json({ ...res, generated: await extendSeries() });
   } catch (e) {
     return NextResponse.json({ error: (e as Error).message }, { status: 502 });
   }

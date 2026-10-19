@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { admin } from "@/lib/supabase-admin";
 import {
-  getCalendars, getTask, listTasks, TweekError, type TweekTask,
+  getCalendars, getCustomColors, getTask, listTasks, TweekError, type TweekTask,
 } from "@/lib/tweek";
 
 const TZ = "Europe/Rome";
@@ -58,7 +58,7 @@ export function diff(old: Record<string, unknown>, next: Row) {
 
 export function eventType(ch: Record<string, [unknown, unknown]>) {
   if ("done" in ch) return ch.done[1] ? "completed" : "reopened";
-  if ("date" in ch || "list_id" in ch) return "moved";
+  if ("date" in ch || "list_id" in ch || "sort" in ch) return "moved";
   return "updated";
 }
 
@@ -91,6 +91,18 @@ async function refreshTarget(cals: Awaited<ReturnType<typeof getCalendars>>) {
   const t: Target = { calendarId: c.id, listId: lists[0]?.id ?? null, lists };
   await setState("default_target", t);
   return t;
+}
+
+// Colori personalizzati creati nell'app Tweek: servono solo per mostrarne la tinta giusta.
+const BUILTIN = new Set(["blank", "pink", "yellowish", "cornflower", "mango", "greenish", "lilac", "grey", "black", "white"]);
+async function syncTweekColors() {
+  try {
+    const seen = new Map<string, { id: string; bg: string; fg: string }>();
+    for (const c of await getCustomColors()) {
+      if (!BUILTIN.has(c.id) && !seen.has(c.id)) seen.set(c.id, { id: c.id, bg: c.backgroundColor, fg: c.color });
+    }
+    await setState("tweek_colors", [...seen.values()]);
+  } catch { /* non indispensabile */ }
 }
 
 // ---------- assorbimento dei task remoti nel DB locale ----------
@@ -183,6 +195,7 @@ export async function runSync(opts: { force?: boolean; full?: boolean } = {}): P
 
   const cals = await getCalendars();
   await refreshTarget(cals);
+  await syncTweekColors();
 
   for (const cal of cals) {
     res.calendars++;

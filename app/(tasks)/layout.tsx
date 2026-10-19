@@ -1,9 +1,9 @@
-import { Inter_Tight } from "next/font/google";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { THEMES } from "@/components/tasks/themes";
 import "./tasks.css";
 
-const font = Inter_Tight({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-tasks" });
+const font = Inter({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-tasks" });
 
 export const metadata = {
   title: "Tasks",

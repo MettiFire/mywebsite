@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { colorOf } from "./colors";
-import { MONTHS, WD, addDays, dayLabel, fmt, isoWeek, mondayOf } from "./dates";
+import { DragDropContext, Draggable, Droppable, type DropResult } from "@hello-pangea/dnd";
+import { colorOf, setTweekColors } from "./colors";
+import { MONTHS, WD, addDays, dayLabel, fmt, isoWeek, mondayOf, parse } from "./dates";
 import { Check, CheckFilled, ChevronLeft, ChevronRight, Note, Repeat, Subtasks, Sync, User } from "./icons";
 import HistoryPanel from "./HistoryPanel";
 import { THEMES } from "./themes";
@@ -15,8 +16,16 @@ type Key = string;
 const dayKey = (d: string) => `d:${d}`;
 const listKey = (id: string) => `l:${id}`;
 
-const byCreated = (a: Task, b: Task) =>
-  Number(!!a.pending) - Number(!!b.pending) || (a.created_at ?? "").localeCompare(b.created_at ?? "");
+// Ordine come in Tweek: posizione scelta col drag (sort), altrimenti ordine di creazione.
+const ROW = 42;
+const sortKey = (t: Task) => t.sort ?? (Date.parse(t.created_at ?? "") || Number.MAX_SAFE_INTEGER);
+const byOrder = (a: Task, b: Task) =>
+  Number(!!a.pending) - Number(!!b.pending) || sortKey(a) - sortKey(b) ||
+  (a.created_at ?? "").localeCompare(b.created_at ?? "");
+
+// "Orecchie" ai bordi: lasciando lì un task va alla settimana prima/dopo, come in Tweek.
+const EAR_PREV = "ear:prev";
+const EAR_NEXT = "ear:next";
 
 function useMobile() {
   const [m, setM] = useState(false);
@@ -55,33 +64,22 @@ function AddRow({ onSubmit, onClose }: { onSubmit: (t: string) => void; onClose:
   );
 }
 
-function TaskRow({
-  t, dragging, onOpen, onToggle, onDragStart, onDragEnd,
-}: {
-  t: Task; dragging: boolean; onOpen: () => void; onToggle: () => void;
-  onDragStart: (e: React.DragEvent) => void; onDragEnd: () => void;
-}) {
+// Contenuto della riga: il contenitore trascinabile sta in renderRows.
+function TaskRow({ t, onToggle }: { t: Task; onToggle: () => void }) {
   const color = colorOf(t.color);
   const subs = t.checklist?.length ?? 0;
   const subsDone = t.checklist?.filter((s) => s.done).length ?? 0;
   return (
-    <div
-      className={`tk-row task ${t.done ? "done" : ""} ${t.pending ? "pending" : ""} ${dragging ? "dragging" : ""}`}
-      draggable={!t.pending}
-      onDragStart={onDragStart}
-      onDragEnd={onDragEnd}
-      onClick={onOpen}
-      title={t.text}
-    >
+    <>
       <span
         className={`tk-label ${color ? "colored" : ""}`}
         style={color ? { background: color.bg, color: color.fg } : undefined}
       >
         {t.text}
       </span>
-      {(t.note || subs > 0 || t.freq) && (
+      {(t.note || subs > 0 || t.freq || t.repeat) && (
         <span className="tk-meta">
-          {t.freq ? <Repeat /> : null}
+          {t.freq || t.repeat ? <Repeat /> : null}
           {t.note ? <Note /> : null}
           {subs > 0 && <><Subtasks />{subsDone}/{subs}</>}
         </span>
@@ -93,7 +91,7 @@ function TaskRow({
       >
         {t.done ? <CheckFilled /> : <Check />}
       </button>
-    </div>
+    </>
   );
 }
 
@@ -105,6 +103,7 @@ export default function TasksApp() {
   const [week, setWeek] = useState<Date | null>(null);
   const [tasks, setTasks] = useState<Record<string, Task>>({});
   const [lists, setLists] = useState<List[]>([]);
+  const [palette, setPalette] = useState<string[]>([]);
   const [adding, setAdding] = useState<Key | null>(null);
   const [openId, setOpenId] = useState<string | null>(null);
   const [history, setHistory] = useState(false);
@@ -113,8 +112,7 @@ export default function TasksApp() {
   const [syncErr, setSyncErr] = useState("");
   const [lastSync, setLastSync] = useState<Date | null>(null);
   const [toast, setToast] = useState("");
-  const [dragId, setDragId] = useState<string | null>(null);
-  const [dropKey, setDropKey] = useState<Key | null>(null);
+  const [dragging, setDragging] = useState(false);
   const inflight = useRef(new Map<string, number>()); // id → richieste in corso
 
   useEffect(() => setWeek(mondayOf(new Date())), []);
@@ -138,6 +136,8 @@ export default function TasksApp() {
     const j = await res.json().catch(() => ({ error: `error ${res.status}` }));
     if (j.error) { notify(j.error); return; }
     if (j.lists?.length) setLists(j.lists);
+    if (j.palette) setPalette(j.palette);
+    if (j.tweekColors) setTweekColors(j.tweekColors);
     setTasks((cur) => {
       const next: Record<string, Task> = {};
       // tengo ciò che è fuori finestra, ciò che è in volo e i task ancora da creare
@@ -228,6 +228,8 @@ export default function TasksApp() {
     try {
       const j = await call(`/api/tasks/${id}`, { method: "PATCH", body: JSON.stringify(p) });
       if (track(id, -1) === 0 && j?.task) setTasks((c) => (c[id] ? { ...c, [id]: j.task } : c));
+      // cambiare ricorrenza crea o cancella occorrenze, e modificarla aggiorna le prossime
+      if ("repeat" in p || (j?.task?.repeat && ("text" in p || "color" in p || "note" in p))) load();
     } catch (e) {
       track(id, -1);
       notify(`Change not saved: ${(e as Error).message}`);
@@ -250,16 +252,51 @@ export default function TasksApp() {
     }
   };
 
-  const moveTo = (id: string, key: Key) => {
+  const savePalette = async (method: "POST" | "DELETE", hex: string) => {
+    try {
+      const j = method === "POST"
+        ? await call("/api/tasks/palette", { method, body: JSON.stringify({ color: hex }) })
+        : await call(`/api/tasks/palette?color=${encodeURIComponent(hex)}`, { method });
+      if (j?.palette) setPalette(j.palette);
+    } catch (e) {
+      notify(`Color not saved: ${(e as Error).message}`);
+    }
+  };
+
+  // Sposta il task nella cella `key` alla posizione `index` (tra i vicini), come fa Tweek.
+  const moveTo = (id: string, key: Key, index: number) => {
     const t = tasks[id];
     if (!t) return;
+    const others = (cells.get(key) ?? []).filter((x) => x.id !== id && !x.pending);
+    const prev = others[index - 1], next = others[index];
+    const sort = prev && next ? (sortKey(prev) + sortKey(next)) / 2
+      : prev ? sortKey(prev) + 1000
+      : next ? sortKey(next) - 1000
+      : Date.now();
+    const p: Patch = { sort };
     if (key.startsWith("d:")) {
       const date = key.slice(2);
-      if (t.date !== date) patch(id, { date, listId: null });
+      if (t.date !== date) Object.assign(p, { date, listId: null });
     } else {
       const listId = key.slice(2) || null;
-      if (t.date !== null || t.list_id !== listId) patch(id, { date: null, listId });
+      if (t.date !== null || t.list_id !== listId) Object.assign(p, { date: null, listId });
     }
+    patch(id, p);
+  };
+
+  const onDragEnd = ({ draggableId: id, source, destination }: DropResult) => {
+    setDragging(false);
+    if (!destination) return;
+    const t = tasks[id];
+    if (destination.droppableId === EAR_PREV || destination.droppableId === EAR_NEXT) {
+      if (!t?.date) return; // come in Tweek: solo i task con una data
+      const dir = destination.droppableId === EAR_NEXT ? 1 : -1;
+      patch(id, { date: fmt(addDays(parse(t.date), 7 * dir)), listId: null });
+      notify(dir > 0 ? "Moved to next week" : "Moved to previous week");
+      return;
+    }
+    if (source.droppableId === destination.droppableId && source.index === destination.index) return;
+    moveTo(id, destination.droppableId, destination.index);
   };
 
   // ------------------------------------------------ tastiera e menu
@@ -296,7 +333,7 @@ export default function TasksApp() {
       if (!m.has(k)) m.set(k, []);
       m.get(k)!.push(t);
     }
-    for (const l of m.values()) l.sort(byCreated);
+    for (const l of m.values()) l.sort(byOrder);
     return m;
   }, [tasks, lists]);
 
@@ -326,32 +363,41 @@ export default function TasksApp() {
 
   const renderRows = (k: Key, total: number) => {
     const list = cells.get(k) ?? [];
-    const empties = Math.max(total, list.length + (adding === k ? 1 : 0) + 1) - list.length - (adding === k ? 1 : 0);
+    // Le righe vuote sono disegnate dallo sfondo: così la colonna non salta durante il drag.
+    const rows = Math.max(total, list.length + (adding === k ? 1 : 0) + 1);
     return (
-      <div
-        className={`tk-rows ${dropKey === k ? "drop" : ""}`}
-        onDragOver={(e) => { if (dragId) { e.preventDefault(); e.dataTransfer.dropEffect = "move"; setDropKey(k); } }}
-        onDragLeave={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setDropKey((x) => (x === k ? null : x)); }}
-        onDrop={(e) => { e.preventDefault(); if (dragId) moveTo(dragId, k); setDragId(null); setDropKey(null); }}
-      >
-        {list.map((t) => (
-          <TaskRow
-            key={t.id}
-            t={t}
-            dragging={dragId === t.id}
-            onOpen={() => setOpenId(t.id)}
-            onToggle={() => patch(t.id, { done: !t.done })}
-            onDragStart={(e) => { e.dataTransfer.setData("text/plain", t.text); e.dataTransfer.effectAllowed = "move"; setDragId(t.id); }}
-            onDragEnd={() => { setDragId(null); setDropKey(null); }}
-          />
-        ))}
-        {adding === k && (
-          <AddRow onSubmit={(text) => create(text, k)} onClose={() => setAdding((a) => (a === k ? null : a))} />
+      <Droppable droppableId={k}>
+        {(provided, snap) => (
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            className={`tk-rows ${snap.isDraggingOver ? "drop" : ""}`}
+            style={{ minHeight: rows * ROW }}
+            onClick={(e) => { if (e.target === e.currentTarget) setAdding(k); }}
+          >
+            {list.map((t, i) => (
+              <Draggable key={t.id} draggableId={t.id} index={i} isDragDisabled={!!t.pending}>
+                {(p, s) => (
+                  <div
+                    ref={p.innerRef}
+                    {...p.draggableProps}
+                    {...p.dragHandleProps}
+                    className={`tk-row task ${t.done ? "done" : ""} ${t.pending ? "pending" : ""} ${s.isDragging ? "dragging" : ""}`}
+                    onClick={() => setOpenId(t.id)}
+                    title={t.text}
+                  >
+                    <TaskRow t={t} onToggle={() => patch(t.id, { done: !t.done })} />
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {provided.placeholder}
+            {adding === k && (
+              <AddRow onSubmit={(text) => create(text, k)} onClose={() => setAdding((a) => (a === k ? null : a))} />
+            )}
+          </div>
         )}
-        {Array.from({ length: empties }, (_, i) => (
-          <div key={i} className="tk-row" onClick={() => setAdding(k)} />
-        ))}
-      </div>
+      </Droppable>
     );
   };
 
@@ -449,6 +495,23 @@ export default function TasksApp() {
         </div>
       </header>
 
+      <DragDropContext onDragStart={() => { setDragging(true); setAdding(null); }} onDragEnd={onDragEnd}>
+      {[EAR_PREV, EAR_NEXT].map((id) => (
+        <Droppable key={id} droppableId={id}>
+          {(provided, snap) => (
+            <div
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              className={`tk-ear ${id === EAR_PREV ? "prev" : "next"} ${dragging ? "on" : ""} ${snap.isDraggingOver ? "over" : ""}`}
+              aria-hidden
+            >
+              {id === EAR_PREV ? <ChevronLeft /> : <ChevronRight />}
+              <span>{id === EAR_PREV ? "Previous week" : "Next week"}</span>
+              <div className="tk-ear-ph">{provided.placeholder}</div>
+            </div>
+          )}
+        </Droppable>
+      ))}
       <main className="tk-week">
         {[0, 1, 2, 3, 4].map((i) => <section key={keys[i]}>{dayCol(i)}</section>)}
         <section className="tk-weekend">
@@ -470,12 +533,16 @@ export default function TasksApp() {
           );
         })}
       </section>
+      </DragDropContext>
 
       {openTask && (
         <TaskModal
           key={openTask.id}
           task={openTask}
           lists={lists}
+          palette={palette}
+          onAddColor={(hex) => savePalette("POST", hex)}
+          onRemoveColor={(hex) => savePalette("DELETE", hex)}
           onPatch={(p) => patch(openTask.id, p)}
           onDelete={() => remove(openTask.id)}
           onClose={() => setOpenId(null)}
