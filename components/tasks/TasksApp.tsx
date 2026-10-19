@@ -371,7 +371,8 @@ export default function TasksApp() {
     <div className="tk">
       <header className="tk-top">
         <button className="tk-title" onClick={() => setWeek(mondayOf(new Date()))} title="Torna a oggi (T)">
-          {MONTHS[thursday.getMonth()]} {thursday.getFullYear()}
+          <span className="long">{MONTHS[thursday.getMonth()]}</span>
+          <span className="short">{MONTHS[thursday.getMonth()].slice(0, 3)}</span> {thursday.getFullYear()}
           <span className="wk">W{isoWeek(week)}</span>
         </button>
         <div className="tk-actions">
