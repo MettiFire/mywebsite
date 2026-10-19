@@ -14,7 +14,7 @@ export async function createLocalAndRemote(input: {
   };
   if (input.someday || !input.date) {
     const listId = input.listId ?? target.listId;
-    if (!listId) throw new Error("Nessuna lista someday trovata in Tweek");
+    if (!listId) throw new Error("No someday list found in Tweek");
     body.listId = listId;
   } else body.date = input.date;
   if (input.note) body.note = input.note;
@@ -41,7 +41,7 @@ export async function updateLocalAndRemote(
 ) {
   const db = admin();
   const { data: old, error } = await db.from("tw_tasks").select("*").eq("id", localId).single();
-  if (error || !old) throw new Error("Task non trovato");
+  if (error || !old) throw new Error("Task not found");
 
   // Tweek rappresenta "nessun colore" con "blank" e "nessuna checklist" con un array vuoto.
   const remote: Record<string, unknown> = { ...patch };
@@ -67,7 +67,7 @@ export async function updateLocalAndRemote(
 export async function deleteLocalAndRemote(localId: string) {
   const db = admin();
   const { data: old, error } = await db.from("tw_tasks").select("*").eq("id", localId).single();
-  if (error || !old) throw new Error("Task non trovato");
+  if (error || !old) throw new Error("Task not found");
 
   await deleteTask(old.tweek_id);
   await db.from("tw_tasks").update({ deleted_at: new Date().toISOString() }).eq("id", localId);

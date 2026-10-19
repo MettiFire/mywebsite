@@ -1,10 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useTheme } from "next-themes";
 import { colorOf } from "./colors";
 import { MONTHS, WD, addDays, dayLabel, fmt, isoWeek, mondayOf } from "./dates";
 import { Check, CheckFilled, ChevronLeft, ChevronRight, Note, Repeat, Subtasks, Sync, User } from "./icons";
 import HistoryPanel from "./HistoryPanel";
+import { THEMES } from "./themes";
 import TaskModal from "./TaskModal";
 import { applyPatch, type List, type Patch, type Task } from "./types";
 
@@ -38,7 +40,7 @@ function AddRow({ onSubmit, onClose }: { onSubmit: (t: string) => void; onClose:
         autoFocus
         value={v}
         enterKeyHint="done"
-        aria-label="Nuovo task"
+        aria-label="New task"
         onChange={(e) => setV(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
@@ -86,7 +88,7 @@ function TaskRow({
       )}
       <button
         className="tk-check"
-        aria-label={t.done ? "Segna da fare" : "Completa"}
+        aria-label={t.done ? "Mark as not done" : "Complete"}
         onClick={(e) => { e.stopPropagation(); onToggle(); }}
       >
         {t.done ? <CheckFilled /> : <Check />}
@@ -99,6 +101,7 @@ function TaskRow({
 
 export default function TasksApp() {
   const mobile = useMobile();
+  const { theme, setTheme } = useTheme();
   const [week, setWeek] = useState<Date | null>(null);
   const [tasks, setTasks] = useState<Record<string, Task>>({});
   const [lists, setLists] = useState<List[]>([]);
@@ -131,7 +134,8 @@ export default function TasksApp() {
     const from = fmt(addDays(week, -7));
     const to = fmt(addDays(week, 20));
     const res = await fetch(`/api/tasks?from=${from}&to=${to}`);
-    const j = await res.json().catch(() => ({ error: `errore ${res.status}` }));
+    if (res.status === 401) { window.location.href = "/tasks/login"; return; }
+    const j = await res.json().catch(() => ({ error: `error ${res.status}` }));
     if (j.error) { notify(j.error); return; }
     if (j.lists?.length) setLists(j.lists);
     setTasks((cur) => {
@@ -153,8 +157,9 @@ export default function TasksApp() {
     try {
       const q = mode === "force" ? "?force=1" : mode === "full" ? "?full=1" : "";
       const res = await fetch(`/api/tasks/sync${q}`, { method: "POST" });
-      const j = await res.json().catch(() => ({ error: `errore ${res.status}` }));
-      if (j.error) { setSyncErr(j.error); if (mode !== "auto") notify(`Sync non riuscito: ${j.error}`); }
+      if (res.status === 401) { window.location.href = "/tasks/login"; return; }
+      const j = await res.json().catch(() => ({ error: `error ${res.status}` }));
+      if (j.error) { setSyncErr(j.error); if (mode !== "auto") notify(`Sync failed: ${j.error}`); }
       else { setSyncErr(""); if (!j.skipped) setLastSync(new Date()); }
     } finally {
       setSyncing(false);
@@ -188,8 +193,9 @@ export default function TasksApp() {
 
   async function call(path: string, init: RequestInit) {
     const res = await fetch(path, { ...init, headers: { "Content-Type": "application/json" } });
+    if (res.status === 401) { window.location.href = "/tasks/login"; return null; }
     const j = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(j.error ?? `errore ${res.status}`);
+    if (!res.ok) throw new Error(j.error ?? `error ${res.status}`);
     return j;
   }
 
@@ -211,7 +217,7 @@ export default function TasksApp() {
       });
     } catch (e) {
       setTasks((c) => { const { [tmp.id]: _, ...rest } = c; return rest; }); // eslint-disable-line @typescript-eslint/no-unused-vars
-      notify(`Non salvato: ${(e as Error).message}`);
+      notify(`Not saved: ${(e as Error).message}`);
     }
   };
 
@@ -224,7 +230,7 @@ export default function TasksApp() {
       if (track(id, -1) === 0 && j?.task) setTasks((c) => (c[id] ? { ...c, [id]: j.task } : c));
     } catch (e) {
       track(id, -1);
-      notify(`Modifica non salvata: ${(e as Error).message}`);
+      notify(`Change not saved: ${(e as Error).message}`);
       load();
     }
   };
@@ -240,7 +246,7 @@ export default function TasksApp() {
     } catch (e) {
       track(id, -1);
       if (prev) setTasks((c) => ({ ...c, [id]: prev }));
-      notify(`Non eliminato: ${(e as Error).message}`);
+      notify(`Not deleted: ${(e as Error).message}`);
     }
   };
 
@@ -367,7 +373,7 @@ export default function TasksApp() {
   return (
     <div className="tk">
       <header className="tk-top">
-        <button className="tk-title" onClick={() => setWeek(mondayOf(new Date()))} title="Torna a oggi (T)">
+        <button className="tk-title" onClick={() => setWeek(mondayOf(new Date()))} title="Back to today (T)">
           <span className="long">{MONTHS[thursday.getMonth()]}</span>
           <span className="short">{MONTHS[thursday.getMonth()].slice(0, 3)}</span> {thursday.getFullYear()}
           <span className="wk">W{isoWeek(week)}</span>
@@ -375,8 +381,8 @@ export default function TasksApp() {
         <div className="tk-actions">
           <button
             className="tk-btn"
-            aria-label="Sincronizza con Tweek"
-            title={syncErr ? `Errore sync: ${syncErr}` : "Sincronizza con Tweek"}
+            aria-label="Sync with Tweek"
+            title={syncErr ? `Sync error: ${syncErr}` : "Sync with Tweek"}
             onClick={() => sync("force")}
             disabled={syncing}
           >
@@ -386,25 +392,57 @@ export default function TasksApp() {
           <button className="tk-btn user" aria-label="Menu" onClick={() => setMenu((m) => !m)}>
             <User width={20} height={20} />
           </button>
-          <button className="tk-btn primary" aria-label="Settimana precedente" onClick={() => setWeek(addDays(week, -7))}>
+          <button className="tk-btn primary" aria-label="Previous week" onClick={() => setWeek(addDays(week, -7))}>
             <ChevronLeft />
           </button>
-          <button className="tk-btn primary" aria-label="Settimana successiva" onClick={() => setWeek(addDays(week, 7))}>
+          <button className="tk-btn primary" aria-label="Next week" onClick={() => setWeek(addDays(week, 7))}>
             <ChevronRight />
           </button>
 
           {menu && (
             <div className="tk-menu">
-              <button onClick={() => { setWeek(mondayOf(new Date())); setMenu(false); }}>Vai a oggi</button>
-              <button onClick={() => { setHistory(true); setMenu(false); }}>Storico</button>
-              <button onClick={() => { sync("full"); setMenu(false); }}>Risincronizza tutto</button>
+              <button onClick={() => { setWeek(mondayOf(new Date())); setMenu(false); }}>Go to today</button>
+              <button onClick={() => { setHistory(true); setMenu(false); }}>History</button>
+              <button onClick={() => { sync("full"); setMenu(false); }}>Full resync</button>
+              <div className="sep" />
+              <div className="meta">Theme</div>
+              <div className="tk-themes" role="radiogroup" aria-label="Theme">
+                {[{ id: "system", label: "Auto", paper: "", ink: "" }, ...THEMES].map((t) => (
+                  <button
+                    key={t.id}
+                    role="radio"
+                    aria-checked={theme === t.id}
+                    className={theme === t.id ? "sel" : ""}
+                    onClick={() => setTheme(t.id)}
+                  >
+                    <span
+                      className="prev"
+                      style={{
+                        background: t.id === "system"
+                          ? "linear-gradient(135deg, #fff 50%, #000 50%)"
+                          : `linear-gradient(135deg, ${t.paper} 50%, ${t.ink} 50%)`,
+                      }}
+                    />
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+              <button
+                onClick={async () => {
+                  await fetch("/api/tasks/auth", { method: "DELETE" });
+                  window.location.href = "/tasks/login";
+                }}
+              >
+                Sign out
+              </button>
+              <div className="sep" />
               <div className="meta">
                 {syncErr
-                  ? `Errore sync: ${syncErr}`
+                  ? `Sync error: ${syncErr}`
                   : lastSync
-                    ? `Sincronizzato alle ${lastSync.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" })}`
-                    : "Sincronizzato con Tweek"}
-                <br />← → settimane · T oggi
+                    ? `Synced at ${lastSync.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}`
+                    : "Synced with Tweek"}
+                <br />← → weeks · T today
               </div>
             </div>
           )}
@@ -448,7 +486,7 @@ export default function TasksApp() {
       {toast && (
         <div className="tk-toast" role="status">
           {toast}
-          <button onClick={() => setToast("")} aria-label="Chiudi">✕</button>
+          <button onClick={() => setToast("")} aria-label="Close">✕</button>
         </div>
       )}
     </div>

@@ -6,7 +6,7 @@ const enc = new TextEncoder();
 
 async function hmac(data: string) {
   const secret = process.env.TASKS_SESSION_SECRET;
-  if (!secret) throw new Error("TASKS_SESSION_SECRET mancante");
+  if (!secret) throw new Error("TASKS_SESSION_SECRET missing");
   const key = await crypto.subtle.importKey(
     "raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]
   );

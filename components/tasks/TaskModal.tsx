@@ -64,7 +64,7 @@ export default function TaskModal({
 
   const where = task.date
     ? longLabel(parse(task.date))
-    : `Someday · ${lists.find((l) => l.id === task.list_id)?.name || "lista"}`;
+    : `Someday · ${lists.find((l) => l.id === task.list_id)?.name || "list"}`;
   const color = colorOf(task.color);
 
   const setSub = (i: number, s: Partial<Sub>) => setSubs((l) => l.map((x, j) => (j === i ? { ...x, ...s } : x)));
@@ -86,8 +86,8 @@ export default function TaskModal({
           <button className="tk-chip" onClick={() => setPop(pop === "date" ? null : "date")}>
             <Calendar /> {where}
           </button>
-          {task.freq ? <span title="Task ricorrente" style={{ color: "var(--tk-muted)", display: "grid" }}><Repeat width={18} height={18} /></span> : null}
-          <button className="tk-btn close" aria-label="Chiudi" onClick={close}><Close width={18} height={18} /></button>
+          {task.freq ? <span title="Recurring task" style={{ color: "var(--tk-muted)", display: "grid" }}><Repeat width={18} height={18} /></span> : null}
+          <button className="tk-btn close" aria-label="Close" onClick={close}><Close width={18} height={18} /></button>
 
           {pop === "date" && (
             <div className="tk-datepop">
@@ -125,7 +125,7 @@ export default function TaskModal({
           />
           <button
             className="tk-check"
-            aria-label={task.done ? "Segna da fare" : "Completa"}
+            aria-label={task.done ? "Mark as not done" : "Complete"}
             onClick={() => onPatch({ done: !task.done })}
             style={task.done ? { color: "var(--tk-muted)" } : undefined}
           >
@@ -137,7 +137,7 @@ export default function TaskModal({
           <div className="tk-subs">
             {subs.map((s, i) => (
               <div key={i} className={`tk-sub ${s.done ? "done" : ""}`}>
-                <button aria-label="Completa subtask" onClick={() => toggleSub(i)}>
+                <button aria-label="Complete subtask" onClick={() => toggleSub(i)}>
                   {s.done ? <CheckFilled /> : <Check />}
                 </button>
                 <input
@@ -163,28 +163,28 @@ export default function TaskModal({
         <textarea
           ref={noteRef}
           className="tk-notes"
-          placeholder="Aggiungi note…"
+          placeholder="Add notes…"
           value={note}
           onChange={(e) => setNote(e.target.value)}
           onBlur={flush}
         />
 
         <div className="tk-tools">
-          <button className="tk-tool" aria-label="Aggiungi subtask" title="Subtask" onClick={() => addSub(subs.length)}>
+          <button className="tk-tool" aria-label="Add subtask" title="Subtask" onClick={() => addSub(subs.length)}>
             <Subtasks />
           </button>
           <button
             className={`tk-tool ${pop === "color" ? "on" : ""}`}
-            aria-label="Colore"
-            title="Colore"
+            aria-label="Color"
+            title="Color"
             onClick={() => setPop(pop === "color" ? null : "color")}
           >
             {color ? <span className="swatch" style={{ background: color.bg, borderColor: color.bg }} /> : <Palette />}
           </button>
           <button
             className="tk-tool danger"
-            aria-label="Elimina"
-            title="Elimina"
+            aria-label="Delete"
+            title="Delete"
             onClick={() => { onDelete(); onClose(); }}
           >
             <Trash />
@@ -194,7 +194,7 @@ export default function TaskModal({
             <div className="tk-pop">
               <button
                 className={`tk-swatch none ${!color ? "sel" : ""}`}
-                aria-label="Nessun colore"
+                aria-label="No color"
                 onClick={() => { onPatch({ color: null }); setPop(null); }}
               />
               {COLORS.map((c) => (

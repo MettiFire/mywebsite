@@ -17,11 +17,11 @@ export function isoWeek(d: Date) {
 }
 
 export const MONTHS = [
-  "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-  "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre",
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
 ];
-export const MONTHS_SHORT = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
-export const WD = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"];
+export const MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+export const WD = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export const dayLabel = (d: Date) => `${d.getDate()} ${MONTHS_SHORT[d.getMonth()]}`;
 export const longLabel = (d: Date) =>

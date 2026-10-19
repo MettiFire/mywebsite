@@ -2,7 +2,9 @@
 @source "../../components/tasks";
 @source "./";
 
-:root {
+/* Temi: next-themes imposta data-theme su <html>; senza JS vale il media query. */
+:root, [data-theme="light"] {
+  color-scheme: light;
   --tk-paper: #fff;
   --tk-ink: #000;
   --tk-muted: #a3a3a3;
@@ -18,7 +20,8 @@
   --tk-drop: rgba(81, 103, 244, 0.07);
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
+    color-scheme: dark;
     --tk-paper: #000;
     --tk-ink: #fff;
     --tk-muted: #6f6f6f;
@@ -33,6 +36,53 @@
     --tk-drop: rgba(107, 125, 255, 0.12);
   }
 }
+[data-theme="dark"] {
+  color-scheme: dark;
+  --tk-paper: #000;
+  --tk-ink: #fff;
+  --tk-muted: #6f6f6f;
+  --tk-faint: #3d3d3d;
+  --tk-line: rgba(255, 255, 255, 0.14);
+  --tk-hover: rgba(255, 255, 255, 0.1);
+  --tk-accent: #6b7dff;
+  --tk-accent-soft: #34408f;
+  --tk-card: #1b1b1b;
+  --tk-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --tk-backdrop: rgba(0, 0, 0, 0.6);
+  --tk-drop: rgba(107, 125, 255, 0.12);
+}
+[data-theme="sepia"] {
+  color-scheme: light;
+  --tk-paper: #f4ecd8;
+  --tk-ink: #3b2f22;
+  --tk-muted: #9a8a72;
+  --tk-faint: #cdbf9f;
+  --tk-line: rgba(59, 47, 34, 0.14);
+  --tk-hover: rgba(59, 47, 34, 0.07);
+  --tk-accent: #b5562b;
+  --tk-accent-soft: #e2b49c;
+  --tk-card: #fbf5e6;
+  --tk-shadow: 0 2px 14px rgba(59, 47, 34, 0.16), 0 0 0 1px rgba(59, 47, 34, 0.06);
+  --tk-backdrop: rgba(59, 47, 34, 0.35);
+  --tk-user: #d9a76a;
+  --tk-drop: rgba(181, 86, 43, 0.08);
+}
+[data-theme="midnight"] {
+  color-scheme: dark;
+  --tk-paper: #0f1626;
+  --tk-ink: #e6ebf5;
+  --tk-muted: #6d7a94;
+  --tk-faint: #33405a;
+  --tk-line: rgba(230, 235, 245, 0.12);
+  --tk-hover: rgba(230, 235, 245, 0.08);
+  --tk-accent: #7aa2ff;
+  --tk-accent-soft: #2f4680;
+  --tk-card: #18223a;
+  --tk-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(230, 235, 245, 0.08);
+  --tk-backdrop: rgba(5, 8, 16, 0.6);
+  --tk-user: #9db4ff;
+  --tk-drop: rgba(122, 162, 255, 0.12);
+}
 
 /* compat con la pagina di login */
 @theme inline {
@@ -43,7 +93,6 @@
   --font-sans: var(--font-tasks), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-html { color-scheme: light dark; }
 body { background: var(--tk-paper); color: var(--tk-ink); }
 
 /* ---------------- layout ---------------- */
@@ -74,7 +123,7 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
 @keyframes tk-spin { to { transform: rotate(360deg); } }
 
 .tk-menu {
-  position: absolute; top: 48px; right: 92px; z-index: 30; min-width: 200px; padding: 6px;
+  position: absolute; top: 48px; right: 92px; z-index: 30; min-width: 260px; padding: 6px;
   background: var(--tk-card); border-radius: 16px; box-shadow: var(--tk-shadow); animation: tk-pop .14s ease-out;
 }
 .tk-menu button {
@@ -83,6 +132,17 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
 }
 .tk-menu button:hover { background: var(--tk-hover); }
 .tk-menu .meta { font-size: 12px; color: var(--tk-muted); padding: 6px 12px 4px; }
+.tk-menu .sep { height: 1px; background: var(--tk-line); margin: 6px 4px; }
+.tk-themes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; padding: 2px 4px 4px; }
+.tk-menu .tk-themes button {
+  flex-direction: column; gap: 5px; padding: 8px 2px 6px; font-size: 11px; justify-content: center; text-align: center;
+}
+.tk-menu .tk-themes button.sel { background: var(--tk-hover); }
+.tk-themes .prev {
+  width: 22px; height: 22px; border-radius: 99px; box-shadow: inset 0 0 0 1.5px var(--tk-line);
+  display: block; overflow: hidden;
+}
+.tk-menu .tk-themes button.sel .prev { box-shadow: 0 0 0 2px var(--tk-card), 0 0 0 3.5px var(--tk-ink); }
 
 /* ---------------- settimana ---------------- */
 
@@ -255,6 +315,25 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
 .tk-hist .k { width: 86px; flex-shrink: 0; }
 .tk-hist .x { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .tk-hist .s { font-size: 12px; color: var(--tk-muted); }
+
+/* ---------------- login ---------------- */
+
+.tk-login { max-width: 384px; margin: 0 auto; padding: 128px 24px 24px; }
+.tk-login h1 { font-size: 36px; line-height: 48px; font-weight: 700; letter-spacing: -1px; margin: 0 0 32px; }
+.tk-login form { display: flex; flex-direction: column; gap: 12px; }
+.tk-login input {
+  height: 48px; border-radius: 999px; border: 0; background: var(--tk-hover); color: inherit; font: inherit;
+  font-size: 16px; padding: 0 20px; outline: 0;
+}
+.tk-login input:focus { box-shadow: 0 0 0 2px var(--tk-ink); }
+.tk-login input::placeholder { color: var(--tk-muted); }
+.tk-login button {
+  height: 48px; border-radius: 999px; border: 0; background: var(--tk-ink); color: var(--tk-paper); font: inherit;
+  font-weight: 700; cursor: pointer; transition: transform .12s, opacity .15s;
+}
+.tk-login button:active { transform: scale(.98); }
+.tk-login button:disabled { opacity: .4; cursor: default; }
+.tk-login p { font-size: 14px; text-align: center; color: var(--tk-muted); margin: 4px 0 0; }
 
 /* ---------------- mobile ---------------- */
 

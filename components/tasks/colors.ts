@@ -1,13 +1,13 @@
 // Id colore usati dall'API Tweek → tinte nostre.
 export const COLORS: { id: string; bg: string; fg: string; label: string }[] = [
-  { id: "yellowish", bg: "#ffec5c", fg: "#000", label: "giallo" },
-  { id: "greenish", bg: "#5ff0b4", fg: "#000", label: "verde" },
-  { id: "cornflower", bg: "#a9b6ff", fg: "#000", label: "blu" },
-  { id: "lilac", bg: "#d6b9ff", fg: "#000", label: "lilla" },
-  { id: "pink", bg: "#ffb0c8", fg: "#000", label: "rosa" },
-  { id: "mango", bg: "#ffc58c", fg: "#000", label: "arancio" },
-  { id: "grey", bg: "#dcdcdc", fg: "#000", label: "grigio" },
-  { id: "black", bg: "#141414", fg: "#fff", label: "nero" },
+  { id: "yellowish", bg: "#ffec5c", fg: "#000", label: "yellow" },
+  { id: "greenish", bg: "#5ff0b4", fg: "#000", label: "green" },
+  { id: "cornflower", bg: "#a9b6ff", fg: "#000", label: "blue" },
+  { id: "lilac", bg: "#d6b9ff", fg: "#000", label: "lilac" },
+  { id: "pink", bg: "#ffb0c8", fg: "#000", label: "pink" },
+  { id: "mango", bg: "#ffc58c", fg: "#000", label: "orange" },
+  { id: "grey", bg: "#dcdcdc", fg: "#000", label: "grey" },
+  { id: "black", bg: "#141414", fg: "#fff", label: "black" },
 ];
 
 export function colorOf(id: string | null | undefined) {

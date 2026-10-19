@@ -34,7 +34,7 @@ export class TweekError extends Error {
 
 async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
   const key = process.env.TWEEK_API_KEY;
-  if (!key) throw new Error("TWEEK_API_KEY mancante");
+  if (!key) throw new Error("TWEEK_API_KEY missing");
   const res = await fetch(BASE + path, {
     ...init,
     cache: "no-store",
