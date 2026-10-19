@@ -3,7 +3,7 @@ import { guard } from "@/lib/tasks-auth";
 import { deleteLocalAndRemote, updateLocalAndRemote } from "@/lib/tasks-store";
 
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
-const ALLOWED = ["text", "done", "date", "listId", "note", "color"] as const;
+const ALLOWED = ["text", "done", "date", "listId", "note", "color", "checklist"] as const;
 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const denied = await guard();
@@ -16,6 +16,9 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   if (!Object.keys(patch).length) return NextResponse.json({ error: "empty patch" }, { status: 400 });
   if (typeof patch.date === "string" && !DATE.test(patch.date)) {
     return NextResponse.json({ error: "bad date" }, { status: 400 });
+  }
+  if ("checklist" in patch && patch.checklist !== null && !Array.isArray(patch.checklist)) {
+    return NextResponse.json({ error: "bad checklist" }, { status: 400 });
   }
 
   try {

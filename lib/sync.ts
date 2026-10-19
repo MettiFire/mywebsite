@@ -76,16 +76,19 @@ export async function setState(key: string, value: unknown) {
   await admin().from("tw_sync_state").upsert({ key, value, updated_at: new Date().toISOString() });
 }
 
-export type Target = { calendarId: string; listId: string | null };
+export type Target = {
+  calendarId: string; listId: string | null; lists?: { id: string; name: string }[];
+};
 
 export async function defaultTarget(): Promise<Target> {
   const cached = await getState<Target>("default_target");
-  if (cached) return cached;
+  if (cached?.lists) return cached; // i target salvati prima delle liste vanno rinfrescati
   return refreshTarget(await getCalendars());
 }
 async function refreshTarget(cals: Awaited<ReturnType<typeof getCalendars>>) {
   const c = cals.find((x) => x.isDefault) ?? cals[0];
-  const t: Target = { calendarId: c.id, listId: c.lists?.[0]?.id ?? null };
+  const lists = (c.lists ?? []).map((l) => ({ id: l.id, name: l.name ?? "" }));
+  const t: Target = { calendarId: c.id, listId: lists[0]?.id ?? null, lists };
   await setState("default_target", t);
   return t;
 }

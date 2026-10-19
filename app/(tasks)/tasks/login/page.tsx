@@ -25,24 +25,25 @@ export default function TasksLogin() {
   }
 
   return (
-    <div className="max-w-sm mx-auto px-6 pt-10">
+    <div className="max-w-sm mx-auto px-6 pt-32">
+      <h1 className="text-4xl font-bold tracking-[-1px] mb-8">Tasks</h1>
       <form onSubmit={submit} className="flex flex-col gap-3">
         <input
           type="password"
           autoFocus
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="password"
-          className="rounded border border-neutral-400/50 bg-transparent px-3 py-2 outline-none focus:border-text-primary"
+          placeholder="Password"
+          className="h-12 rounded-full bg-black/5 dark:bg-white/10 px-5 outline-none focus:ring-2 focus:ring-ink"
         />
         <button
           type="submit"
           disabled={busy || !password}
-          className="rounded border border-neutral-400/50 px-3 py-2 text-sm hover:border-text-primary disabled:opacity-50"
+          className="h-12 rounded-full bg-ink text-paper font-bold transition active:scale-[.98] disabled:opacity-40"
         >
-          {busy ? "…" : "entra"}
+          {busy ? "…" : "Entra"}
         </button>
-        {error && <p className="text-sm text-text-secondary">{error}</p>}
+        {error && <p className="text-sm text-center text-muted">{error}</p>}
       </form>
     </div>
   );

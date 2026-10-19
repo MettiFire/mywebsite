@@ -5,15 +5,17 @@ import { defaultTarget, diff, eventType, snapshot, toRow } from "@/lib/sync";
 // Scrittura "write-through": prima Tweek, poi il DB locale. Se Tweek fallisce non cambia nulla.
 
 export async function createLocalAndRemote(input: {
-  text: string; date?: string | null; someday?: boolean; note?: string | null; color?: string | null;
+  text: string; date?: string | null; someday?: boolean; listId?: string | null;
+  note?: string | null; color?: string | null;
 }) {
   const target = await defaultTarget();
   const body: Record<string, unknown> = {
     calendarId: target.calendarId, text: input.text, done: false, gcal: false,
   };
   if (input.someday || !input.date) {
-    if (!target.listId) throw new Error("Nessuna lista someday trovata in Tweek");
-    body.listId = target.listId;
+    const listId = input.listId ?? target.listId;
+    if (!listId) throw new Error("Nessuna lista someday trovata in Tweek");
+    body.listId = listId;
   } else body.date = input.date;
   if (input.note) body.note = input.note;
   if (input.color) body.color = input.color;
@@ -32,13 +34,20 @@ export async function createLocalAndRemote(input: {
 
 export async function updateLocalAndRemote(
   localId: string,
-  patch: { text?: string; done?: boolean; date?: string | null; listId?: string | null; note?: string | null; color?: string | null }
+  patch: {
+    text?: string; done?: boolean; date?: string | null; listId?: string | null;
+    note?: string | null; color?: string | null; checklist?: unknown[] | null;
+  }
 ) {
   const db = admin();
   const { data: old, error } = await db.from("tw_tasks").select("*").eq("id", localId).single();
   if (error || !old) throw new Error("Task non trovato");
 
-  await updateTask(old.tweek_id, patch);
+  // Tweek rappresenta "nessun colore" con "blank" e "nessuna checklist" con un array vuoto.
+  const remote: Record<string, unknown> = { ...patch };
+  if ("color" in patch && !patch.color) remote.color = "blank";
+  if ("checklist" in patch && !patch.checklist) remote.checklist = [];
+  await updateTask(old.tweek_id, remote);
   const row = toRow(await getTask(old.tweek_id), old.calendar_id);
   const ch = diff(old, row);
   if (!Object.keys(ch).length) return old;
