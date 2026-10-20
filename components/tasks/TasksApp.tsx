@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import { DragDropContext, Draggable, Droppable, type DropResult } from "@hello-pangea/dnd";
 import { colorOf, setTweekColors } from "./colors";
 import { MONTHS, WD, addDays, dayLabel, fmt, isoWeek, mondayOf, parse } from "./dates";
-import { Check, CheckFilled, ChevronLeft, ChevronRight, Note, Repeat, Subtasks, Sync, User } from "./icons";
+import { Check, ChevronLeft, ChevronRight, Note, Repeat, Subtasks, Sync, User } from "./icons";
 import HistoryPanel from "./HistoryPanel";
 import { THEMES } from "./themes";
 import TaskModal from "./TaskModal";
@@ -89,7 +89,7 @@ function TaskRow({ t, onToggle }: { t: Task; onToggle: () => void }) {
         aria-label={t.done ? "Mark as not done" : "Complete"}
         onClick={(e) => { e.stopPropagation(); onToggle(); }}
       >
-        {t.done ? <CheckFilled /> : <Check />}
+        {!t.done && <Check />}
       </button>
     </>
   );
@@ -113,6 +113,8 @@ export default function TasksApp() {
   const [lastSync, setLastSync] = useState<Date | null>(null);
   const [toast, setToast] = useState("");
   const [dragging, setDragging] = useState(false);
+  const mutationQueues = useRef(new Map<string, Promise<void>>());
+  const revision = useRef(0);
   const inflight = useRef(new Map<string, number>()); // id → richieste in corso
 
   useEffect(() => setWeek(mondayOf(new Date())), []);
@@ -131,6 +133,7 @@ export default function TasksApp() {
     // settimana visibile + quella prima e le due dopo: la navigazione resta istantanea
     const from = fmt(addDays(week, -7));
     const to = fmt(addDays(week, 20));
+    const startedAtRevision = revision.current;
     const res = await fetch(`/api/tasks?from=${from}&to=${to}`);
     if (res.status === 401) { window.location.href = "/tasks/login"; return; }
     const j = await res.json().catch(() => ({ error: `error ${res.status}` }));
@@ -139,6 +142,7 @@ export default function TasksApp() {
     if (j.palette) setPalette(j.palette);
     if (j.tweekColors) setTweekColors(j.tweekColors);
     setTasks((cur) => {
+      if (startedAtRevision !== revision.current) return cur;
       const next: Record<string, Task> = {};
       // tengo ciò che è fuori finestra, ciò che è in volo e i task ancora da creare
       for (const t of Object.values(cur)) {
@@ -167,21 +171,21 @@ export default function TasksApp() {
     await load();
   }, [load, notify]);
 
-  // primo caricamento: prima il DB locale (veloce), poi il sync con Tweek
+  // Solo apertura/ricaricamento e pulsante avviano il sync con Tweek.
+  // Il caricamento iniziale ignora l’intervallo minimo per recuperare subito le novità.
   const booted = useRef(false);
   useEffect(() => {
     if (!week) return;
-    if (!booted.current) { booted.current = true; load().then(() => sync("auto")); }
+    if (!booted.current) { booted.current = true; load().then(() => sync("force")); }
     else load();
   }, [week]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!week) return;
-    const onVis = () => { if (document.visibilityState === "visible") sync("auto"); };
-    document.addEventListener("visibilitychange", onVis);
+    // Aggiorna solo dal DB locale: nessuna sincronizzazione periodica con Tweek.
     const id = setInterval(() => { if (document.visibilityState === "visible") load(); }, 60_000);
-    return () => { document.removeEventListener("visibilitychange", onVis); clearInterval(id); };
-  }, [week, sync, load]);
+    return () => clearInterval(id);
+  }, [week, load]);
 
   // ------------------------------------------------ mutazioni (ottimistiche)
 
@@ -223,18 +227,22 @@ export default function TasksApp() {
 
   const patch = async (id: string, p: Patch) => {
     if (id.startsWith("tmp-")) return;
+    revision.current++;
     setTasks((c) => (c[id] ? { ...c, [id]: applyPatch(c[id], p) } : c));
     track(id, 1);
-    try {
+    const previous = mutationQueues.current.get(id) ?? Promise.resolve();
+    const request = previous.catch(() => {}).then(async () => {
       const j = await call(`/api/tasks/${id}`, { method: "PATCH", body: JSON.stringify(p) });
       if (track(id, -1) === 0 && j?.task) setTasks((c) => (c[id] ? { ...c, [id]: j.task } : c));
       // cambiare ricorrenza crea o cancella occorrenze, e modificarla aggiorna le prossime
       if ("repeat" in p || (j?.task?.repeat && ("text" in p || "color" in p || "note" in p))) load();
-    } catch (e) {
-      track(id, -1);
+    }).catch((e) => {
+      if (track(id, -1) === 0) void load();
       notify(`Change not saved: ${(e as Error).message}`);
-      load();
-    }
+    });
+    mutationQueues.current.set(id, request);
+    await request;
+    if (mutationQueues.current.get(id) === request) mutationQueues.current.delete(id);
   };
 
   const remove = async (id: string) => {
@@ -291,7 +299,8 @@ export default function TasksApp() {
     if (destination.droppableId === EAR_PREV || destination.droppableId === EAR_NEXT) {
       if (!t?.date) return; // come in Tweek: solo i task con una data
       const dir = destination.droppableId === EAR_NEXT ? 1 : -1;
-      patch(id, { date: fmt(addDays(parse(t.date), 7 * dir)), listId: null });
+      const target = dayKey(fmt(addDays(parse(t.date), 7 * dir)));
+      moveTo(id, target, (cells.get(target) ?? []).length);
       notify(dir > 0 ? "Moved to next week" : "Moved to previous week");
       return;
     }
@@ -419,7 +428,7 @@ export default function TasksApp() {
   return (
     <div className="tk">
       <header className="tk-top">
-        <button className="tk-title" onClick={() => setWeek(mondayOf(new Date()))} title="Back to today (T)">
+        <button className={`tk-title ${fmt(week) !== fmt(mondayOf(new Date())) ? "away" : ""}`} onClick={() => setWeek(mondayOf(new Date()))} title="Back to today (T)">
           <span className="long">{MONTHS[thursday.getMonth()]}</span>
           <span className="short">{MONTHS[thursday.getMonth()].slice(0, 3)}</span> {thursday.getFullYear()}
           <span className="wk">W{isoWeek(week)}</span>

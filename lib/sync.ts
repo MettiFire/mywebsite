@@ -174,6 +174,19 @@ async function listAllStored(calendarId: string) {
   return out.filter((t) => !(t.freq && !t.recurringTodoId));
 }
 
+// Segue tutte le pagine anche per le query filtrate: una pagina incompleta
+// farebbe sembrare mancanti task esistenti, causando GET individuali inutili.
+async function listFilteredTasks(params: Record<string, string | undefined>) {
+  const tasks: TweekTask[] = [];
+  let cursor: string | undefined;
+  do {
+    const page = await listTasks({ ...params, startAt: cursor });
+    tasks.push(...page.data);
+    cursor = page.nextDocId ?? undefined;
+  } while (cursor);
+  return tasks;
+}
+
 // ---------- sync principale ----------
 
 export type SyncResult = {
@@ -203,13 +216,13 @@ export async function runSync(opts: { force?: boolean; full?: boolean } = {}): P
 
     if (opts.full) for (const t of await listAllStored(cal.id)) map.set(t.id, t);
 
-    const dated = await listTasks({
+    const dated = await listFilteredTasks({
       calendarId: cal.id, expand: "occurrences", dateFrom: from, dateTo: to, timezone: TZ,
     });
-    for (const t of dated.data) map.set(t.id, t);
+    for (const t of dated) map.set(t.id, t);
 
-    const someday = await listTasks({ calendarId: cal.id, someday: "true" });
-    for (const t of someday.data) map.set(t.id, t);
+    const someday = await listFilteredTasks({ calendarId: cal.id, someday: "true" });
+    for (const t of someday) map.set(t.id, t);
 
     const r = await absorb([...map.values()], cal.id, !!opts.full && !last);
     res.created += r.created;

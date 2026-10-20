@@ -1,9 +1,24 @@
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import { THEMES } from "@/components/tasks/themes";
 import "./tasks.css";
 
-const font = Inter({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-tasks" });
+const font = localFont({
+  src: [
+    { path: "./fonts/SuisseIntl-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/SuisseIntl-Bold.ttf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-tasks",
+  display: "swap",
+});
+
+const boldFont = localFont({
+  src: "./fonts/SuisseIntl-Bold.ttf",
+  weight: "700",
+  style: "normal",
+  variable: "--font-tasks-bold",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Tasks",
@@ -21,7 +36,7 @@ export const viewport = {
 
 export default function TasksLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={font.variable} suppressHydrationWarning>
+    <html lang="en" className={`${font.variable} ${boldFont.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-paper font-sans text-ink antialiased">
         <ThemeProvider
           attribute="data-theme"

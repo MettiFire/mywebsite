@@ -104,6 +104,7 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
   font-size: 36px; line-height: 48px; font-weight: 700; letter-spacing: -1px; white-space: nowrap;
   overflow: hidden; text-overflow: ellipsis; cursor: pointer; background: none; border: 0; padding: 0; color: inherit;
 }
+.tk-title.away { color: var(--tk-accent); }
 .tk-title .wk { color: var(--tk-faint); margin-left: 12px; }
 .tk-title .short { display: none; }
 .tk-actions { margin-left: auto; display: flex; gap: 6px; flex-shrink: 0; position: relative; }
@@ -215,7 +216,7 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
   opacity: 0; cursor: pointer; border-radius: 99px; transition: opacity .1s, transform .12s;
 }
 .tk-check:active { transform: translateY(-50%) scale(.85); }
-.tk-row.task:hover .tk-check, .tk-row.done .tk-check { opacity: 1; }
+.tk-row.task:hover .tk-check, .tk-row.task:focus-within .tk-check { opacity: 1; }
 .tk-row.done .tk-check { color: var(--tk-muted); }
 
 .tk-input-row {
@@ -402,4 +403,14 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* SuisseIntl Bold per le intestazioni e Regular per il testo normale. */
+.tk-title,
+.tk-head .d,
+.tk-list-head,
+.tk-mtitle textarea,
+.tk-login h1,
+.tk-login button {
+  font-family: var(--font-tasks-bold), var(--font-tasks), sans-serif;
 }
