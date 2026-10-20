@@ -173,32 +173,18 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
 .tk-rows.drop { background-color: var(--tk-drop); }
 
 .tk-row {
-  height: 42px; box-sizing: border-box; border-bottom: 1px solid var(--tk-line);
+  height: 42px; flex-shrink: 0; box-sizing: border-box; border-bottom: 1px solid var(--tk-line);
   display: flex; align-items: center; position: relative; min-width: 0; cursor: text;
 }
-.tk-row.task { cursor: pointer; padding-right: 30px; }
+.tk-row.task { cursor: grab; padding-right: 30px; }
 .tk-row.task:hover { border-bottom-color: var(--tk-ink); }
 .tk-row.dragging {
   background: var(--tk-card); box-shadow: var(--tk-shadow); border-radius: 4px; border-bottom-color: transparent;
-  padding-left: 8px; margin-left: -8px; cursor: grabbing;
+  cursor: grabbing;
 }
-.tk-row.dragging .tk-check { opacity: 1; }
+.tk-row.dragging .tk-check { opacity: 0; }
 .tk-row.task { background-color: var(--tk-paper); }
 
-/* orecchie ai bordi per spostare alla settimana prima/dopo */
-.tk-ear {
-  position: fixed; top: 0; bottom: 0; width: 64px; z-index: 40; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 8px; font-size: 12px; color: var(--tk-muted);
-  opacity: 0; pointer-events: none; transition: opacity .15s, background-color .15s, color .15s; overflow: hidden;
-}
-.tk-ear.prev { left: 0; }
-.tk-ear.next { right: 0; }
-.tk-ear span { writing-mode: vertical-rl; white-space: nowrap; }
-.tk-ear.prev span { transform: rotate(180deg); }
-.tk-ear.on { opacity: 1; background: linear-gradient(to right, var(--tk-hover), transparent); }
-.tk-ear.next.on { background: linear-gradient(to left, var(--tk-hover), transparent); }
-.tk-ear.over { color: var(--tk-accent); background-color: var(--tk-drop); }
-.tk-ear-ph { position: absolute; width: 0; height: 0; overflow: hidden; }
 .tk-row.pending { opacity: .55; pointer-events: none; }
 
 .tk-label {

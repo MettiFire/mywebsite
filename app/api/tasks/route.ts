@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { admin } from "@/lib/supabase-admin";
 import { guard } from "@/lib/tasks-auth";
 import { createLocalAndRemote } from "@/lib/tasks-store";
-import { defaultTarget, getState } from "@/lib/sync";
+import { getState, type Target } from "@/lib/sync";
 import { activeSeries } from "@/lib/series";
 import { toView } from "@/lib/tasks-view";
 
@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
   const [dated, someday, target, series, palette, tweekColors] = await Promise.all([
     db.from("tw_tasks").select("*").is("deleted_at", null).gte("date", from).lte("date", to).order("created_at"),
     db.from("tw_tasks").select("*").is("deleted_at", null).is("date", null).order("created_at"),
-    defaultTarget().catch(() => null),
+    getState<Target>("default_target"),
     activeSeries(),
     getState<string[]>("palette"),
     getState<unknown[]>("tweek_colors"),

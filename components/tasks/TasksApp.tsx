@@ -4,28 +4,20 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { DragDropContext, Draggable, Droppable, type DropResult } from "@hello-pangea/dnd";
 import { colorOf, setTweekColors } from "./colors";
-import { MONTHS, WD, addDays, dayLabel, fmt, isoWeek, mondayOf, parse } from "./dates";
+import { MONTHS, WD, addDays, dayLabel, fmt, isoWeek, mondayOf } from "./dates";
 import { Check, ChevronLeft, ChevronRight, Note, Repeat, Subtasks, Sync, User } from "./icons";
 import HistoryPanel from "./HistoryPanel";
 import { THEMES } from "./themes";
 import TaskModal from "./TaskModal";
 import { applyPatch, type List, type Patch, type Task } from "./types";
+import { byOrder, insertionOrder } from "./task-order";
 
 // Una "cella" è un giorno ("d:YYYY-MM-DD") o una lista someday ("l:<listId>").
 type Key = string;
 const dayKey = (d: string) => `d:${d}`;
 const listKey = (id: string) => `l:${id}`;
 
-// Ordine come in Tweek: posizione scelta col drag (sort), altrimenti ordine di creazione.
 const ROW = 42;
-const sortKey = (t: Task) => t.sort ?? (Date.parse(t.created_at ?? "") || Number.MAX_SAFE_INTEGER);
-const byOrder = (a: Task, b: Task) =>
-  Number(!!a.pending) - Number(!!b.pending) || sortKey(a) - sortKey(b) ||
-  (a.created_at ?? "").localeCompare(b.created_at ?? "");
-
-// "Orecchie" ai bordi: lasciando lì un task va alla settimana prima/dopo, come in Tweek.
-const EAR_PREV = "ear:prev";
-const EAR_NEXT = "ear:next";
 
 function useMobile() {
   const [m, setM] = useState(false);
@@ -112,9 +104,9 @@ export default function TasksApp() {
   const [syncErr, setSyncErr] = useState("");
   const [lastSync, setLastSync] = useState<Date | null>(null);
   const [toast, setToast] = useState("");
-  const [dragging, setDragging] = useState(false);
   const mutationQueues = useRef(new Map<string, Promise<void>>());
   const revision = useRef(0);
+  const dragActive = useRef(false);
   const inflight = useRef(new Map<string, number>()); // id → richieste in corso
 
   useEffect(() => setWeek(mondayOf(new Date())), []);
@@ -129,7 +121,7 @@ export default function TasksApp() {
   // ------------------------------------------------ caricamento
 
   const load = useCallback(async () => {
-    if (!week) return;
+    if (!week || dragActive.current) return;
     // settimana visibile + quella prima e le due dopo: la navigazione resta istantanea
     const from = fmt(addDays(week, -7));
     const to = fmt(addDays(week, 20));
@@ -138,11 +130,12 @@ export default function TasksApp() {
     if (res.status === 401) { window.location.href = "/tasks/login"; return; }
     const j = await res.json().catch(() => ({ error: `error ${res.status}` }));
     if (j.error) { notify(j.error); return; }
+    if (dragActive.current) return;
     if (j.lists?.length) setLists(j.lists);
     if (j.palette) setPalette(j.palette);
     if (j.tweekColors) setTweekColors(j.tweekColors);
     setTasks((cur) => {
-      if (startedAtRevision !== revision.current) return cur;
+      if (dragActive.current || startedAtRevision !== revision.current) return cur;
       const next: Record<string, Task> = {};
       // tengo ciò che è fuori finestra, ciò che è in volo e i task ancora da creare
       for (const t of Object.values(cur)) {
@@ -171,14 +164,11 @@ export default function TasksApp() {
     await load();
   }, [load, notify]);
 
-  // Solo apertura/ricaricamento e pulsante avviano il sync con Tweek.
-  // Il caricamento iniziale ignora l’intervallo minimo per recuperare subito le novità.
-  const booted = useRef(false);
+  // Apertura, ricaricamento e navigazione leggono solo Supabase.
+  // Il sync con Tweek parte esclusivamente dai comandi espliciti dell’utente.
   useEffect(() => {
-    if (!week) return;
-    if (!booted.current) { booted.current = true; load().then(() => sync("force")); }
-    else load();
-  }, [week]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (week) void load();
+  }, [week, load]);
 
   useEffect(() => {
     if (!week) return;
@@ -275,13 +265,8 @@ export default function TasksApp() {
   const moveTo = (id: string, key: Key, index: number) => {
     const t = tasks[id];
     if (!t) return;
-    const others = (cells.get(key) ?? []).filter((x) => x.id !== id && !x.pending);
-    const prev = others[index - 1], next = others[index];
-    const sort = prev && next ? (sortKey(prev) + sortKey(next)) / 2
-      : prev ? sortKey(prev) + 1000
-      : next ? sortKey(next) - 1000
-      : Date.now();
-    const p: Patch = { sort };
+    const order = insertionOrder(cells.get(key) ?? [], id, index);
+    const p: Patch = { sort: order.find((item) => item.id === id)!.sort };
     if (key.startsWith("d:")) {
       const date = key.slice(2);
       if (t.date !== date) Object.assign(p, { date, listId: null });
@@ -289,21 +274,16 @@ export default function TasksApp() {
       const listId = key.slice(2) || null;
       if (t.date !== null || t.list_id !== listId) Object.assign(p, { date: null, listId });
     }
-    patch(id, p);
+    // Ranks for neighbours are local-only writes; the moved task also saves its date/list.
+    for (const item of order) {
+      if (item.id !== id && !tasks[item.id]?.pending) void patch(item.id, { sort: item.sort });
+    }
+    void patch(id, p);
   };
 
   const onDragEnd = ({ draggableId: id, source, destination }: DropResult) => {
-    setDragging(false);
+    dragActive.current = false;
     if (!destination) return;
-    const t = tasks[id];
-    if (destination.droppableId === EAR_PREV || destination.droppableId === EAR_NEXT) {
-      if (!t?.date) return; // come in Tweek: solo i task con una data
-      const dir = destination.droppableId === EAR_NEXT ? 1 : -1;
-      const target = dayKey(fmt(addDays(parse(t.date), 7 * dir)));
-      moveTo(id, target, (cells.get(target) ?? []).length);
-      notify(dir > 0 ? "Moved to next week" : "Moved to previous week");
-      return;
-    }
     if (source.droppableId === destination.droppableId && source.index === destination.index) return;
     moveTo(id, destination.droppableId, destination.index);
   };
@@ -313,7 +293,7 @@ export default function TasksApp() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const el = e.target as HTMLElement;
-      if (openId || history || el.closest("input, textarea, [contenteditable]")) return;
+      if (dragActive.current || openId || history || el.closest("input, textarea, [contenteditable]")) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (e.key === "ArrowLeft") setWeek((w) => w && addDays(w, -7));
       if (e.key === "ArrowRight") setWeek((w) => w && addDays(w, 7));
@@ -504,23 +484,11 @@ export default function TasksApp() {
         </div>
       </header>
 
-      <DragDropContext onDragStart={() => { setDragging(true); setAdding(null); }} onDragEnd={onDragEnd}>
-      {[EAR_PREV, EAR_NEXT].map((id) => (
-        <Droppable key={id} droppableId={id}>
-          {(provided, snap) => (
-            <div
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-              className={`tk-ear ${id === EAR_PREV ? "prev" : "next"} ${dragging ? "on" : ""} ${snap.isDraggingOver ? "over" : ""}`}
-              aria-hidden
-            >
-              {id === EAR_PREV ? <ChevronLeft /> : <ChevronRight />}
-              <span>{id === EAR_PREV ? "Previous week" : "Next week"}</span>
-              <div className="tk-ear-ph">{provided.placeholder}</div>
-            </div>
-          )}
-        </Droppable>
-      ))}
+      <DragDropContext
+        onBeforeCapture={() => { dragActive.current = true; setAdding(null); }}
+        onDragEnd={onDragEnd}
+        dragHandleUsageInstructions="Drag to reorder or move to another day or list. With the keyboard, press Space to pick up, arrow keys to move, Space to drop, or Escape to cancel."
+      >
       <main className="tk-week">
         {[0, 1, 2, 3, 4].map((i) => <section key={keys[i]}>{dayCol(i)}</section>)}
         <section className="tk-weekend">
