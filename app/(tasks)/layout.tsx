@@ -5,7 +5,7 @@ import "./tasks.css";
 
 const font = localFont({
   src: [
-    { path: "./fonts/SuisseIntl-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "./fonts/SuisseIntl-Regular.ttf", weight: "400", style: "normal" },
     { path: "./fonts/SuisseIntl-Bold.ttf", weight: "700", style: "normal" },
   ],
   variable: "--font-tasks",
@@ -37,7 +37,7 @@ export const viewport = {
 export default function TasksLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${font.variable} ${boldFont.variable}`} suppressHydrationWarning>
-      <body className="min-h-screen bg-paper font-sans font-semibold text-ink antialiased">
+      <body className="min-h-screen bg-paper font-sans font-normal text-ink antialiased">
         <ThemeProvider
           attribute="data-theme"
           storageKey="tasks-theme"
