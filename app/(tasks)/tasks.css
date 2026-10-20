@@ -405,7 +405,7 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
-/* SuisseIntl Bold per le intestazioni e Regular per il testo normale. */
+/* SuisseIntl Bold per le intestazioni e SemiBold per il testo normale. */
 .tk-title,
 .tk-head .d,
 .tk-list-head,
