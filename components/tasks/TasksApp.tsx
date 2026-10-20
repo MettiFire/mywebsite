@@ -4,13 +4,14 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { DragDropContext, Draggable, Droppable, type DropResult } from "@hello-pangea/dnd";
 import { colorOf, setTweekColors } from "./colors";
-import { MONTHS, WD, addDays, dayLabel, fmt, isoWeek, mondayOf } from "./dates";
+import { MONTHS, WD, addDays, dayLabel, fmt, isoWeek, mondayOf, parse } from "./dates";
 import { Check, ChevronLeft, ChevronRight, Note, Repeat, Subtasks, Sync, User } from "./icons";
 import HistoryPanel from "./HistoryPanel";
 import { THEMES } from "./themes";
 import TaskModal from "./TaskModal";
 import { applyPatch, type List, type Patch, type Task } from "./types";
 import { byOrder, insertionOrder } from "./task-order";
+import { useWeekEdgeDrag, WEEK_EDGE_LEFT, WEEK_EDGE_RIGHT } from "./useWeekEdgeDrag";
 
 // Una "cella" è un giorno ("d:YYYY-MM-DD") o una lista someday ("l:<listId>").
 type Key = string;
@@ -120,30 +121,31 @@ export default function TasksApp() {
 
   // ------------------------------------------------ caricamento
 
-  const load = useCallback(async () => {
-    if (!week || dragActive.current) return;
+  const load = useCallback(async (targetWeek = week, duringTransfer = false) => {
+    if (!targetWeek || (dragActive.current && !duringTransfer)) return;
     // settimana visibile + quella prima e le due dopo: la navigazione resta istantanea
-    const from = fmt(addDays(week, -7));
-    const to = fmt(addDays(week, 20));
+    const from = fmt(addDays(targetWeek, -7));
+    const to = fmt(addDays(targetWeek, 20));
     const startedAtRevision = revision.current;
+    const pendingAtStart = new Set(inflight.current.keys());
     const res = await fetch(`/api/tasks?from=${from}&to=${to}`);
     if (res.status === 401) { window.location.href = "/tasks/login"; return; }
     const j = await res.json().catch(() => ({ error: `error ${res.status}` }));
     if (j.error) { notify(j.error); return; }
-    if (dragActive.current) return;
+    if (dragActive.current && !duringTransfer) return;
     if (j.lists?.length) setLists(j.lists);
     if (j.palette) setPalette(j.palette);
     if (j.tweekColors) setTweekColors(j.tweekColors);
     setTasks((cur) => {
-      if (dragActive.current || startedAtRevision !== revision.current) return cur;
+      if ((dragActive.current && !duringTransfer) || startedAtRevision !== revision.current) return cur;
       const next: Record<string, Task> = {};
       // tengo ciò che è fuori finestra, ciò che è in volo e i task ancora da creare
       for (const t of Object.values(cur)) {
         const inWindow = t.date === null || (t.date >= from && t.date <= to);
-        if (!inWindow || t.pending || inflight.current.has(t.id)) next[t.id] = t;
+        if (!inWindow || t.pending || pendingAtStart.has(t.id) || inflight.current.has(t.id)) next[t.id] = t;
       }
       for (const t of [...j.tasks, ...j.someday] as Task[]) {
-        if (!inflight.current.has(t.id)) next[t.id] = t;
+        if (!pendingAtStart.has(t.id) && !inflight.current.has(t.id)) next[t.id] = t;
       }
       return next;
     });
@@ -281,7 +283,9 @@ export default function TasksApp() {
     void patch(id, p);
   };
 
-  const onDragEnd = ({ draggableId: id, source, destination }: DropResult) => {
+  const onDragEnd = (result: DropResult) => {
+    if (weekEdges.onDragEnd(result)) return;
+    const { draggableId: id, source, destination } = result;
     dragActive.current = false;
     if (!destination) return;
     if (source.droppableId === destination.droppableId && source.index === destination.index) return;
@@ -325,6 +329,21 @@ export default function TasksApp() {
     for (const l of m.values()) l.sort(byOrder);
     return m;
   }, [tasks, lists]);
+
+  const weekEdges = useWeekEdgeDrag({
+    canShift: (id) => !!tasks[id]?.date && !tasks[id]?.pending && !tasks[id]?.freq && !tasks[id]?.recurring_todo_id,
+    shift: async (id, direction) => {
+      const task = tasks[id];
+      if (!week || !task?.date) return;
+      const nextWeek = addDays(week, direction * 7);
+      const date = fmt(addDays(parse(task.date), direction * 7));
+      moveTo(id, dayKey(date), (cells.get(dayKey(date)) ?? []).length);
+      setWeek(nextWeek);
+      await load(nextWeek, true);
+    },
+    finish: () => { dragActive.current = false; void load(); },
+    onError: notify,
+  });
 
   if (!week) return null;
 
@@ -373,6 +392,7 @@ export default function TasksApp() {
                     {...p.dragHandleProps}
                     className={`tk-row task ${t.done ? "done" : ""} ${t.pending ? "pending" : ""} ${s.isDragging ? "dragging" : ""}`}
                     onClick={() => setOpenId(t.id)}
+                    data-task-id={t.id}
                     title={t.text}
                   >
                     <TaskRow t={t} onToggle={() => patch(t.id, { done: !t.done })} />
@@ -485,10 +505,32 @@ export default function TasksApp() {
       </header>
 
       <DragDropContext
-        onBeforeCapture={() => { dragActive.current = true; setAdding(null); }}
+        onBeforeCapture={(before) => { dragActive.current = true; setAdding(null); weekEdges.onDragStart(before); }}
+        sensors={[weekEdges.sensor]}
+        onDragStart={weekEdges.onDragStart}
         onDragEnd={onDragEnd}
         dragHandleUsageInstructions="Drag to reorder or move to another day or list. With the keyboard, press Space to pick up, arrow keys to move, Space to drop, or Escape to cancel."
       >
+      {[WEEK_EDGE_LEFT, WEEK_EDGE_RIGHT].map((id) => {
+        const direction = id === WEEK_EDGE_LEFT ? -1 : 1;
+        return (
+          <Droppable key={id} droppableId={id} isDropDisabled={!weekEdges.enabled}>
+            {(provided) => (
+              <div
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                className={`tk-week-edge ${weekEdges.enabled ? "on" : ""} ${direction < 0 ? "left" : "right"} ${weekEdges.edge === direction ? "over" : ""}`}
+                style={{ top: weekEdges.band.top, height: weekEdges.band.height }}
+                aria-hidden={!weekEdges.enabled}
+                aria-label={direction < 0 ? "Move to previous week" : "Move to next week"}
+              >
+                {direction < 0 ? <ChevronLeft /> : <ChevronRight />}
+                <div className="tk-edge-placeholder">{provided.placeholder}</div>
+              </div>
+            )}
+          </Droppable>
+        );
+      })}
       <main className="tk-week">
         {[0, 1, 2, 3, 4].map((i) => <section key={keys[i]}>{dayCol(i)}</section>)}
         <section className="tk-weekend">

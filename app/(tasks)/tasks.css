@@ -400,3 +400,21 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
 .tk-login button {
   font-family: var(--font-tasks-bold), var(--font-tasks), sans-serif;
 }
+
+/* Narrow week-transfer targets, present only during eligible mouse drags. */
+.tk-week-edge {
+  position: fixed; width: 40px; z-index: 40; display: grid; place-items: center;
+  color: var(--tk-muted); background: var(--tk-hover); border-radius: 12px;
+  opacity: 0; pointer-events: none; transition: background-color .15s, color .15s;
+}
+.tk-week-edge.on { opacity: 1; }
+.tk-week-edge.left { left: 0; }
+.tk-week-edge.right { right: 0; }
+.tk-week-edge.over { color: var(--tk-accent); background: var(--tk-drop); }
+.tk-week-edge.over::after {
+  content: ""; position: absolute; inset: 0; border: 2px solid var(--tk-accent); border-radius: inherit;
+  transform: scaleY(0); transform-origin: center; animation: tk-edge-dwell 1s linear forwards;
+}
+.tk-edge-placeholder { position: absolute; width: 0; height: 0; overflow: hidden; }
+.tk-transfer-ghost { cursor: grabbing; }
+@keyframes tk-edge-dwell { to { transform: scaleY(1); } }
