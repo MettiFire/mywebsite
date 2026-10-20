@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import styles from "./Header.module.css";
 import { usePathname } from "next/navigation";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { useTheme } from "next-themes";
@@ -15,8 +16,9 @@ export function Header() {
     setMounted(true);
   }, []);
 
-  const links = [
+  const links: { href: string; label: string; isExternal?: boolean }[] = [
     { href: "/", label: "home" },
+    { href: "/projects", label: "projects" },
     { href: "/blog", label: "blog" },
     { href: "/books", label: "books" },
     { href: "/music", label: "music" },
@@ -24,12 +26,12 @@ export function Header() {
   ];
 
   return (
-  <header className="fixed top-0 z-50 w-full bg-bg-primary/80 backdrop-blur-md mb-16">
-      <div className="w-full px-8 flex items-center justify-between">
+  <header className={styles.header}>
+      <div className={styles.inner}>
         {/* LOGO a sinistra */}
         <Link 
           href="/" 
-          className="flex-shrink-0 pl-4 py-3"
+          className={styles.logo}
           aria-label="Home"
         >
           {mounted && (
@@ -42,13 +44,13 @@ export function Header() {
         </Link>
 
         {/* NAV allineata al contenuto */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 max-w-[670px] w-full">
+        <div className={styles.navigation}>
           <nav
-            className="flex items-center gap-10 md:gap-16 text-sm whitespace-nowrap"
+            className="flex items-center gap-4 md:gap-10 text-sm whitespace-nowrap overflow-x-auto"
             aria-label="Main navigation"
           >
           {links.map((link) => {
-            const { href, label, isExternal } = link as any;
+            const { href, label, isExternal } = link;
             // consider a route active when pathname equals href, or when the pathname starts with
             // the href for non-root routes (so /projects/123 still highlights /projects)
             const isActive =
@@ -63,22 +65,9 @@ export function Header() {
                 target={isExternal ? '_blank' : undefined}
                 rel={isExternal ? 'noopener noreferrer' : undefined}
                 aria-current={isActive ? 'page' : undefined}
-                className={`relative group flex items-center transition py-1 overflow-hidden ${
-                  href === '/' ? '' : 'px-2'
-                } ${
-                  isActive
-                    ? 'text-text-primary'
-                    : 'text-text-secondary hover:text-link-hover'
-                }`}
+                className={styles.link}
               >
-                <span className="relative z-10">{label}</span>
-                <span
-                  className={`absolute left-0 bottom-0 h-[3px] transition-all duration-300 ease-out 
-                    ${isActive
-                      ? 'w-full bg-text-primary opacity-100'
-                      : 'w-0 bg-link-hover opacity-0 group-hover:w-full group-hover:opacity-100'
-                    }`}
-                ></span>
+                {label}
               </Link>
             );
           })}
@@ -86,7 +75,7 @@ export function Header() {
         </div>
 
         {/* THEME SWITCHER a destra con classe personalizzata */}
-        <div className="theme-switcher-container pr-4">
+        <div className={styles.theme}>
           <ThemeSwitcher />
         </div>
       </div>
