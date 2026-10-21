@@ -5,7 +5,7 @@ import "./tasks.css";
 
 const font = localFont({
   src: [
-    { path: "./fonts/SuisseIntl-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/SuisseIntlTrial-Book.otf", weight: "400", style: "normal" },
     { path: "./fonts/SuisseIntl-Bold.ttf", weight: "700", style: "normal" },
   ],
   variable: "--font-tasks",
