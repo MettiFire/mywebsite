@@ -36,8 +36,8 @@ export function Header() {
         >
           {mounted && (
             <img 
-              src={theme === 'dark' ? '/logoss.png' : '/logoss_inv.png'} 
-              alt="Logo" 
+              src={theme === 'dark' ? '/logo-dark.svg' : '/logo-light.svg'}
+              alt="Anna Mettifogo"
               className="w-6 h-6" 
             />
           )}
