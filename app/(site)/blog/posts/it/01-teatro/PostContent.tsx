@@ -13,7 +13,7 @@ export default function PostContent() {
   }, []);
 
   return (
-    <main className="max-w-[670px] mx-auto px-6 py-20 min-h-screen">
+    <main className="blog-post-page max-w-[670px] mx-auto px-6 py-20 min-h-screen">
 
       {/* Link back */}
       <Link 
