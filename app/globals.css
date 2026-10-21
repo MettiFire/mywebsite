@@ -212,3 +212,6 @@ figcaption.text-\[14px\].opacity-80.pt-2 {
 }
 /* Keep the article back link below the fixed header. */
 main.blog-post-page { padding-top: 56px; }
+
+/* Leave the final project links clear of the fixed footer. */
+main.projects-page { padding-bottom: 100px; }
