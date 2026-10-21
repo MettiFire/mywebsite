@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
+import styles from "./projects.module.css";
 import { projects } from "@/data/projectsData";
 
 export const metadata: Metadata = {
   title: "Anna's Projects",
   description: "Apps, experiments, and research projects by Anna Mettifogo, with implementation notes and source code.",
 };
+
+const accents = ["#8b7cf6", "#5aa6cf", "#58ad91", "#d29a58", "#c77bab"];
 
 export default function ProjectsPage() {
   return (
@@ -31,12 +35,15 @@ export default function ProjectsPage() {
         </a>
       </p>
 
-      <div>
-        {projects.map((project) => (
-          <article key={project.id} id={project.id} className="mb-10" aria-labelledby={`${project.id}-title`}>
-            <h2 id={`${project.id}-title`} className="font-semibold text-lg text-neutral-900 dark:text-neutral-100 mb-2">
+      <div className={styles.list}>
+        {projects.map((project, index) => (
+          <article key={project.id} id={project.id} className={styles.card} style={{ "--project-accent": accents[index % accents.length] } as CSSProperties} aria-labelledby={`${project.id}-title`}>
+            <div className={styles.heading}>
+              <span className={styles.dot} aria-hidden="true" />
+              <h2 id={`${project.id}-title`} className="font-semibold text-lg text-neutral-900 dark:text-neutral-100 mb-2">
               {project.title}
-            </h2>
+              </h2>
+            </div>
             <p className="text-sm italic text-neutral-600 dark:text-neutral-400 opacity-70 mb-4">
               {project.context}
             </p>
