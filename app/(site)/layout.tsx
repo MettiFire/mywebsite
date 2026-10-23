@@ -1,3 +1,4 @@
+import { AppThemeColor } from "@/components/AppThemeColor";
 // app/layout.tsx
 import React from 'react';
 import { Inter } from 'next/font/google';
@@ -9,13 +10,21 @@ import '../globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
+  manifest: "/manifest.webmanifest",
+  applicationName: "Anna Mettifogo",
+  appleWebApp: { capable: true, title: "Anna Mettifogo", statusBarStyle: "default" },
   title: "Anna Mettifogo's Portfolio",
   description: 'Technology, design, and human behavior.',
 };
 
 export const viewport = {
+  viewportFit: "cover",
   width: 'device-width',
   initialScale: 1.0,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f3f0ed' },
+    { media: '(prefers-color-scheme: dark)', color: '#141414' },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -26,13 +35,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* 1) Il provider del tema */}
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
 
+            <AppThemeColor />
             {/* 2) Header sticky */}
             <Header />
 
-            <div className="relative min-h-screen flex flex-col">
+            <div className="site-shell relative min-h-screen flex flex-col">
 
               {/* 3) Contenuto principale */}
-              <main className="flex-1 pt-36 pb-40">
+              <main className="site-content flex-1 pt-36 pb-40">
                 {children}
               </main>
 

@@ -418,3 +418,9 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
 .tk-edge-placeholder { position: absolute; width: 0; height: 0; overflow: hidden; }
 .tk-transfer-ghost { cursor: grabbing; }
 @keyframes tk-edge-dwell { to { transform: scaleY(1); } }
+
+@media (max-width: 760px) {
+  .tk { padding-top: calc(16px + env(safe-area-inset-top, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)); padding-left: max(16px, env(safe-area-inset-left, 0px)); }
+  .tk-backdrop { padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
+  .tk-toast { bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+}

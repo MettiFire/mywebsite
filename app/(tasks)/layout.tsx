@@ -1,3 +1,4 @@
+import { AppThemeColor } from "@/components/AppThemeColor";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import { THEMES } from "@/components/tasks/themes";
@@ -21,11 +22,15 @@ const boldFont = localFont({
 });
 
 export const metadata = {
+  manifest: "/manifest.webmanifest",
+  applicationName: "Anna Mettifogo",
+  appleWebApp: { capable: true, title: "Anna Mettifogo", statusBarStyle: "default" },
   title: "Tasks",
   robots: { index: false, follow: false },
 };
 
 export const viewport = {
+  viewportFit: "cover",
   width: "device-width",
   initialScale: 1,
   themeColor: [
@@ -46,6 +51,7 @@ export default function TasksLayout({ children }: { children: React.ReactNode })
           enableSystem
           disableTransitionOnChange
         >
+          <AppThemeColor />
           {children}
         </ThemeProvider>
       </body>

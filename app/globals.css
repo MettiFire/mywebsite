@@ -215,3 +215,19 @@ main.blog-post-page { padding-top: 56px; }
 
 /* Leave the final project links clear of the fixed footer. */
 main.projects-page { padding-bottom: 100px; }
+
+/* Installed apps and phone browsers share the same safe-area-aware layout. */
+.site-shell { min-height: 100svh; }
+.site-content { min-width: 0; }
+@media (max-width: 600px) {
+  body { margin: 0; -webkit-text-size-adjust: 100%; }
+  .site-content { padding: calc(112px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(124px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+  .site-content img, .site-content video { max-width: 100%; height: auto; }
+  .site-content iframe { max-width: 100%; }
+  .site-content table { display: block; max-width: 100%; overflow-x: auto; }
+  .site-content input, .site-content select, .site-content textarea { font-size: 16px; }
+}
+@media (display-mode: standalone) {
+  html { min-height: 100%; }
+  body { min-height: 100svh; }
+}
