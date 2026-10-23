@@ -10,9 +10,6 @@ import '../globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  manifest: "/manifest.webmanifest",
-  applicationName: "Anna Mettifogo",
-  appleWebApp: { capable: true, title: "Anna Mettifogo", statusBarStyle: "default" },
   title: "Anna Mettifogo's Portfolio",
   description: 'Technology, design, and human behavior.',
 };

@@ -22,9 +22,9 @@ const boldFont = localFont({
 });
 
 export const metadata = {
-  manifest: "/manifest.webmanifest",
-  applicationName: "Anna Mettifogo",
-  appleWebApp: { capable: true, title: "Anna Mettifogo", statusBarStyle: "default" },
+  manifest: "/tasks/manifest.webmanifest",
+  applicationName: "Anna’s Tasks",
+  appleWebApp: { capable: true, title: "Tasks", statusBarStyle: "default" },
   title: "Tasks",
   robots: { index: false, follow: false },
 };
