@@ -164,6 +164,10 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
 .tk-head.today .w { color: var(--tk-accent-soft); }
 .tk-head.past .d { color: var(--tk-ink); }
 .tk-weekend .tk-head + .tk-rows + .tk-head { margin-top: 0; }
+@media (min-width: 761px) {
+  /* Una fascia senza righe separa sabato dal titolo di domenica, come in Tweek. */
+  .tk-weekend .tk-head + .tk-rows + .tk-head { margin-top: 42px; }
+}
 
 /* le righe vuote sono solo sfondo (una linea ogni 42px): il drag non fa saltare le colonne */
 .tk-rows {

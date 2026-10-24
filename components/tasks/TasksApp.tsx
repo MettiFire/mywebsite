@@ -359,12 +359,12 @@ export default function TasksApp() {
   let weekdayRows = mobile ? 0 : 10, satRows = mobile ? 0 : 5;
   if (!mobile) {
     satRows = Math.max(5, need(keys[5]));
-    weekdayRows = Math.max(10, ...keys.slice(0, 5).map(need), satRows + 1 + Math.max(4, need(keys[6])));
+    weekdayRows = Math.max(10, ...keys.slice(0, 5).map(need), satRows + 2 + Math.max(3, need(keys[6])));
   }
   const rowsFor = (k: Key) => {
     if (mobile) return need(k);
     if (k === keys[5]) return satRows;
-    if (k === keys[6]) return weekdayRows - satRows - 1; // l'intestazione di domenica occupa una riga
+    if (k === keys[6]) return weekdayRows - satRows - 2; // una riga bianca di separazione e una per il titolo di domenica
     return weekdayRows;
   };
   const somedayRows = mobile ? 0 : Math.max(2, ...somedayLists.map((l) => need(listKey(l.id))));
