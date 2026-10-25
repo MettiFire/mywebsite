@@ -20,7 +20,7 @@ export function Header() {
     { href: "/", label: "home" },
     { href: "/projects", label: "projects" },
     { href: "/blog", label: "blog" },
-    { href: "https://silvae.lovable.app/u/mettignis", label: "books" },
+    { href: "https://silvae.lovable.app/u/mettignis", label: "books", isExternal: true },
     { href: "/music", label: "music" },
     { href: "/cv_en.pdf", label: "cv", isExternal: true },
   ];
