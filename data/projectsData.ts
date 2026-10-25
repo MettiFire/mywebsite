@@ -25,6 +25,18 @@ export const projects: Project[] = [
     demo: { label: "Try it", href: "https://tomodachitv.lovable.app" },
   },
   {
+    id: "silvae",
+    title: "Silvae",
+    context: "Web application",
+    description:
+      "A reading companion for keeping a personal library, tracking progress, and sharing books with other readers. Organize books by reading status, record ratings, build lists, and follow reading challenges.",
+    implementation:
+      "Built with React, TypeScript, and TanStack Start, with Supabase for accounts and persistent library data. Book search and metadata use Open Library and Google Books integrations, while dedicated routes provide reading statistics, challenges, lists, and public reader profiles.",
+    technologies: ["TypeScript", "React", "TanStack Start", "Supabase", "Open Library", "Google Books"],
+    repository: "https://github.com/MettiFire/silvae",
+    demo: { label: "My library", href: "https://silvae.lovable.app/u/mettignis" },
+  },
+  {
     id: "dropwheel",
     title: "Dropwheel",
     context: "macOS application",
@@ -60,17 +72,6 @@ export const projects: Project[] = [
       label: "Chrome Web Store",
       href: "https://chromewebstore.google.com/detail/elden-email/bjaildeadgclghcjhocdbginfpjihmgm",
     },
-  },
-  {
-    id: "sensia-insight",
-    title: "Sensia Insight",
-    context: "Interactive prototype",
-    description:
-      "A mobile interface exploring how wearable biometrics, cognitive metrics, and emotional states could be presented together. The prototype includes onboarding, a cognitive dashboard, a vitals view, and profile settings.",
-    implementation:
-      "Built with React and TypeScript. A custom hook generates changing biometric readings and derives simulated cognitive indicators; charts visualize the stream. Contexts handle Italian/English translations and themes, with preferences stored locally. The current data stream and Garmin pairing are simulated.",
-    technologies: ["TypeScript", "React", "Recharts", "Tailwind CSS"],
-    repository: "https://github.com/MettiFire/sensia-insight",
   },
   {
     id: "necstlab-fl-research",

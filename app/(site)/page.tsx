@@ -47,7 +47,7 @@ export default function Home() {
           </p>
 
           <p className="text-lg text-text-primary mt-4">
-            This website is my little corner to share all of this — my thoughts, projects, books, and a bit of my soul. Feel free to wander around my <a href="/blog" className="underline underline-offset-4 hover:text-link-hover">blog</a>, my <a href="/music" className="underline underline-offset-4 hover:text-link-hover">music</a> and my <a href="/books" className="underline underline-offset-4 hover:text-link-hover">library</a> — maybe you’ll find something that surprises you, makes you smile, or even makes you want to start your own jam session.
+            This website is my little corner to share all of this — my thoughts, projects, books, and a bit of my soul. Feel free to wander around my <a href="/blog" className="underline underline-offset-4 hover:text-link-hover">blog</a>, my <a href="/music" className="underline underline-offset-4 hover:text-link-hover">music</a> and my <a href="https://silvae.lovable.app/u/mettignis" className="underline underline-offset-4 hover:text-link-hover">library</a> — maybe you’ll find something that surprises you, makes you smile, or even makes you want to start your own jam session.
           </p>
 
 
