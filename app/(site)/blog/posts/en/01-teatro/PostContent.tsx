@@ -98,7 +98,7 @@ export default function PostContent() {
         </figure>
 
         <p>
-            So, carried away by sentimentality (and probably a bit of fear of the end), I decided to surprise my teammates. First, I wrote in the group asking everyone to tell me what theater meant to them. After a flood of messages, laughs, and teary eyes at the thought of everything ending… I used their phrases as inspiration to prepare a monologue to read just before our final entrance on stage. A little way to close on a high note.
+            So, carried away by sentimentality (and probably a bit of fear of the end), I decided to surprise my teammates. First, I wrote in the group asking everyone to tell me what theater meant to them. After a flood of messages, laughs and teary eyes at the thought of everything ending… I used their phrases as inspiration to prepare a monologue to read just before our final entrance on stage. A little way to close on a high note.
         </p>
 
         <p>
@@ -157,11 +157,11 @@ export default function PostContent() {
         </figure>
 
         <p>
-            Not to mention the most beautiful moments: the final rehearsals, everyone tense, the moments before stepping on stage, before <em><strong>"killing the show"</strong></em>. Because theater means you'll definitely eat gocciole before a performance, it means overcoming shyness while having fun, it means learning to enjoy the moment on stage to apply it in real life. Theater means fearing the lights, never remembering which side to exit for a scene change, worrying you forgot part of your costume, banning purple from the stage; but it also means making what you see on stage your own, learning to love and appreciate the little things, turning anxiety and fear into pure energy, playing someone else while staying yourself, and messing up lines without anyone noticing.
+            Not to mention the most beautiful moments: the final rehearsals, everyone tense, the moments before stepping on stage, before <em><strong>"killing the show"</strong></em>. Because theater means you'll definitely eat gocciole before a performance, it means overcoming shyness while having fun, it means learning to enjoy the moment on stage to apply it in real life. Theater means fearing the lights, never remembering which side to exit for a scene change, worrying you forgot part of your costume, banning purple from the stage; but it also means making what you see on stage your own, learning to love and appreciate the little things, turning anxiety and fear into pure energy, playing someone else while staying yourself and messing up lines without anyone noticing.
         </p>
 
         <p>
-            Theater means dancing, singing, reciting lines backstage, and crying together during touching scenes. It means hearing the director say <strong><em>"blackout"</em></strong> during months of rehearsal and then feeling the emotion when that <strong><em>"blackout"</em></strong> happens on stage. Theater means respecting some traditions, like the silliest and best chants backstage at the end of the show, when all that remains in your body is a few tears and a huge rush of adrenaline.
+            Theater means dancing, singing, reciting lines backstage and crying together during touching scenes. It means hearing the director say <strong><em>"blackout"</em></strong> during months of rehearsal and then feeling the emotion when that <strong><em>"blackout"</em></strong> happens on stage. Theater means respecting some traditions, like the silliest and best chants backstage at the end of the show, when all that remains in your body is a few tears and a huge rush of adrenaline.
         </p>
 
         <p>
@@ -169,7 +169,7 @@ export default function PostContent() {
         </p>
 
         <p>
-            Above all, theater means family, it means going crazy with the craziest people in the world, creating unique bonds with others, playing them like strings of a magical guitar, and dancing together on this melody without a care in the world.
+            Above all, theater means family, it means going crazy with the craziest people in the world, creating unique bonds with others, playing them like strings of a magical guitar and dancing together on this melody without a care in the world.
         </p>
 
         <p>

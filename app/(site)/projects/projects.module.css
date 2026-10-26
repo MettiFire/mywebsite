@@ -1,9 +1,9 @@
 .list { display: grid; gap: 24px; }
 .card {
   min-width: 0;
-  padding: 26px;
+  padding: 22px;
   border: 1px solid color-mix(in srgb, var(--text-primary) 14%, transparent);
-  border-radius: 22px;
+  border-radius: 16px;
   background: color-mix(in srgb, var(--text-primary) 3%, var(--background));
   scroll-margin-top: 90px;
 }
@@ -15,9 +15,8 @@
   height: 9px;
   border-radius: 50%;
   background: var(--project-accent);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--project-accent) 14%, transparent);
 }
-.card p { margin: 0 0 16px; }
+.card p { margin: 0 0 12px; font-size: 14px; line-height: 1.6; }
 .card p:last-child { margin-bottom: 0; }
 .card a { overflow-wrap: anywhere; }
 .card:focus-within { border-color: var(--project-accent); }
@@ -25,3 +24,15 @@
   .list { gap: 20px; }
   .card { padding: 20px; border-radius: 18px; }
 }
+
+.logo { flex: 0 0 32px; width: 32px; height: 32px; object-fit: contain; }
+.languages { margin: 16px 0; }
+.languageBar { display: flex; height: 8px; gap: 2px; overflow: hidden; border-radius: 4px; }
+.languageBar span { min-width: 0; }
+.languageBar span, .languageDot { background-color: color-mix(in srgb, var(--language-color) 52%, var(--text-secondary)); }
+.languageLegend { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 0; margin: 8px 0 0; list-style: none; }
+.languageLegend li { display: flex; align-items: center; gap: 6px; font-size: 12px; line-height: 1.5; }
+.languageDot { width: 8px; height: 8px; flex-shrink: 0; border-radius: 50%; }
+.percentage { color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+
+:global(.dark) .siteLogo { filter: invert(1); }

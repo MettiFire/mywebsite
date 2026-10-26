@@ -3,13 +3,14 @@ export type Project = {
   title: string;
   context: string;
   description: string;
-  implementation: string;
-  technologies: string[];
+  languages: { name: string; bytes: number; color: string }[];
+  logo?: string;
   repository: string;
   demo?: { label: string; href: string };
 };
 
-// Editorial summaries checked against the public repositories and their source.
+// Language byte counts from GitHub’s Languages API, checked 2026-10-26.
+// Classifications (including notebooks) match GitHub; minor languages are grouped in the UI.
 // Keep this local so visiting Projects never makes requests to GitHub.
 export const projects: Project[] = [
   {
@@ -17,10 +18,14 @@ export const projects: Project[] = [
     title: "Tomodachi TV",
     context: "Web application",
     description:
-      "A place to keep track of films and series: what you want to watch, what you’re watching, and what you’ve finished. Includes episode tracking, personal ratings, lists, and viewing statistics.",
-    implementation:
-      "Built with React and TanStack Start, with Supabase for accounts and persistent data. Server functions retrieve film and series information from TMDB, while dedicated routes handle libraries, profiles, recommendations, and the release calendar.",
-    technologies: ["TypeScript", "React", "TanStack Start", "Supabase", "TMDB"],
+      "A personal watchlist for films and series, with episode tracking, ratings and viewing stats.",
+    languages: [
+      { name: "TypeScript", bytes: 847020, color: "#3178c6" },
+      { name: "PLpgSQL", bytes: 19118, color: "#336790" },
+      { name: "CSS", bytes: 4025, color: "#663399" },
+      { name: "JavaScript", bytes: 1250, color: "#f1e05a" },
+    ],
+    logo: "/images/projects/tomodachitv.svg",
     repository: "https://github.com/MettiFire/tomodachitv",
     demo: { label: "Try it", href: "https://tomodachitv.lovable.app" },
   },
@@ -29,22 +34,31 @@ export const projects: Project[] = [
     title: "Silvae",
     context: "Web application",
     description:
-      "A reading companion for keeping a personal library, tracking progress, and sharing books with other readers. Organize books by reading status, record ratings, build lists, and follow reading challenges.",
-    implementation:
-      "Built with React, TypeScript, and TanStack Start, with Supabase for accounts and persistent library data. Book search and metadata use Open Library and Google Books integrations, while dedicated routes provide reading statistics, challenges, lists, and public reader profiles.",
-    technologies: ["TypeScript", "React", "TanStack Start", "Supabase", "Open Library", "Google Books"],
+      "A reading companion to organize your library, track progress and share books with other readers.",
+    languages: [
+      { name: "TypeScript", bytes: 1190975, color: "#3178c6" },
+      { name: "JavaScript", bytes: 202795, color: "#f1e05a" },
+      { name: "PLpgSQL", bytes: 79280, color: "#336790" },
+      { name: "Python", bytes: 49848, color: "#3572A5" },
+      { name: "CSS", bytes: 32595, color: "#663399" },
+      { name: "HTML", bytes: 999, color: "#e34c26" },
+    ],
+    logo: "/images/projects/silvae.svg",
     repository: "https://github.com/MettiFire/silvae",
     demo: { label: "My library", href: "https://silvae.lovable.app/u/mettignis" },
   },
   {
     id: "dropwheel",
+    logo: "/images/projects/dropwheel.png",
     title: "Dropwheel",
     context: "macOS application",
     description:
-      "A file converter that stays in the macOS menu bar. Drag a file, press a modifier key, and drop it onto a radial menu to convert it, apply a tool, or run a file action. Processing stays on your computer.",
-    implementation:
-      "A Swift menu-bar agent monitors file drags and modifier keys, then opens a floating wheel beneath the cursor. A Python engine dispatches conversion jobs to tools such as FFmpeg, ImageMagick, Pandoc, and Calibre, saving the output beside the original.",
-    technologies: ["Swift", "Python", "FFmpeg", "ImageMagick", "Pandoc"],
+      "A macOS menu-bar app for converting files through a drag-and-drop radial menu. Everything runs locally.",
+    languages: [
+      { name: "Swift", bytes: 41094, color: "#F05138" },
+      { name: "Python", bytes: 9973, color: "#3572A5" },
+      { name: "Shell", bytes: 1763, color: "#89e051" },
+    ],
     repository: "https://github.com/MettiFire/dropwheel",
   },
   {
@@ -52,21 +66,24 @@ export const projects: Project[] = [
     title: "Gesture Puzzle",
     context: "Computer vision experiment",
     description:
-      "Turn a webcam image into a puzzle using your hands. Choose the grid size by raising your fingers, frame an area with both index fingers, and pinch to capture it. Then reconstruct the image by dragging and swapping tiles.",
-    implementation:
-      "OpenCV handles the camera feed and interface, while MediaPipe tracks hand landmarks. Geometric finger-count and pinch tests control selection; NumPy slices the captured region into tiles and reconstructs the shuffled grid.",
-    technologies: ["Python", "OpenCV", "MediaPipe Hands", "NumPy"],
+      "A webcam puzzle controlled by hand gestures: frame, capture and rearrange tiles with your fingers.",
+    languages: [
+      { name: "Python", bytes: 17540, color: "#3572A5" },
+    ],
     repository: "https://github.com/MettiFire/gesture-puzzle",
   },
   {
     id: "elden-mail-banner",
+    logo: "/images/projects/elden-email.png",
     title: "Elden Email",
     context: "Browser extension",
     description:
-      "An Elden Ring–inspired celebration for sending an email: a dramatic banner and sound effect appear when you hit Send. Supports several webmail services, translated send buttons, and keyboard shortcuts.",
-    implementation:
-      "JavaScript content scripts detect send actions and display the animated overlay. The extension includes a settings popup, local preference storage, and separate Chrome and Firefox manifests.",
-    technologies: ["JavaScript", "HTML", "CSS", "WebExtensions"],
+      "An Elden Ring–inspired banner and sound effect to celebrate sending an email.",
+    languages: [
+      { name: "JavaScript", bytes: 7722, color: "#f1e05a" },
+      { name: "CSS", bytes: 2086, color: "#663399" },
+      { name: "HTML", bytes: 974, color: "#e34c26" },
+    ],
     repository: "https://github.com/MettiFire/elden_mail_banner",
     demo: {
       label: "Chrome Web Store",
@@ -78,10 +95,13 @@ export const projects: Project[] = [
     title: "Federated Learning Benchmark",
     context: "Research · NECSTLab, Politecnico di Milano",
     description:
-      "A research codebase comparing federated learning approaches for sleep-quality prediction from wearable data. The focus is the trade-off between predictive accuracy, training time, and communication overhead.",
-    implementation:
-      "Python benchmark pipelines explore Flower bagging, cyclic training, and histogram-based federated XGBoost with NVIDIA FLARE. Shared configurations and analysis scripts support comparisons of training, communication, and aggregation, alongside experiments with hybrid approaches.",
-    technologies: ["Python", "Flower", "NVIDIA FLARE", "XGBoost"],
+      "Comparing federated learning methods for sleep-quality prediction, balancing accuracy, training time and communication costs.",
+    languages: [
+      { name: "Python", bytes: 2441717, color: "#3572A5" },
+      { name: "Jupyter Notebook", bytes: 1520031, color: "#DA5B0B" },
+      { name: "HTML", bytes: 471762, color: "#e34c26" },
+      { name: "Shell", bytes: 5025, color: "#89e051" },
+    ],
     repository: "https://github.com/MettiFire/necstlab-fl-research",
   },
   {
@@ -89,33 +109,41 @@ export const projects: Project[] = [
     title: "Sleep Quality Prediction",
     context: "Course project · Politecnico di Milano, 2025–26",
     description:
-      "Predicting sleep quality from wearable biometrics under federated learning constraints. Raw measurements remain with each client, making limited data and differences between users central challenges.",
-    implementation:
-      "Statistical features summarize heart-rate, respiration, and stress time series. Per-client data augmentation is combined with ensembles of Random Forest, LightGBM, and XGBoost models, with experiments comparing augmentation and model diversity.",
-    technologies: ["Python", "Federated learning", "Random Forest", "LightGBM", "XGBoost"],
+      "Predicting sleep quality from wearable data while keeping raw measurements on each client.",
+    languages: [
+      { name: "Python", bytes: 215877, color: "#3572A5" },
+    ],
     repository: "https://github.com/MettiFire/csi-sleep-quality-fl-2025-26",
   },
   {
     id: "easyboard",
+    logo: "/images/projects/easyboard.png",
     title: "EasyBoard",
     context: "Group coursework · Human–Computer Interaction, 2024–25",
     description:
-      "A group design project addressing overcrowding on trains and metro services. EasyBoard explores how crowding information, passenger reports, and travel preferences could help people choose a more comfortable journey.",
-    implementation:
-      "The repository documents the design process through research deliverables and prototypes. An Astro website with React components, MDX assignment pages, and an embedded Figma prototype presents the concept and its development. This repository is a fork of the group project.",
-    technologies: ["Astro", "React", "TypeScript", "MDX", "Figma"],
+      "A group design project exploring how crowding information could make train and metro journeys more comfortable.",
+    languages: [
+      { name: "Astro", bytes: 29559, color: "#ff5a03" },
+      { name: "JavaScript", bytes: 4794, color: "#f1e05a" },
+      { name: "MDX", bytes: 4297, color: "#fcb32c" },
+      { name: "HTML", bytes: 4095, color: "#e34c26" },
+    ],
     repository: "https://github.com/MettiFire/Human-Computer-Interaction",
     demo: { label: "Project site", href: "https://weridfire.github.io/Human-Computer-Interaction/" },
   },
   {
     id: "mywebsite",
+    logo: "/logo-light.svg",
     title: "This website",
     context: "Personal portfolio",
     description:
-      "My personal space for writing, music, books, and the things I build. A simple portfolio with light and dark themes and articles available in Italian and English.",
-    implementation:
-      "Built with Next.js, React, and TypeScript, using file-based routes and shared components for navigation and layout. Tailwind CSS and CSS modules provide styling, Supabase supports page-view counts, and Vercel handles deployment.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase"],
+      "My space for writing, music, books and projects, with light and dark themes and articles in Italian and English.",
+    languages: [
+      { name: "TypeScript", bytes: 175967, color: "#3178c6" },
+      { name: "JavaScript", bytes: 31009, color: "#f1e05a" },
+      { name: "HTML", bytes: 30727, color: "#e34c26" },
+      { name: "CSS", bytes: 29738, color: "#663399" },
+    ],
     repository: "https://github.com/MettiFire/mywebsite",
   },
 ];

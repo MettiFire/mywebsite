@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: "Anna Mettifogo's Portfolio",
-  description: 'Technology, design, and human behavior.',
+  description: 'Technology, design and human behavior.',
 };
 
 export const viewport = {
