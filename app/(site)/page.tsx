@@ -53,7 +53,7 @@ export default function Home() {
             </p>
 
             <p className="text-lg text-text-primary mt-4">
-              There’s a <span className="font-semibold">guitar</span> in the picture too. I play with friends, and an evening spent making music together is still one of my favourite ways to lose track of time.
+              There’s a <span className="font-semibold">guitar</span> in the picture too. I play with friends and an evening spent making music together is still one of my favourite ways to lose track of time.
             </p>
           </div>
           <Image src="/anna-interests.png" alt="Karate, mountain hiking, studying, a Spartan race and gaming" width={2342} height={468} sizes="(max-width: 670px) 100vw, 622px" className={styles.interests} />
