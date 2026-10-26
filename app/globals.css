@@ -27,6 +27,10 @@ body {
   line-height: 1.6; /* Spaziatura tra le righe */
 }
 
+.font-semibold {
+  font-weight: 600;
+}
+
 /* -- Stili per i Link (Nessun underline di default) -- */
 @layer base {
   a {

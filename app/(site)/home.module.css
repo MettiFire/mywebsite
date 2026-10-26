@@ -1,0 +1,38 @@
+.introduction {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 24px;
+}
+
+.portraitFrame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.portrait {
+  object-fit: cover;
+}
+
+.introductionText > p:first-child {
+  margin-top: 0;
+}
+
+.introductionText > p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .introduction {
+    grid-template-columns: 34% minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+.interests {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 24px;
+  border-radius: 2px;
+}
