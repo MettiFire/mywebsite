@@ -20,36 +20,27 @@ export default function Home() {
 
       <main className="flex-1">
         <div className="max-w-[670px] mx-auto px-6 py-16">
-          <h1 className="text-4xl font-bold text-text-primary mb-6">Hi, I’m Anna Mettifogo</h1>
+          <h1 className="text-4xl font-bold text-text-primary mb-6">Hi, I’m Anna.</h1>
 
           <p className="text-lg text-text-primary">
-            Born and raised in <a href="https://en.wikipedia.org/wiki/Brescia" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Brescia</a>, I’ve always been curious about how things work behind the scenes — whether it’s a computer, a project, or just life in general.
+            I grew up in <a href="https://en.wikipedia.org/wiki/Brescia" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Brescia</a>, and these days I spend most of my time at <a href="https://necst.it/" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">NECSTLab</a>, studying for my <a href="https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/computer-science-and-engineering" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Master’s in Computer Science and Engineering</a> at <a href="https://www.polimi.it/en/" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Politecnico di Milano</a> and working as a Software Development Engineer at <a href="https://sensia.bio" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Sensia</a>. A lot of what I do ends up somewhere between code and visual design: building something, figuring out how it should work, then spending a little too long deciding how it should look. Lately, I’ve been getting into application security, especially where it meets UI and UX design.
           </p>
 
           <p className="text-lg text-text-primary mt-4">
-            I’m studying <strong>Computer Science and Engineering</strong> at <a href="https://www.polimi.it/en/" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Politecnico di Milano</a>, finishing my <a href="https://www.polimi.it/en/education/laurea-programmes/programme-detail/engineering-of-computing-systems" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Bachelor’s in Engineering of Computing Systems</a> and about to dive into my <a href="https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/computer-science-and-engineering" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Master’s in Computer Science and Engineering</a>.
+            This website is part of that. Some of my <a href="/projects" className="underline underline-offset-4 hover:text-link-hover">projects</a> start with something I want to use myself; others are an excuse to try something I haven’t done before. I keep them here, alongside <a href="/blog" className="underline underline-offset-4 hover:text-link-hover">writing</a>, <a href="/music" className="underline underline-offset-4 hover:text-link-hover">music</a> and <a href="https://silvae.lovable.app/u/mettignis" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-link-hover">the books I’m reading</a>.
           </p>
 
           <p className="text-lg text-text-primary mt-4">
-            I’m passionate about <em>UI/UX design</em>, graphics, and all the tiny visual details that shape how we experience the world. Lately, <em>cybersecurity</em> has snuck into my brain too, and I can’t wait to explore it more during my Master’s.
+            Away from the screen, there’s always some kind of movement. Sports are basically my default mode: when time management behaves, I log around 10 hours of training a week across pretty much any discipline. I’m a karate black belt, currently working on becoming a coach while competing nationally. I’ve checked off a couple of Spartan races and a HYROX relay, and my endurance bucket list keeps growing, from a half marathon and a full marathon to the distant, crazy goal of an <a href="https://en.wikipedia.org/wiki/Ironman_Triathlon" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Ironman</a>.
           </p>
 
           <p className="text-lg text-text-primary mt-4">
-            When I’m not buried in books or glued to my computer, you’ll probably find me moving: I’m a <strong>black belt in karate</strong> with over 10 years of practice, and I love how it teaches discipline, focus and resilience — skills that come in handy both in life and in coding.
+            And sometimes I just want to nerd out over anime, manga, or a Souls game I’ve already died in far too many times.
           </p>
 
           <p className="text-lg text-text-primary mt-4">
-            Sports are basically my second language — from <strong>running</strong> and swimming to <strong>mountain hiking</strong>. Right now I’m training for a <em>half marathon</em>, dreaming about a <em>full marathon</em>, and (someday) an <a href="https://en.wikipedia.org/wiki/Ironman_Triathlon" target="_blank" rel="noopener noreferrer" className="no-underline italic hover:text-link-hover">Ironman</a>. Because apparently, I like to suffer for fun.
+            There’s a guitar in the picture too. I play with friends, and an evening spent making music together is still one of my favourite ways to lose track of time.
           </p>
-
-          <p className="text-lg text-text-primary mt-4">
-            And then there’s music — my personal escape hatch. I play the guitar, hum along, and can spend hours in a jam session with friends, which is honestly one of my favorite ways to spend an evening. 
-          </p>
-
-          <p className="text-lg text-text-primary mt-4">
-            This website is my little corner to share all of this — my thoughts, projects, books, and a bit of my soul. Feel free to wander around my <a href="/blog" className="underline underline-offset-4 hover:text-link-hover">blog</a>, my <a href="/music" className="underline underline-offset-4 hover:text-link-hover">music</a> and my <a href="https://silvae.lovable.app/u/mettignis" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-link-hover">library</a> — maybe you’ll find something that surprises you, makes you smile, or even makes you want to start your own jam session.
-          </p>
-
 
           <p className="opacity-70 italic text-lg text-text-primary mt-4">
             <ViewCounter slug="home" />

@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
-        <div className="text-sm">© 2025{" "} 
+        <div className={`text-sm ${styles.copyright}`}>© {new Date().getFullYear()}{" "}
           <a 
             href="/privacy"
           >

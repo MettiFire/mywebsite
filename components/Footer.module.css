@@ -1,6 +1,7 @@
 .footer { position: fixed; inset: auto 0 0; z-index: 50; background: var(--background); }
 .inner { display: flex; justify-content: space-between; align-items: center; padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(5px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); color: var(--text-secondary); }
 .links { display: flex; align-items: center; }
+.copyright { color: var(--text-secondary); opacity: 0.9; }
 .links a { display: grid; place-items: center; }
 @media (max-width: 600px) {
   .inner { flex-direction: column-reverse; gap: 0; padding-top: 4px; padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)); font-size: 13px; }
