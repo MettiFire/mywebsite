@@ -381,8 +381,6 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
   .tk-week > *, .tk-weekend > .tk-head { margin-bottom: 0; }
   .tk-head { margin-top: 28px; }
   .tk-week > :first-child > .tk-head:first-child { margin-top: 0; }
-  .tk-row.task { padding-right: 34px; }
-  .tk-row .tk-check { opacity: 1; }
   .tk-label { font-size: 16px; }
   .tk-input-row input { font-size: 16px; }
   .tk-someday { margin-top: 40px; }
@@ -427,4 +425,11 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
   .tk { padding-top: calc(16px + env(safe-area-inset-top, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)); padding-left: max(16px, env(safe-area-inset-left, 0px)); }
   .tk-backdrop { padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
   .tk-toast { bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* Touch screens need a visible completion control without hovering. */
+@media (max-width: 760px), (hover: none), (pointer: coarse) {
+  .tk-row.task { padding-right: 44px; }
+  .tk-row .tk-check { right: 0; width: 40px; height: 40px; opacity: 1; }
+  .tk-row.dragging .tk-check { opacity: 0; }
 }

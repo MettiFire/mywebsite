@@ -78,7 +78,9 @@ function TaskRow({ t, onToggle }: { t: Task; onToggle: () => void }) {
         </span>
       )}
       <button
+        type="button"
         className="tk-check"
+        aria-pressed={t.done}
         aria-label={t.done ? "Mark as not done" : "Complete"}
         onClick={(e) => { e.stopPropagation(); onToggle(); }}
       >
