@@ -377,7 +377,7 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
   .tk-title .short { display: inline; }
   .tk-actions { gap: 4px; }
   .tk-menu { right: 0; }
-  .tk-week, .tk-someday { grid-template-columns: 1fr; margin-top: 28px; }
+  .tk-week, .tk-someday { grid-template-columns: minmax(0, 1fr); margin-top: 28px; }
   .tk-week > *, .tk-weekend > .tk-head { margin-bottom: 0; }
   .tk-head { margin-top: 28px; }
   .tk-week > :first-child > .tk-head:first-child { margin-top: 0; }
