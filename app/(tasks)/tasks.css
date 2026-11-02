@@ -134,6 +134,8 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
 }
 .tk-menu button:hover { background: var(--tk-hover); }
 .tk-menu .meta { font-size: 12px; color: var(--tk-muted); padding: 6px 12px 4px; }
+.tk-font-credits { max-width: 260px; line-height: 1.5; overflow-wrap: anywhere; }
+.tk-font-credits a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .tk-menu .sep { height: 1px; background: var(--tk-line); margin: 6px 4px; }
 .tk-themes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; padding: 2px 4px 4px; }
 .tk-menu .tk-themes button {

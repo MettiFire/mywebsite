@@ -501,6 +501,14 @@ export default function TasksApp() {
                     : "Synced with Tweek"}
                 <br />← → weeks · T today
               </div>
+              <div className="meta tk-font-credits">
+                Suisse Intl Book · Swiss Typefaces
+                <br />
+                Font source: <a href="https://www.webfontfree.com" target="_blank" rel="noopener noreferrer">Web Free Fonts</a>
+                {" · "}
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>
+                {" (package license)"}
+              </div>
             </div>
           )}
         </div>
