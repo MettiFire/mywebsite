@@ -23,7 +23,7 @@ const ROW = 42;
 function useMobile() {
   const [m, setM] = useState(false);
   useEffect(() => {
-    const q = window.matchMedia("(max-width: 760px)");
+    const q = window.matchMedia("(max-width: 1024px), (max-width: 1366px) and (pointer: coarse)");
     const on = () => setM(q.matches);
     on();
     q.addEventListener("change", on);
@@ -95,6 +95,9 @@ function TaskRow({ t, onToggle }: { t: Task; onToggle: () => void }) {
 export default function TasksApp() {
   const mobile = useMobile();
   const { theme, setTheme } = useTheme();
+  const [view, setView] = useState<"day" | "week">("day");
+  const [selectedDay, setSelectedDay] = useState(() => (new Date().getDay() + 6) % 7);
+  const [listDragging, setListDragging] = useState(false);
   const [week, setWeek] = useState<Date | null>(null);
   const [tasks, setTasks] = useState<Record<string, Task>>({});
   const [lists, setLists] = useState<List[]>([]);
@@ -286,13 +289,33 @@ export default function TasksApp() {
   };
 
   const onDragEnd = (result: DropResult) => {
+    setListDragging(false);
     if (weekEdges.onDragEnd(result)) return;
     const { draggableId: id, source, destination } = result;
     dragActive.current = false;
     if (!destination) return;
     if (source.droppableId === destination.droppableId && source.index === destination.index) return;
-    moveTo(id, destination.droppableId, destination.index);
+    const target = destination.droppableId;
+    if (target.startsWith("schedule:")) {
+      const key = target.slice("schedule:".length);
+      moveTo(id, key, (cells.get(key) ?? []).length);
+    } else moveTo(id, target, destination.index);
   };
+
+  const goToday = useCallback(() => {
+    setWeek(mondayOf(new Date()));
+    setSelectedDay((new Date().getDay() + 6) % 7);
+    setAdding(null);
+  }, []);
+  const navigate = useCallback((direction: number) => {
+    if (!week) return;
+    if (mobile && view === "day") {
+      const date = addDays(addDays(week, selectedDay), direction);
+      setWeek(mondayOf(date));
+      setSelectedDay((date.getDay() + 6) % 7);
+    } else setWeek(addDays(week, direction * 7));
+    setAdding(null);
+  }, [week, mobile, view, selectedDay]);
 
   // ------------------------------------------------ tastiera e menu
 
@@ -301,14 +324,14 @@ export default function TasksApp() {
       const el = e.target as HTMLElement;
       if (dragActive.current || openId || history || el.closest("input, textarea, [contenteditable]")) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
-      if (e.key === "ArrowLeft") setWeek((w) => w && addDays(w, -7));
-      if (e.key === "ArrowRight") setWeek((w) => w && addDays(w, 7));
-      if (e.key === "t") setWeek(mondayOf(new Date()));
+      if (e.key === "ArrowLeft") navigate(-1);
+      if (e.key === "ArrowRight") navigate(1);
+      if (e.key === "t") goToday();
       if (e.key === "Escape") setMenu(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [openId, history]);
+  }, [openId, history, navigate, goToday]);
 
   useEffect(() => {
     if (!menu) return;
@@ -430,7 +453,7 @@ export default function TasksApp() {
   return (
     <div className="tk">
       <header className="tk-top">
-        <button className={`tk-title ${fmt(week) !== fmt(mondayOf(new Date())) ? "away" : ""}`} onClick={() => setWeek(mondayOf(new Date()))} title="Back to today (T)">
+        <button className={`tk-title ${fmt(week) !== fmt(mondayOf(new Date())) ? "away" : ""}`} onClick={goToday} title="Back to today (T)">
           <span className="long">{MONTHS[thursday.getMonth()]}</span>
           <span className="short">{MONTHS[thursday.getMonth()].slice(0, 3)}</span> {thursday.getFullYear()}
           <span className="wk">W{isoWeek(week)}</span>
@@ -449,16 +472,16 @@ export default function TasksApp() {
           <button className="tk-btn user" aria-label="Menu" onClick={() => setMenu((m) => !m)}>
             <User width={20} height={20} />
           </button>
-          <button className="tk-btn primary" aria-label="Previous week" onClick={() => setWeek(addDays(week, -7))}>
+          <button className="tk-btn primary" aria-label={mobile && view === "day" ? "Previous day" : "Previous week"} onClick={() => navigate(-1)}>
             <ChevronLeft />
           </button>
-          <button className="tk-btn primary" aria-label="Next week" onClick={() => setWeek(addDays(week, 7))}>
+          <button className="tk-btn primary" aria-label={mobile && view === "day" ? "Next day" : "Next week"} onClick={() => navigate(1)}>
             <ChevronRight />
           </button>
 
           {menu && (
             <div className="tk-menu">
-              <button onClick={() => { setWeek(mondayOf(new Date())); setMenu(false); }}>Go to today</button>
+              <button onClick={() => { goToday(); setMenu(false); }}>Go to today</button>
               <button onClick={() => { setHistory(true); setMenu(false); }}>History</button>
               <button onClick={() => { sync("full"); setMenu(false); }}>Full resync</button>
               <div className="sep" />
@@ -499,7 +522,7 @@ export default function TasksApp() {
                   : lastSync
                     ? `Synced at ${lastSync.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}`
                     : "Synced with Tweek"}
-                <br />← → weeks · T today
+                <br />← → {mobile && view === "day" ? "days" : "weeks"} · T today
               </div>
               <div className="meta tk-font-credits">
                 Suisse Intl Book · Swiss Typefaces
@@ -514,13 +537,50 @@ export default function TasksApp() {
         </div>
       </header>
 
+      {mobile && (
+        <nav className="tk-view-nav" aria-label="Calendar view">
+          <div className="tk-view-switch">
+            <button type="button" aria-pressed={view === "day"} onClick={() => { setView("day"); setAdding(null); }}>Day</button>
+            <button type="button" aria-pressed={view === "week"} onClick={() => { setView("week"); setAdding(null); }}>Week</button>
+            <button type="button" onClick={goToday}>Today</button>
+          </div>
+          <div className="tk-day-picker">
+            {days.map((date, i) => (
+              <button key={keys[i]} type="button" aria-label={`${WD[i]} ${dayLabel(date)}`}
+                aria-pressed={view === "day" && selectedDay === i}
+                className={fmt(date) === today ? "today" : ""}
+                onClick={() => { setSelectedDay(i); setView("day"); setAdding(null); }}>
+                <span>{WD[i]}</span><strong>{date.getDate()}</strong>
+              </button>
+            ))}
+          </div>
+        </nav>
+      )}
       <DragDropContext
-        onBeforeCapture={(before) => { dragActive.current = true; setAdding(null); weekEdges.onDragStart(before); }}
+        onBeforeCapture={(before) => { dragActive.current = true; setListDragging(!mobile && !tasks[before.draggableId]?.date); setAdding(null); weekEdges.onDragStart(before); }}
         sensors={[weekEdges.sensor]}
         onDragStart={weekEdges.onDragStart}
         onDragEnd={onDragEnd}
         dragHandleUsageInstructions="Drag to reorder or move to another day or list. With the keyboard, press Space to pick up, arrow keys to move, Space to drop, or Escape to cancel."
       >
+      {!mobile && listDragging && (
+        <div className="tk-schedule-dock" aria-label="Drop a task on a day">
+          <span>Schedule for</span>
+          <div className="tk-schedule-days">
+            {days.map((date, i) => (
+              <Droppable key={keys[i]} droppableId={`schedule:${keys[i]}`}>
+                {(provided, snapshot) => (
+                  <div ref={provided.innerRef} {...provided.droppableProps}
+                    className={`tk-schedule-day ${snapshot.isDraggingOver ? "drop" : ""}`}>
+                    <span>{WD[i]}</span><strong>{dayLabel(date)}</strong>
+                    <div className="tk-edge-placeholder">{provided.placeholder}</div>
+                  </div>
+                )}
+              </Droppable>
+            ))}
+          </div>
+        </div>
+      )}
       {[WEEK_EDGE_LEFT, WEEK_EDGE_RIGHT].map((id) => {
         const direction = id === WEEK_EDGE_LEFT ? -1 : 1;
         return (
@@ -542,11 +602,13 @@ export default function TasksApp() {
         );
       })}
       <main className="tk-week">
-        {[0, 1, 2, 3, 4].map((i) => <section key={keys[i]}>{dayCol(i)}</section>)}
-        <section className="tk-weekend">
-          {dayCol(5)}
-          {dayCol(6)}
-        </section>
+        {mobile && view === "day" ? <section key={keys[selectedDay]}>{dayCol(selectedDay)}</section> : <>
+          {[0, 1, 2, 3, 4].map((i) => <section key={keys[i]}>{dayCol(i)}</section>)}
+          <section className="tk-weekend">
+            {dayCol(5)}
+            {dayCol(6)}
+          </section>
+        </>}
       </main>
 
       <section className="tk-someday">
