@@ -447,10 +447,10 @@ body { background: var(--tk-paper); color: var(--tk-ink); }
 /* Compact view controls stay reachable without taking space from the calendar. */
 .tk-view-nav {
   position: fixed; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%);
-  display: flex; gap: 2px; padding: 3px; border: 1px solid var(--tk-line); border-radius: 12px;
+  display: flex; gap: 2px; padding: 3px; border: 1px solid var(--tk-line); border-radius: 999px;
   background: var(--tk-card); box-shadow: var(--tk-shadow); z-index: 30;
 }
-.tk-view-nav button { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 8px; color: var(--tk-muted); cursor: pointer; }
+.tk-view-nav button { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: var(--tk-muted); cursor: pointer; }
 .tk-view-nav button[aria-pressed="true"] { background: var(--tk-hover); color: var(--tk-ink); }
 .tk-view-nav button:focus-visible { outline: 2px solid var(--tk-accent); outline-offset: 1px; }
 @media (max-width: 1024px), (max-width: 1366px) and (pointer: coarse) {
