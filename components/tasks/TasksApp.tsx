@@ -595,12 +595,12 @@ export default function TasksApp() {
         <nav className="tk-view-nav" aria-label="Calendar view">
           <button type="button" aria-label="Show today" title="Today" aria-pressed={view === "day"}
             onClick={() => { goToday(); setView("day"); }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3.5" /></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="5" /></svg>
           </button>
           <button type="button" aria-label="Show week" title="Week" aria-pressed={view === "week"}
             onClick={() => { setView("week"); setAdding(null); }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-              {[4, 14].map((x) => [4, 14].map((y) => <rect key={`${x}-${y}`} x={x} y={y} width="6" height="6" rx="1.5" />))}
+              {[4, 14].map((x) => [4, 14].map((y) => <rect key={`${x}-${y}`} x={x} y={y} width="6" height="6" rx="2.2" />))}
             </svg>
           </button>
         </nav>
