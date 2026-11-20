@@ -63,7 +63,7 @@ export function useWeekEdgeDrag(options: {
     let alive = true;
     const updateZone = () => {
       const bounds = document.querySelector(".tk-week")?.getBoundingClientRect();
-      if (state.id && bounds) setBand((current) => current.top === bounds.top && current.height === bounds.height ? current : { top: bounds.top, height: bounds.height });
+      if (state.id && bounds) setBand((current) => current.top === bounds.top + window.scrollY && current.height === bounds.height ? current : { top: bounds.top + window.scrollY, height: bounds.height });
       const p = state.pointer;
       const zone: Direction | null = state.id && state.down && bounds && p.y >= bounds.top && p.y <= bounds.bottom
         ? p.x <= EDGE_WIDTH ? -1 : p.x >= document.documentElement.clientWidth - EDGE_WIDTH ? 1 : null
@@ -192,7 +192,7 @@ export function useWeekEdgeDrag(options: {
     if (start.mode !== "FLUID" || !state.mouse || !latest.current.canShift(start.draggableId)) return;
     state.id = start.draggableId;
     const bounds = document.querySelector(".tk-week")?.getBoundingClientRect();
-    if (bounds) setBand({ top: bounds.top, height: bounds.height });
+    if (bounds) setBand({ top: bounds.top + window.scrollY, height: bounds.height });
     setEnabled(true);
   }, []);
   const onDragEnd = useCallback((result: DropResult) => {

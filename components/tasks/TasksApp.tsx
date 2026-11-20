@@ -7,6 +7,7 @@ import { colorOf, setTweekColors } from "./colors";
 import { MONTHS, WD, addDays, dayLabel, fmt, isoWeek, mondayOf, parse } from "./dates";
 import { Check, ChevronLeft, ChevronRight, Note, Repeat, Subtasks, Sync, User } from "./icons";
 import HistoryPanel from "./HistoryPanel";
+import StatsPanel from "./StatsPanel";
 import { THEMES } from "./themes";
 import TaskModal from "./TaskModal";
 import { applyPatch, type List, type Patch, type Task } from "./types";
@@ -95,9 +96,8 @@ function TaskRow({ t, onToggle }: { t: Task; onToggle: () => void }) {
 export default function TasksApp() {
   const mobile = useMobile();
   const { theme, setTheme } = useTheme();
-  const [view, setView] = useState<"day" | "week">("day");
+  const [view, setView] = useState<"day" | "week">("week");
   const [selectedDay, setSelectedDay] = useState(() => (new Date().getDay() + 6) % 7);
-  const [listDragging, setListDragging] = useState(false);
   const [week, setWeek] = useState<Date | null>(null);
   const [tasks, setTasks] = useState<Record<string, Task>>({});
   const [lists, setLists] = useState<List[]>([]);
@@ -105,6 +105,7 @@ export default function TasksApp() {
   const [adding, setAdding] = useState<Key | null>(null);
   const [openId, setOpenId] = useState<string | null>(null);
   const [history, setHistory] = useState(false);
+  const [stats, setStats] = useState(false);
   const [menu, setMenu] = useState(false);
   const [syncing, setSyncing] = useState(false);
   const [syncErr, setSyncErr] = useState("");
@@ -289,17 +290,12 @@ export default function TasksApp() {
   };
 
   const onDragEnd = (result: DropResult) => {
-    setListDragging(false);
     if (weekEdges.onDragEnd(result)) return;
     const { draggableId: id, source, destination } = result;
     dragActive.current = false;
     if (!destination) return;
     if (source.droppableId === destination.droppableId && source.index === destination.index) return;
-    const target = destination.droppableId;
-    if (target.startsWith("schedule:")) {
-      const key = target.slice("schedule:".length);
-      moveTo(id, key, (cells.get(key) ?? []).length);
-    } else moveTo(id, target, destination.index);
+    moveTo(id, destination.droppableId, destination.index);
   };
 
   const goToday = useCallback(() => {
@@ -322,7 +318,7 @@ export default function TasksApp() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const el = e.target as HTMLElement;
-      if (dragActive.current || openId || history || el.closest("input, textarea, [contenteditable]")) return;
+      if (dragActive.current || openId || history || stats || el.closest("input, textarea, [contenteditable]")) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (e.key === "ArrowLeft") navigate(-1);
       if (e.key === "ArrowRight") navigate(1);
@@ -331,7 +327,7 @@ export default function TasksApp() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [openId, history, navigate, goToday]);
+  }, [openId, history, stats, navigate, goToday]);
 
   useEffect(() => {
     if (!menu) return;
@@ -482,6 +478,7 @@ export default function TasksApp() {
           {menu && (
             <div className="tk-menu">
               <button onClick={() => { goToday(); setMenu(false); }}>Go to today</button>
+              <button onClick={() => { setStats(true); setMenu(false); }}>Statistics</button>
               <button onClick={() => { setHistory(true); setMenu(false); }}>History</button>
               <button onClick={() => { sync("full"); setMenu(false); }}>Full resync</button>
               <div className="sep" />
@@ -537,50 +534,18 @@ export default function TasksApp() {
         </div>
       </header>
 
-      {mobile && (
-        <nav className="tk-view-nav" aria-label="Calendar view">
-          <div className="tk-view-switch">
-            <button type="button" aria-pressed={view === "day"} onClick={() => { setView("day"); setAdding(null); }}>Day</button>
-            <button type="button" aria-pressed={view === "week"} onClick={() => { setView("week"); setAdding(null); }}>Week</button>
-            <button type="button" onClick={goToday}>Today</button>
-          </div>
-          <div className="tk-day-picker">
-            {days.map((date, i) => (
-              <button key={keys[i]} type="button" aria-label={`${WD[i]} ${dayLabel(date)}`}
-                aria-pressed={view === "day" && selectedDay === i}
-                className={fmt(date) === today ? "today" : ""}
-                onClick={() => { setSelectedDay(i); setView("day"); setAdding(null); }}>
-                <span>{WD[i]}</span><strong>{date.getDate()}</strong>
-              </button>
-            ))}
-          </div>
-        </nav>
-      )}
       <DragDropContext
-        onBeforeCapture={(before) => { dragActive.current = true; setListDragging(!mobile && !tasks[before.draggableId]?.date); setAdding(null); weekEdges.onDragStart(before); }}
+        onBeforeCapture={(before) => { dragActive.current = true; setAdding(null); weekEdges.onDragStart(before); }}
+        autoScrollerOptions={{
+          startFromPercentage: 0.4,
+          maxScrollAtPercentage: 0.12,
+          durationDampening: { accelerateAt: 0, stopDampeningAt: 200 },
+        }}
         sensors={[weekEdges.sensor]}
         onDragStart={weekEdges.onDragStart}
         onDragEnd={onDragEnd}
         dragHandleUsageInstructions="Drag to reorder or move to another day or list. With the keyboard, press Space to pick up, arrow keys to move, Space to drop, or Escape to cancel."
       >
-      {!mobile && listDragging && (
-        <div className="tk-schedule-dock" aria-label="Drop a task on a day">
-          <span>Schedule for</span>
-          <div className="tk-schedule-days">
-            {days.map((date, i) => (
-              <Droppable key={keys[i]} droppableId={`schedule:${keys[i]}`}>
-                {(provided, snapshot) => (
-                  <div ref={provided.innerRef} {...provided.droppableProps}
-                    className={`tk-schedule-day ${snapshot.isDraggingOver ? "drop" : ""}`}>
-                    <span>{WD[i]}</span><strong>{dayLabel(date)}</strong>
-                    <div className="tk-edge-placeholder">{provided.placeholder}</div>
-                  </div>
-                )}
-              </Droppable>
-            ))}
-          </div>
-        </div>
-      )}
       {[WEEK_EDGE_LEFT, WEEK_EDGE_RIGHT].map((id) => {
         const direction = id === WEEK_EDGE_LEFT ? -1 : 1;
         return (
@@ -626,6 +591,21 @@ export default function TasksApp() {
       </section>
       </DragDropContext>
 
+      {mobile && (
+        <nav className="tk-view-nav" aria-label="Calendar view">
+          <button type="button" aria-label="Show today" title="Today" aria-pressed={view === "day"}
+            onClick={() => { goToday(); setView("day"); }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2" /></svg>
+          </button>
+          <button type="button" aria-label="Show week" title="Week" aria-pressed={view === "week"}
+            onClick={() => { setView("week"); setAdding(null); }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+              {[3, 10, 17].map((x) => [5, 13].map((y) => <rect key={`${x}-${y}`} x={x} y={y} width="5" height="6" rx="1" />))}
+            </svg>
+          </button>
+        </nav>
+      )}
+      {stats && <StatsPanel onClose={() => setStats(false)} />}
       {openTask && (
         <TaskModal
           key={openTask.id}
