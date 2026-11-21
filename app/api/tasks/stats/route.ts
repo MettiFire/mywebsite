@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { guard } from "@/lib/tasks-auth";
 import { admin } from "@/lib/supabase-admin";
-import { completionActivity, type CompletionEvent } from "@/lib/tasks-stats";
+import { completionStats, type CompletionEvent } from "@/lib/tasks-stats";
 
 export async function GET(req: NextRequest) {
   const denied = await guard();
@@ -13,8 +13,6 @@ export async function GET(req: NextRequest) {
   try {
     const db = admin();
     const now = new Date();
-    // Covers the 28 local calendar days, including daylight-saving transitions.
-    const since = new Date(now.getTime() - 29 * 86400000).toISOString();
     const { count, error } = await db.from("tw_tasks")
       .select("id", { count: "exact", head: true }).eq("done", true).is("deleted_at", null);
     if (error) throw error;
@@ -23,12 +21,12 @@ export async function GET(req: NextRequest) {
     for (let offset = 0; ; offset += pageSize) {
       const { data, error } = await db.from("tw_task_events")
         .select("id,task_id,tweek_id,at").eq("type", "completed").eq("source", "local")
-        .gte("at", since).lte("at", now.toISOString()).order("id").range(offset, offset + pageSize - 1);
+        .lte("at", now.toISOString()).order("id").range(offset, offset + pageSize - 1);
       if (error) throw error;
       events.push(...data);
       if (data.length < pageSize) break;
     }
-    return NextResponse.json({ completed: count ?? 0, days: completionActivity(events, now, timeZone) },
+    return NextResponse.json({ completed: count ?? 0, ...completionStats(events, now, timeZone) },
       { headers: { "Cache-Control": "private, no-store" } });
   } catch {
     return NextResponse.json({ error: "Could not load statistics. Please try again." }, { status: 500 });

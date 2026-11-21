@@ -1,11 +1,48 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { Close } from "./icons";
 import { longLabel, parse, WD } from "./dates";
-import type { ActivityDay } from "@/lib/tasks-stats";
+import type { ActivityDay, CompletionStats } from "@/lib/tasks-stats";
 
-type Stats = { completed: number; days: ActivityDay[] };
+type Stats = CompletionStats & { completed: number };
+
+function Metric({ label, value, detail }: { label: string; value: string | number; detail?: string }) {
+  return <div><dt>{label}</dt><dd>{value}{detail && <span className="tk-stat-detail">{detail}</span>}</dd></div>;
+}
+
+function ActivityCalendar({ days }: { days: ActivityDay[] }) {
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const grid = useRef<HTMLOListElement>(null);
+  const selected = days.find((day) => day.date === selectedDate) ?? days.at(-1);
+  const maximum = Math.max(1, ...days.map((day) => day.count));
+  const padding = days.length ? (parse(days[0].date).getDay() + 6) % 7 : 0;
+  const onKey = (e: KeyboardEvent<HTMLOListElement>) => {
+    const delta: Record<string, number> = { ArrowUp: -1, ArrowDown: 1, ArrowLeft: -7, ArrowRight: 7 };
+    if (!selected || !(e.key in delta || e.key === "Home" || e.key === "End")) return;
+    e.preventDefault();
+    const current = days.findIndex((day) => day.date === selected.date);
+    const next = e.key === "Home" ? 0 : e.key === "End" ? days.length - 1 : Math.max(0, Math.min(days.length - 1, current + delta[e.key]));
+    setSelectedDate(days[next].date);
+    grid.current?.querySelector<HTMLButtonElement>(`[data-date="${days[next].date}"]`)?.focus();
+  };
+  return <>
+    <div className="tk-calendar-grid">
+    <div className="tk-calendar-weekdays" aria-hidden="true">{WD.map((day) => <span key={day}>{day}</span>)}</div>
+    <ol ref={grid} className="tk-heatmap" aria-label="Daily task completions, last 13 weeks" onKeyDown={onKey}>
+      {Array.from({ length: padding }, (_, i) => <li key={`pad-${i}`} aria-hidden="true" />)}
+      {days.map((day) => <li key={day.date}>
+        <button type="button" data-date={day.date} data-level={day.count ? 1 + Math.floor(3 * day.count / maximum) : 0}
+          title={`${longLabel(parse(day.date))}: ${day.count}`} aria-label={`${longLabel(parse(day.date))}: ${day.count} completions`}
+          aria-pressed={selected?.date === day.date} tabIndex={selected?.date === day.date ? 0 : -1}
+          onClick={() => setSelectedDate(day.date)} />
+      </li>)}
+    </ol>
+    </div>
+    <div className="tk-activity-dates"><span>{days.length ? longLabel(parse(days[0].date)) : ""}</span><span>Today</span></div>
+    <p className="tk-calendar-selection" aria-live="polite">{selected ? `${longLabel(parse(selected.date))} · ${selected.count} completed` : "No activity yet"}</p>
+  </>;
+}
 
 export default function StatsPanel({ onClose }: { onClose: () => void }) {
   const [stats, setStats] = useState<Stats | null>(null);
@@ -31,10 +68,10 @@ export default function StatsPanel({ onClose }: { onClose: () => void }) {
     const previous = document.activeElement as HTMLElement | null;
     const dialog = panel.current;
     dialog?.focus();
-    const onKey = (e: KeyboardEvent) => {
+    const onKey = (e: globalThis.KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       if (e.key !== "Tab" || !dialog) return;
-      const buttons = [...dialog.querySelectorAll<HTMLButtonElement>("button:not(:disabled)")];
+      const buttons = [...dialog.querySelectorAll<HTMLButtonElement>('button:not(:disabled):not([tabindex="-1"])')];
       const first = buttons[0], last = buttons.at(-1);
       if (!first) { e.preventDefault(); return; }
       if (e.shiftKey && (document.activeElement === first || document.activeElement === dialog)) {
@@ -47,13 +84,9 @@ export default function StatsPanel({ onClose }: { onClose: () => void }) {
     return () => { document.removeEventListener("keydown", onKey); previous?.focus(); };
   }, [onClose]);
 
-  const days = stats?.days ?? [];
-  const recent = days.reduce((sum, day) => sum + day.count, 0);
-  const maximum = Math.max(1, ...days.map((day) => day.count));
-  const weekdays = Array<number>(7).fill(0);
-  for (const day of days) weekdays[(parse(day.date).getDay() + 6) % 7] += day.count;
-  const most = Math.max(...weekdays);
-  const best = most > 0 ? WD.filter((_, i) => weekdays[i] === most).join(", ") : "—";
+  const most = stats ? Math.max(...stats.weekdays) : 0;
+  const best = stats && most > 0 ? WD.filter((_, i) => stats.weekdays[i] === most).join(", ") : "—";
+  const maxPeriod = Math.max(1, ...(stats?.periods.map((period) => period.count) ?? []));
 
   return (
     <div className="tk-backdrop" onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}>
@@ -67,19 +100,50 @@ export default function StatsPanel({ onClose }: { onClose: () => void }) {
           {!stats && !error && <p role="status">Loading…</p>}
           {stats && <>
             <dl className="tk-stats-summary">
-              <div><dt>Marked complete</dt><dd>{stats.completed}</dd></div>
-              <div><dt>Last 28 days · here</dt><dd>{recent}</dd></div>
-              <div><dt>Most active weekday</dt><dd>{best}</dd></div>
+              <Metric label="Marked complete" value={stats.completed} />
+              <Metric label="Last 28 days · here" value={stats.recent} />
+              <Metric label="Most active weekday" value={best} detail="last 28 days" />
             </dl>
-            <h3>Daily completions · last 28 days</h3>
-            <ol className="tk-activity" aria-label="Daily task completions">
-              {days.map((day) => <li key={day.date} aria-label={`${longLabel(parse(day.date))}: ${day.count}`} title={`${longLabel(parse(day.date))}: ${day.count}`}>
-                <span style={{ height: `${day.count / maximum * 100}%` }} />
-              </li>)}
-            </ol>
-            {days.length > 0 && <div className="tk-activity-dates"><span>{longLabel(parse(days[0].date))}</span><span>Today</span></div>}
-            {!recent && <p>No completions recorded here in the last 28 days yet.</p>}
-            <p className="tk-stats-note">The total includes all saved tasks marked complete, excluding deleted tasks. Activity counts tasks completed on this site, once per task per day. Tweek completions are excluded from activity because their original completion time is unavailable.</p>
+            <section className="tk-stats-section">
+              <h3>Activity calendar</h3>
+              <ActivityCalendar days={stats.calendar} />
+              {!stats.firstActivityDate && <p className="tk-stat-caption">Complete a task here to start filling your calendar.</p>}
+            </section>
+            <section className="tk-stats-section">
+              <h3>This week</h3>
+              <dl className="tk-stats-pair">
+                <Metric label="Completed" value={stats.comparison.current} />
+                <Metric label="Same days last week" value={stats.comparison.previous} />
+              </dl>
+              <p className="tk-stat-caption">{stats.comparison.difference > 0 ? `${stats.comparison.difference} more than the same days last week.` : stats.comparison.difference < 0 ? `${Math.abs(stats.comparison.difference)} fewer than the same days last week.` : "The same number as the same days last week."}</p>
+            </section>
+            <section className="tk-stats-section">
+              <h3>Personal records</h3>
+              <dl className="tk-stats-pair">
+                <Metric label="Best day" value={stats.records.day?.count ?? "—"} detail={stats.records.day ? longLabel(parse(stats.records.day.date)) : "Your first completion starts your records"} />
+                <Metric label="Best week" value={stats.records.week?.count ?? "—"} detail={stats.records.week ? `Week of ${longLabel(parse(stats.records.week.date))}` : "No recorded week yet"} />
+              </dl>
+            </section>
+            <section className="tk-stats-section">
+              <h3>Finding your rhythm</h3>
+              <dl className="tk-stats-summary">
+                <Metric label="Active · last 7 days" value={`${stats.continuity.activeDays} / 7`} />
+                <Metric label="Current streak" value={stats.continuity.currentStreak} detail="consecutive days" />
+                <Metric label="Longest streak" value={stats.continuity.longestStreak} detail="consecutive days" />
+              </dl>
+            </section>
+            <section className="tk-stats-section">
+              <h3>When you finish tasks</h3>
+              <p className="tk-stat-caption">Last 13 weeks · your local time</p>
+              <ul className="tk-stat-periods">
+                {stats.periods.map((period) => <li key={period.label}>
+                  <div><span>{period.label}</span><span className="tk-stat-caption">{period.hours}</span></div>
+                  <div className="tk-period-track" aria-hidden="true"><span style={{ width: `${period.count / maxPeriod * 100}%` }} /></div>
+                  <span>{period.count}</span>
+                </li>)}
+              </ul>
+            </section>
+            <p className="tk-stats-note">The total includes saved tasks marked complete, excluding deleted tasks. Activity counts completions on this site, once per task per day. Tweek completions are excluded from activity because their original time is unavailable.{stats.firstActivityDate ? ` Records and streaks cover recorded activity since ${longLabel(parse(stats.firstActivityDate))}.` : ""}</p>
           </>}
         </div>
       </div>
