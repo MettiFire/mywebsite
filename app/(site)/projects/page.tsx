@@ -55,7 +55,7 @@ export default function ProjectsPage() {
       <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-10">
         Browse the source on{" "}
         <a
-          href="https://github.com/MettiFire?tab=repositories"
+          href="https://github.com/mettignis?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
           className="underline underline-offset-4"

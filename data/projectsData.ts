@@ -26,7 +26,7 @@ export const projects: Project[] = [
       { name: "JavaScript", bytes: 1250, color: "#f1e05a" },
     ],
     logo: "/images/projects/tomodachitv.svg",
-    repository: "https://github.com/MettiFire/tomodachitv",
+    repository: "https://github.com/mettignis/tomodachitv",
     demo: { label: "Try it", href: "https://tomodachitv.lovable.app" },
   },
   {
@@ -44,7 +44,7 @@ export const projects: Project[] = [
       { name: "HTML", bytes: 999, color: "#e34c26" },
     ],
     logo: "/images/projects/silvae.svg",
-    repository: "https://github.com/MettiFire/silvae",
+    repository: "https://github.com/mettignis/silvae",
     demo: { label: "My library", href: "https://silvae.lovable.app/u/mettignis" },
   },
   {
@@ -59,7 +59,7 @@ export const projects: Project[] = [
       { name: "Python", bytes: 9973, color: "#3572A5" },
       { name: "Shell", bytes: 1763, color: "#89e051" },
     ],
-    repository: "https://github.com/MettiFire/dropwheel",
+    repository: "https://github.com/mettignis/dropwheel",
   },
   {
     id: "gesture-puzzle",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     languages: [
       { name: "Python", bytes: 17540, color: "#3572A5" },
     ],
-    repository: "https://github.com/MettiFire/gesture-puzzle",
+    repository: "https://github.com/mettignis/gesture-puzzle",
   },
   {
     id: "elden-mail-banner",
@@ -84,7 +84,7 @@ export const projects: Project[] = [
       { name: "CSS", bytes: 2086, color: "#663399" },
       { name: "HTML", bytes: 974, color: "#e34c26" },
     ],
-    repository: "https://github.com/MettiFire/elden_mail_banner",
+    repository: "https://github.com/mettignis/elden_mail_banner",
     demo: {
       label: "Chrome Web Store",
       href: "https://chromewebstore.google.com/detail/elden-email/bjaildeadgclghcjhocdbginfpjihmgm",
@@ -102,7 +102,7 @@ export const projects: Project[] = [
       { name: "HTML", bytes: 471762, color: "#e34c26" },
       { name: "Shell", bytes: 5025, color: "#89e051" },
     ],
-    repository: "https://github.com/MettiFire/necstlab-fl-research",
+    repository: "https://github.com/mettignis/necstlab-fl-research",
   },
   {
     id: "sleep-quality-fl",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     languages: [
       { name: "Python", bytes: 215877, color: "#3572A5" },
     ],
-    repository: "https://github.com/MettiFire/csi-sleep-quality-fl-2025-26",
+    repository: "https://github.com/mettignis/csi-sleep-quality-fl-2025-26",
   },
   {
     id: "easyboard",
@@ -128,7 +128,7 @@ export const projects: Project[] = [
       { name: "MDX", bytes: 4297, color: "#fcb32c" },
       { name: "HTML", bytes: 4095, color: "#e34c26" },
     ],
-    repository: "https://github.com/MettiFire/Human-Computer-Interaction",
+    repository: "https://github.com/mettignis/Human-Computer-Interaction",
     demo: { label: "Project site", href: "https://weridfire.github.io/Human-Computer-Interaction/" },
   },
   {
@@ -144,6 +144,6 @@ export const projects: Project[] = [
       { name: "HTML", bytes: 30727, color: "#e34c26" },
       { name: "CSS", bytes: 29738, color: "#663399" },
     ],
-    repository: "https://github.com/MettiFire/mywebsite",
+    repository: "https://github.com/mettignis/mywebsite",
   },
 ];

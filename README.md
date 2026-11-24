@@ -1,6 +1,6 @@
 # MyWebsite — Personal Portfolio
 
-Personal portfolio website by MettiFire. This repository contains the source code for the site hosted at: https://annamettifogo.com
+Personal portfolio website by mettignis. This repository contains the source code for the site hosted at: https://annamettifogo.com
 
 ## Overview
 This is a personal portfolio used to showcase projects, biography and contact information. The codebase is written primarily in TypeScript and uses React + Next.js. The site is deployed on Vercel.
@@ -89,5 +89,5 @@ Notes:
 This project uses the MIT License. See the LICENSE file for details.
 
 ## Author
-- MettiFire — https://github.com/MettiFire
+- mettignis — https://github.com/mettignis
 - Site: https://annamettifogo.com

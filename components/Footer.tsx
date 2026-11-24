@@ -18,7 +18,7 @@ export function Footer() {
           <a href="https://www.linkedin.com/in/anna-mettifogo-a37751292/" target="_blank" rel="noopener noreferrer" className="hover:text-link-hover" aria-label="LinkedIn" title="LinkedIn">
             <FaLinkedin size={22} />
           </a>
-          <a href="https://github.com/MettiFire" target="_blank" rel="noopener noreferrer" className="hover:text-link-hover" aria-label="GitHub" title="GitHub">
+          <a href="https://github.com/mettignis" target="_blank" rel="noopener noreferrer" className="hover:text-link-hover" aria-label="GitHub" title="GitHub">
             <FaGithub size={22} />
           </a>
           <a href="mailto:anna.mettifogo@gmail.com" className="hover:text-link-hover" aria-label="Email" title="Email">
